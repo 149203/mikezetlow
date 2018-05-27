@@ -1,11 +1,37 @@
+import global_style from './global_style'
 import Typography from 'typography'
-import sutroTheme from 'typography-theme-sutro'
+import sutro from 'typography-theme-sutro'
 
-sutroTheme.bodyWeight = 400;
+sutro.bodyWeight = 400;
 
-delete sutroTheme.googleFonts
+delete sutro.googleFonts
 
-const typography = new Typography(sutroTheme)
+sutro.overrideThemeStyles = () => ({
+   /*'a.gatsby-resp-image-link': {
+      boxShadow: 'none',
+   },*/
+   'a': {
+      textDecoration: `none`,
+      fontWeight: 700,
+   },
+   'a:link': {
+      color: global_style.blue
+   },
+   'a:visited': {
+      color: global_style.purple,
+   },
+   'a:hover': {
+      textDecoration: `underline`,
+      filter: `brightness(80%)`
+   },
+   'a:active': {
+      textDecoration: `underline`,
+      filter: `brightness(80%)`
+   }
+
+})
+
+const typography = new Typography(sutro)
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== 'production') {

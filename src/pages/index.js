@@ -3,9 +3,13 @@ import Link from 'gatsby-link'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Img from 'gatsby-image'
-
+import styled from 'styled-components'
 import Bio from '../components/Bio'
 import { rhythm } from '../utils/typography'
+
+const Post_Preview = styled.div`
+   max-width: 200px;
+`
 
 class BlogIndex extends React.Component {
    render() {
@@ -19,12 +23,9 @@ class BlogIndex extends React.Component {
           {posts.map(({ node }) => {
              const title = get(node, 'frontmatter.title') || node.fields.slug
              return (
-              <div key={node.fields.slug}>
-                 <Link style={{
-                    boxShadow: 'none',
-                    textDecoration: 'none',
 
-                 }} to={node.fields.slug}>
+              <Post_Preview key={node.fields.slug}>
+                 <Link to={node.fields.slug}>
 
                     <h2
                      style={{
@@ -33,16 +34,14 @@ class BlogIndex extends React.Component {
                     >
 
                        {title}
-
                     </h2>
 
-                    <Img sizes={node.frontmatter.featuredImage.childImageSharp.sizes} />
-
+                    <Img sizes={node.frontmatter.featuredImage.childImageSharp.sizes}/>
 
                     <p>{node.frontmatter.date}</p>
 
                  </Link>
-              </div>
+              </Post_Preview>
              )
           })}
        </div>

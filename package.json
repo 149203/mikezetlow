@@ -25,6 +25,7 @@
     "gatsby-transformer-remark": "^1.7.40",
     "gatsby-transformer-sharp": "^1.6.22",
     "lodash": "^4.17.5",
+    "styled-components": "^3.3.0",
     "typeface-merriweather": "0.0.43",
     "typeface-open-sans": "0.0.54",
     "typography": "^0.16.17",
