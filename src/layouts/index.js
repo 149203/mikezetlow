@@ -10,6 +10,7 @@ class Template extends React.Component {
       const { location, children } = this.props
       let header
       let profile_pic_opacity = `1`
+      let profile_pic_blur = `inherit`
 
       let rootPath = `/`
       if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
@@ -38,8 +39,10 @@ class Template extends React.Component {
           </h1>
          )
       }
+
       else {
          profile_pic_opacity = `0.3`
+         profile_pic_blur = `blur(5px)`
          header = (
           <h3
            style={{
@@ -60,6 +63,7 @@ class Template extends React.Component {
           </h3>
          )
       }
+
       return (
        <div>
           <img src={profile_pic}
@@ -68,6 +72,7 @@ class Template extends React.Component {
                   right: 0,
                   maxHeight: `100vh`,
                   opacity: profile_pic_opacity,
+                  filter: profile_pic_blur,
                }}
           />
           <div
