@@ -1,4 +1,4 @@
-import global_style from './global_style'
+import global from './global_style'
 import Typography from 'typography'
 import sutro from 'typography-theme-sutro'
 
@@ -15,10 +15,10 @@ sutro.overrideThemeStyles = () => ({
       fontWeight: 700,
    },
    'a:link': {
-      color: global_style.blue
+      color: global.color.blue
    },
    'a:visited': {
-      color: global_style.purple,
+      color: global.color.purple,
    },
    'a:hover': {
       textDecoration: `underline`,

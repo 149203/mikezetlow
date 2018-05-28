@@ -8,7 +8,7 @@ import Bio from '../components/Bio'
 import { rhythm } from '../utils/typography'
 
 const Post_Preview = styled.div`
-   max-width: 200px;
+   
 `
 
 class BlogIndex extends React.Component {
@@ -42,6 +42,7 @@ class BlogIndex extends React.Component {
 
                  </Link>
               </Post_Preview>
+
              )
           })}
        </div>
