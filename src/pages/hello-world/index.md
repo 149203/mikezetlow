@@ -4,7 +4,7 @@ date: "2015-05-01T22:12:03.284Z"
 featuredImage: "./designer.jpeg"
 topic: "entrepreneurship"
 type: "article"
-rating: "500"
+rating: "400"
 ---
 
 This is my first post on my new fake blog! How exciting!

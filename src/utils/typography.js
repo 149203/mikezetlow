@@ -22,12 +22,11 @@ sutro.overrideThemeStyles = () => ({
    },
    'a:hover': {
       textDecoration: `underline`,
-      filter: `brightness(80%)`
    },
    'a:active': {
       textDecoration: `underline`,
-      filter: `brightness(80%)`
-   }
+   },
+
 
 })
 

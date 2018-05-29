@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import global from '../utils/global_style'
 import Bio from '../components/Bio'
 import { rhythm } from '../utils/typography'
+import _random from 'lodash/random'
 
 const Post_Preview = styled.div`
    width: 100%;
@@ -44,21 +45,25 @@ display: inline-block;
   }
 `
 
-const Popularity_Bar = styled.div`
-  
-   
-  .popularity_bar {
-    display: inline-flex;
-    width: ${rhythm(6)} !important;
-    height: 6px !important;
-    
+const Popularity_Bar = styled.div`  
+    width: 120px;
+    height: 5px;
+    margin-top: 14px;    
     /* http://www.colorzilla.com/gradient-editor/#2196f3+3,4caf50+32,fbc02d+63,f44336+97 */
     background: #2196f3;
-background: -moz-linear-gradient(45deg, #2196f3 3%, #4caf50 32%, #fbc02d 63%, #f44336 97%);
-background: -webkit-linear-gradient(45deg, #2196f3 3%,#4caf50 32%,#fbc02d 63%,#f44336 97%);
-background: linear-gradient(45deg, #2196f3 3%,#4caf50 32%,#fbc02d 63%,#f44336 97%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2196f3', endColorstr='#f44336',GradientType=1 );
-   }
+    background: -moz-linear-gradient(45deg, #2196f3 3%, #4caf50 32%, #fbc02d 63%, #f44336 97%);
+    background: -webkit-linear-gradient(45deg, #2196f3 3%,#4caf50 32%,#fbc02d 63%,#f44336 97%);
+    background: linear-gradient(45deg, #2196f3 3%,#4caf50 32%,#fbc02d 63%,#f44336 97%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2196f3', endColorstr='#f44336',GradientType=1 );    
+`
+let bar_cover_length;
+
+const Popularity_Bar_Mask = styled.div`  
+  width: ${props => props.rating}px;
+  height: 5px;
+  margin-top: 14px;
+  background: ${global.color.white};
+  margin-left: -${props => props.rating}px;
 `
 
 const Post_Info = styled.div`
@@ -137,19 +142,30 @@ class BlogIndex extends React.Component {
                        </Thumbnail>
 
                        <Post_Info>
-                          <p>
-                             <Tags>
-                                <span>public domain music</span>
-                                &nbsp;&nbsp;&nbsp;
-                                <span>article</span>
-                             </Tags>
-                          </p>
+
+                          <Tags>
+                             <span>{node.frontmatter.topic}</span>
+                             &nbsp;&nbsp;&nbsp;
+                             <span>{node.frontmatter.type}</span>
+                          </Tags>
+
                           <p>Posted on {node.frontmatter.date}</p>
-                          <p style={{display: 'inline-flex'}}>Popularity:&nbsp;
-                             <Popularity_Bar>
-                                <span className="popularity_bar"></span>
-                             </Popularity_Bar>
-                          </p>
+
+                          <div style={{ display: 'flex' }}>
+                             <p>Popularity:&nbsp;</p>
+                             <Popularity_Bar/>
+                             <Popularity_Bar_Mask rating={() => {
+                                const rating = node.frontmatter.rating
+                                const rating_num = Number(rating.split('').slice(0, 1).join())
+                                if (rating_num < 5) {
+                                   bar_cover_length = (5 - rating_num) * 40 // 40 is 1/3 of the length of the bar (120px)
+                                   return bar_cover_length
+                                }
+                                else return 0
+                             }
+                             }/>
+                          </div>
+
                        </Post_Info>
 
                     </Link>
@@ -180,7 +196,7 @@ export const pageQuery = graphql`
                         slug
                     }
                     frontmatter {
-                        date(formatString: "DD MMMM, YYYY")
+                        date(formatString: "MMMM Do, YYYY")
                         title
                         rating
                         featuredImage {
@@ -192,6 +208,7 @@ export const pageQuery = graphql`
                         }
                         topic
                         type
+                        rating
                     }
                 }
             }
