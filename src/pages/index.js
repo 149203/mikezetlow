@@ -18,17 +18,19 @@ const Post_Preview = styled.div`
     text-decoration: none;
     filter: none;
    }
-   .post_preview {
-    border: transparent solid 2px;
-   }
-   .post_preview:hover {
-    border: ${global.color.blue} solid 2px;
-   }
    p {
     margin-bottom: 0;
    }
+   .post_preview:hover h2 {
+    text-decoration: underline;
+   }
+   .post_preview:hover {
+    cursor: pointer;
+   }
+   
    h2 {
     margin-top: 0;
+    margin-bottom: ${rhythm(1/4)};
     padding-top: ${rhythm(1)};
    }
    
@@ -36,13 +38,19 @@ const Post_Preview = styled.div`
 
 const Thumbnail = styled.div`
 display: inline-block;
-  width: 30%;
+  width: 25%;
   
   img {
-    width: 160px !important;
-    height: 90px !important;
+    width: 172px !important;
+    height: 92px !important;
     object-fit: cover;
+    margin-bottom: 0 !important;
   }
+`
+const Post_Info = styled.div`
+  width: 72%;
+  display: inline-block;
+  float: right;
 `
 
 const Popularity_Bar = styled.div`  
@@ -56,7 +64,6 @@ const Popularity_Bar = styled.div`
     background: linear-gradient(45deg, #2196f3 3%,#4caf50 32%,#fbc02d 63%,#f44336 97%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2196f3', endColorstr='#f44336',GradientType=1 );    
 `
-let bar_cover_length;
 
 const Popularity_Bar_Mask = styled.div`  
   width: ${props => props.rating}px;
@@ -66,21 +73,15 @@ const Popularity_Bar_Mask = styled.div`
   margin-left: -${props => props.rating}px;
 `
 
-const Post_Info = styled.div`
-  width: 70%;
-  display: inline-block;
-  float: right;   
-`
-
 const Tags = styled.div`
   span {
    /*rectangle and text*/
    display: inline;
    position: relative;
    color: ${global.color.white};
-   padding: 5px 15px;
-   font-size: 15.8px;
-   margin-left: 12px;
+   padding: 5px 13px;
+   font-size: 14.5px;
+   margin-left: 14px;
    background-color: ${global.color.gray_light};
    text-transform: capitalize;
    
@@ -90,7 +91,7 @@ const Tags = styled.div`
    /*triangle*/
     border-image: none;
     border-style: solid;
-    border-width: 15px 13px;
+    border-width: 14px 13px;
     width: 1px;
     content: "";
     height: 1px;
@@ -133,7 +134,7 @@ class BlogIndex extends React.Component {
                  <div className="post_preview">
                     <Link to={node.fields.slug}>
 
-                       <h2 style={{ marginBottom: rhythm(1 / 4) }}>
+                       <h2 className="pseudo_link">
                           {title}
                        </h2>
 
@@ -158,7 +159,7 @@ class BlogIndex extends React.Component {
                                 const rating = node.frontmatter.rating
                                 const rating_num = Number(rating.split('').slice(0, 1).join())
                                 if (rating_num < 5) {
-                                   bar_cover_length = (5 - rating_num) * 40 // 40 is 1/3 of the length of the bar (120px)
+                                   const bar_cover_length = (5 - rating_num) * 40 // 40 is 1/3 of the length of the bar (120px)
                                    return bar_cover_length
                                 }
                                 else return 0
@@ -201,7 +202,7 @@ export const pageQuery = graphql`
                         rating
                         featuredImage {
                             childImageSharp {
-                                sizes(maxWidth: 100) {
+                                sizes(maxWidth: 172) {
                                     ...GatsbyImageSharpSizes
                                 }
                             }

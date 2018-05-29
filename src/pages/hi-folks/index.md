@@ -1,7 +1,7 @@
 ---
 title: What I Learned Crashing and Burning a Startup
 date: "2015-05-28T22:40:32.169Z"
-featuredImage: "./designer.jpeg"
+featuredImage: "./mike_presenting.jpeg"
 topic: "entrepreneurship"
 type: "article"
 rating: "500"

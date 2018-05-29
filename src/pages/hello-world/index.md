@@ -2,7 +2,7 @@
 title: Hello World - I've created a blog
 date: "2015-05-01T22:12:03.284Z"
 featuredImage: "./designer.jpeg"
-topic: "entrepreneurship"
+topic: "public domain music"
 type: "article"
 rating: "400"
 ---
