@@ -7,9 +7,9 @@ import styled from 'styled-components'
 import global from '../utils/global_style'
 import Bio from '../components/Bio'
 import { rhythm } from '../utils/typography'
-import _random from 'lodash/random'
 
 const Post_Preview = styled.div`
+
    width: 100%;
    
    a {
@@ -18,39 +18,24 @@ const Post_Preview = styled.div`
     text-decoration: none;
     filter: none;
    }
+   
    p {
     margin-bottom: 0;
    }
+   
    .post_preview:hover h2 {
     text-decoration: underline;
    }
+   
    .post_preview:hover {
     cursor: pointer;
    }
    
    h2 {
     margin-top: 0;
-    margin-bottom: ${rhythm(1/4)};
+    margin-bottom: ${rhythm(1 / 4)};
     padding-top: ${rhythm(1)};
-   }
-   
-`
-
-const Thumbnail = styled.div`
-display: inline-block;
-  width: 25%;
-  
-  img {
-    width: 172px !important;
-    height: 92px !important;
-    object-fit: cover;
-    margin-bottom: 0 !important;
-  }
-`
-const Post_Info = styled.div`
-  width: 72%;
-  display: inline-block;
-  float: right;
+   }   
 `
 
 const Popularity_Bar = styled.div`  
@@ -76,7 +61,7 @@ const Popularity_Bar_Mask = styled.div`
 const Tags = styled.div`
   span {
    /*rectangle and text*/
-   display: inline;
+   display: inline-block;
    position: relative;
    color: ${global.color.white};
    padding: 5px 13px;
@@ -84,7 +69,7 @@ const Tags = styled.div`
    margin-left: 14px;
    background-color: ${global.color.gray_light};
    text-transform: capitalize;
-   
+   line-height: 1.3;
   }
   
   span:before {
@@ -138,36 +123,32 @@ class BlogIndex extends React.Component {
                           {title}
                        </h2>
 
-                       <Thumbnail>
-                          <Img sizes={node.frontmatter.featuredImage.childImageSharp.sizes}/>
-                       </Thumbnail>
+                       <Img sizes={node.frontmatter.featuredImage.childImageSharp.resize}
+                            style={{width: '172px', float: 'left', marginRight: rhythm(1)}}
+                       />
 
-                       <Post_Info>
+                       <Tags>
+                          <span>{node.frontmatter.topic}</span>
+                          &nbsp;&nbsp;&nbsp;
+                          <span>{node.frontmatter.type}</span>
+                       </Tags>
 
-                          <Tags>
-                             <span>{node.frontmatter.topic}</span>
-                             &nbsp;&nbsp;&nbsp;
-                             <span>{node.frontmatter.type}</span>
-                          </Tags>
+                       <p>Posted on {node.frontmatter.date}</p>
 
-                          <p>Posted on {node.frontmatter.date}</p>
-
-                          <div style={{ display: 'flex' }}>
-                             <p>Popularity:&nbsp;</p>
-                             <Popularity_Bar/>
-                             <Popularity_Bar_Mask rating={() => {
-                                const rating = node.frontmatter.rating
-                                const rating_num = Number(rating.split('').slice(0, 1).join())
-                                if (rating_num < 5) {
-                                   const bar_cover_length = (5 - rating_num) * 40 // 40 is 1/3 of the length of the bar (120px)
-                                   return bar_cover_length
-                                }
-                                else return 0
+                       <div style={{ display: 'flex' }}>
+                          <p>Popularity:&nbsp;</p>
+                          <Popularity_Bar/>
+                          <Popularity_Bar_Mask rating={() => {
+                             const rating = node.frontmatter.rating
+                             const rating_num = Number(rating.split('').slice(0, 1).join())
+                             if (rating_num < 5) {
+                                const bar_cover_length = (5 - rating_num) * 40 // 40 is 1/3 of the width of the bar, which is 120px
+                                return bar_cover_length
                              }
-                             }/>
-                          </div>
-
-                       </Post_Info>
+                             else return 0
+                          }
+                          }/>
+                       </div>
 
                     </Link>
                  </div>
@@ -182,6 +163,10 @@ class BlogIndex extends React.Component {
 
 export default BlogIndex
 
+/* https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp
+Information on Sharp, try CENTER or ATTENTION or ENTROPY for cropFocus
+
+*/
 export const pageQuery = graphql`
     query IndexQuery {
         site {
@@ -201,9 +186,15 @@ export const pageQuery = graphql`
                         title
                         rating
                         featuredImage {
+                            relativePath
+                            publicURL
                             childImageSharp {
-                                sizes(maxWidth: 172) {
-                                    ...GatsbyImageSharpSizes
+                                resize(width: 172, height: 92, cropFocus: ENTROPY) {
+                                    src
+                                    width
+                                    height
+                                    aspectRatio
+                                    originalName
                                 }
                             }
                         }
