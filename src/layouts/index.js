@@ -8,6 +8,7 @@ class Template extends React.Component {
 
    constructor(props) {
       super(props)
+      this.update_responsive_layout = this.update_responsive_layout.bind(this)
       this.state = {
          responsive: {
             hero_content_margin_left: `auto`,
@@ -18,7 +19,50 @@ class Template extends React.Component {
       }
    }
 
+   update_responsive_layout() {
+      const hero_pic = document.getElementById('hero_pic')
+      const hero_content = document.getElementById('hero_content')
+      const screen_width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
+      let responsive = { ...this.state.responsive }
+
+      // https://stackoverflow.com/a/626505
+      const hero_pic_width = hero_pic.clientWidth + 30 // arbitrary white space to make look better
+      const hero_content_width = hero_content.clientWidth
+      console.log('Hero pic has width: ', hero_pic_width)
+      console.log('Hero content has width: ', hero_content_width)
+      console.log('Screen has width: ', screen_width)
+      const wide_content_width = (hero_pic_width * 2) + hero_content_width
+      const content_width = hero_pic_width + hero_content_width
+
+      if (screen_width < content_width) {
+         console.log(`MOBILE VIEW`)
+         responsive.hero_content_margin_left = `auto`
+         responsive.hero_content_margin_right = `auto`
+         responsive.hero_content_float = ``
+         responsive.hero_pic_display = `none`
+         this.setState({ responsive })
+      }
+      else if (screen_width >= content_width && screen_width < wide_content_width) {
+         console.log(`STANDARD SCREEN VIEW`)
+         responsive.hero_content_margin_left = `auto`
+         responsive.hero_content_margin_right = hero_pic_width
+         responsive.hero_content_float = `right`
+         responsive.hero_pic_display = `block`
+         this.setState({ responsive })
+      }
+      else if (screen_width >= wide_content_width) {
+         console.log(`WIDE SCREEN VIEW`)
+         responsive.hero_content_margin_left = `auto`
+         responsive.hero_content_margin_right = `auto`
+         responsive.hero_content_float = ``
+         responsive.hero_pic_display = `block`
+         this.setState({ responsive })
+      }
+
+   }
+
    componentDidMount() {
+      window.addEventListener("resize", this.update_responsive_layout);
       const hero_pic = document.getElementById('hero_pic')
       const hero_content = document.getElementById('hero_content')
       const screen_width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
@@ -46,10 +90,13 @@ class Template extends React.Component {
          }
          else if (screen_width >= wide_content_width) {
             console.log(`WIDE SCREEN VIEW`)
-            this.setState({responsive})
+            this.setState({ responsive })
          }
-
       }
+   }
+
+   componentWillUnmount() {
+      window.removeEventListener("resize", this.update_responsive_layout);
    }
 
    render() {
@@ -81,6 +128,17 @@ class Template extends React.Component {
               }}
               to={'/'}
              >
+                {/*<img
+                 src={profile_pic_small}
+                 alt={`Mike Zetlow`}
+                 style={{
+                    marginRight: rhythm(1 / 2),
+                    marginBottom: `-${rhythm(1/2)}`,
+                    width: rhythm(2),
+                    height: rhythm(2),
+                 }}
+                />*/}
+
                 Hi, I'm Mike Zetlow.
              </Link>
           </h1>
@@ -128,7 +186,7 @@ class Template extends React.Component {
       return (
        <div>
           <Profile_Pic>
-             <img src={profile_pic} id="hero_pic" />
+             <img src={profile_pic} id="hero_pic"/>
           </Profile_Pic>
           <div
            id="hero_content"
