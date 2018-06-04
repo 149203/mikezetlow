@@ -194,7 +194,7 @@ class Template extends React.Component {
               marginLeft: this.state.responsive.hero_content_margin_left,
               marginRight: this.state.responsive.hero_content_margin_right,
               float: this.state.responsive.hero_content_float,
-              maxWidth: rhythm(23),
+              maxWidth: rhythm(24),
               padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
            }}
           >
