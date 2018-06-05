@@ -41,7 +41,7 @@ Everything I list below has been said by smart people. Below is my synthesis of 
 
 2. **Move 99% of your conversations to [asynchronous channels](https://medium.freecodecamp.org/live-asynchronously-c8e7172fe7ea)** (email, Facebook Messenger, Slack) so you can deal with them when appropriate.
 
-When having conversations in asynchronous channels, encourage the other person to clearly state their idea or question. If someone is rambling or unclear I ask something direct like, “What can I do to help you move forward on this?”
+    When having conversations in asynchronous channels, encourage the other person to clearly state their idea or question. If someone is rambling or unclear I ask something direct like, “What can I do to help you move forward on this?”
 
 3. **In return, [be concise](http://www.hemingwayapp.com/).**
 
@@ -71,7 +71,7 @@ Here’s what my inbox looks like.
 
 8. **Unsubscribe from emails aggressively.** Look for the little often-light-grey text at the bottom of the email. Click it. Feel the relief. (You can use a tool like [Unroll.Me](https://unroll.me/) if you have an excessive amount of subscriptions.)
    
-There may be emails that you DO want to subscribe to with relevant content. Create an email filter for these and put them into their own folder, skipping the inbox. I stringently curate good email subscriptions, let them go to their own folder, and then when I have a moment and would like to read new content, I go to that folder. I ignore it until I’m ready for it, turning “push” content into “pull” content.
+    There may be emails that you DO want to subscribe to with relevant content. Create an email filter for these and put them into their own folder, skipping the inbox. I stringently curate good email subscriptions, let them go to their own folder, and then when I have a moment and would like to read new content, I go to that folder. I ignore it until I’m ready for it, turning “push” content into “pull” content.
    
 ![](email_subscriptions_how_to_handle_all_the_information_life_throws_at_you_mike_zetlow.png)
 
@@ -83,9 +83,9 @@ Here’s what my filtered email subscriptions folder looks like.
 
 9. **In a similar vein, eradicate the Facebook news feed** with [News Feed Eradicator](https://chrome.google.com/webstore/detail/news-feed-eradicator-for/fjcldmjmjhkklehbacihaiopjklihlgg?hl=en). You’ll still be allowed to post your own status updates and reply when people mention your name. You can also set up notifications if someone posts in a group or on a page you’d like to follow (if you can’t get completely off the Facebook crack).
 
-If you have a mobile news feed problem and don’t want to uninstall the app, you can [manually unfollow everyone](https://medium.com/@jakechristie/what-happens-when-you-unfollow-everybody-on-facebook-e3738c902d02) (killing the feed) or [be a computer nerd about it](https://www.quora.com/How-do-I-unfollow-everyone-on-Facebook-at-once) with a little coding.
+    If you have a mobile news feed problem and don’t want to uninstall the app, you can [manually unfollow everyone](https://medium.com/@jakechristie/what-happens-when-you-unfollow-everybody-on-facebook-e3738c902d02) (killing the feed) or [be a computer nerd about it](https://www.quora.com/How-do-I-unfollow-everyone-on-Facebook-at-once) with a little coding.
    
-Content pushed on you is the Information Overload enemy advancing. Push back!
+    Content pushed on you is the Information Overload enemy advancing. Push back!
    
 ![](newsfeed_eradicator_how_to_handle_all_the_information_life_throws_at_you_mike_zetlow.png)
 
@@ -98,10 +98,10 @@ Content pushed on you is the Information Overload enemy advancing. Push back!
 10. **Don’t watch TV.** Same reasons — push content is the enemy.
 
 11. **Avoid internet rabbit holes.** There’s so much interesting stuff to look up on the internet! I’ve found the solution for me is to make a research task if I’m curious about something instead of looking it up when I’m in the middle of something else.
-    
-Often, that research task will be deprioritized into oblivion in my task app (more on that below) and then my time and cognitive load will be spared a futile journey down the rabbit hole. If it is important, I will address it like any task in due time.
 
-Another protip: physically print articles you find interesting from your inbox. Take them to meetings you have to attend but won’t be very productive for you. Everyone thinks you’re a jerk if you’re on your phone during a meeting, but everyone thinks you’re a crazy hard worker if you’re looking over papers spread out in front of you.
+    Often, that research task will be deprioritized into oblivion in my task app (more on that below) and then my time and cognitive load will be spared a futile journey down the rabbit hole. If it is important, I will address it like any task in due time.
+
+    Another protip: physically print articles you find interesting from your inbox. Take them to meetings you have to attend but won’t be very productive for you. Everyone thinks you’re a jerk if you’re on your phone during a meeting, but everyone thinks you’re a crazy hard worker if you’re looking over papers spread out in front of you.
    
 12. **Also, attend fewer meetings.** This is a corporate culture thing, so you may have to try to change the corporate culture or look for a job that respects your time more. Most poorly-run meetings fall into two categories: bringing everyone up to speed on an issue (which can be done via an asynchronous channel) or building consensus on an issue in which no clear decision-maker was defined (which is organizational cancer). My boss likes small meetings with a clear decision-maker defined, and that’s great; I’m not pulled into a meeting where my input isn’t required.
 
@@ -115,7 +115,7 @@ Credit: [The Cooper Review](https://thecooperreview.com/how-to-avoid-being-invit
 
 13. **Discourage incoming email requests that are cc-ed to a group of people.** When you get a blast that’s just info sent out to the team, address it like you would any other piece of information (discussed below). But when you get that frustrated customer or team member who sends out an email with a question or request cc-ing everyone they’ve ever met at the company, you must teach them the way. I often say, “So-and-so is the best person I know of to answer this question and you should email them directly.”
 
-It’s proven that when you direct a request at a singular person as opposed to a group, you are more likely to get a response. In CPR class they taught us to point to someone in a crowd and say, “YOU! Call 911!” instead of yelling out, “Someone call 911!”
+    It’s proven that when you direct a request at a singular person as opposed to a group, you are more likely to get a response. In CPR class they taught us to point to someone in a crowd and say, “YOU! Call 911!” instead of yelling out, “Someone call 911!”
 
 14. **Finally, drink only “pure, filtered” information.** When someone rants on TV or on Facebook, you’re drinking raw info with lots of crappy parasites and dirt. When you read an online or magazine article, the information is distilled a bit, a little better for you. When you read a book that’s gone through a publisher and is widely acclaimed, you’re drinking in some pretty clean info. But when you talk to an expert who has read countless books on the subject and has determined best practices for themselves, you’re drinking from a magic fountain.
 
@@ -143,7 +143,7 @@ Screencap from [Moo.do](https://www.moo.do/).
 
 5. **Use "mark as unread" if you're busy.** If someone messages me a request and I happen to glance at it while working on something else, I mark the message as “unread” and address it during the time I’ve set aside to check messages.
    
-If they text me, I sometimes ask if they can email or Slack me their request since [Messages on iPhone can’t mark messages as unread](https://forums.imore.com/ios-9/353839-mark-imessage-unread.html). It can be weird to be so oddly demanding of people — “Hey, can you email me this request instead of text?” — but if information overload is “literally killing you,” you are fighting for your life here, no holds barred.
+    If they text me, I sometimes ask if they can email or Slack me their request since [Messages on iPhone can’t mark messages as unread](https://forums.imore.com/ios-9/353839-mark-imessage-unread.html). It can be weird to be so oddly demanding of people — “Hey, can you email me this request instead of text?” — but if information overload is “literally killing you,” you are fighting for your life here, no holds barred.
 
 6. **"Ping pong” email / DM requests back to people.** I try to never have the holdup be on my end. I reply quickly and concisely, whether it’s asking for more information, confirming information, or saying thank you. It’s part of inbox zero. Let someone else’s inbox be full.
 
@@ -179,9 +179,9 @@ An example of a cloze deletion question from my Anki deck.
 
 14. **Share information.** This is one more way to make information searchable for your own future use should you need it. Post relevant articles in your company’s Slack. Message someone an article you found interesting that they would also find interesting.
     
-Often I won’t remember where I read a great piece of information, but I will remember that I shared it with So-And-So and then I can look up that exchange and find the information.
+    Often, I won’t remember where I read a great piece of information, but I will remember that I shared it with So-And-So and then I can look up that exchange and find the information.
 
-Like ping-ponging emails quickly back to people, feel free to put information on someone else’s plate to get it off yours. People have different incoming information tolerances and you shouldn’t assume someone can’t handle it until they express as much. With the methods outlined here, you’ll find you’ll be able to handle more information yourself when someone pulls this move on you.
+    Like ping-ponging emails quickly back to people, feel free to put information on someone else’s plate to get it off yours. People have different incoming information tolerances and you shouldn’t assume someone can’t handle it until they express as much. With the methods outlined here, you’ll find you’ll be able to handle more information yourself when someone pulls this move on you.
 
 15. **Write an article or report on the information.** Every one of these points I mention here, I’ve read somewhere else. By synthesizing them into *this article you’re reading*, I’ve made the information memorable and searchable for myself first, and helpful to others second.
 
