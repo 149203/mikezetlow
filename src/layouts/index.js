@@ -101,6 +101,15 @@ class Template extends React.Component {
 
    render() {
 
+      const Home = styled.div`             
+        a {
+          text-decoration: none;
+        }
+        a:hover {
+          text-decoration: underline !important;
+        }   
+      `
+
       const { location, children } = this.props
       let header
       let profile_pic_opacity = `1`
@@ -126,6 +135,7 @@ class Template extends React.Component {
                  textDecoration: 'none',
                  color: 'inherit',
                  fontWeight: '700',
+                 cursor: 'default',
               }}
               to={'/'}
              >
@@ -159,13 +169,15 @@ class Template extends React.Component {
              <Link
               style={{
                  boxShadow: 'none',
-                 textDecoration: 'none',
                  color: 'inherit',
                  fontWeight: '700',
               }}
               to={'/'}
              >
-                MikeZetlow.com
+                <Home>
+                   MikeZetlow.com
+                </Home>
+
              </Link>
           </h3>
          )
