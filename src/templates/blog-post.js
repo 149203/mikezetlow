@@ -21,11 +21,11 @@ class BlogPostTemplate extends React.Component {
         margin-top: -${rhythm(3/4)};
         margin-bottom: ${rhythm(1)};
         font-size: 80%;
+        font-weight: lighter;
         }
         
         blockquote {
-          font-family: 'Merriweather', 'Georgia', serif;
-          font-style: italic;
+          color: ${global.color.gray};
         }
         
 `
@@ -37,10 +37,11 @@ class BlogPostTemplate extends React.Component {
           <h1>{post.frontmatter.title}</h1>
           <p
            style={{
-              ...scale(-1 / 5),
+              fontSize: '80%',
               display: 'block',
               marginBottom: rhythm(1),
               marginTop: rhythm(-1),
+              color: global.color.gray
            }}
           >
              {post.frontmatter.date}
@@ -99,7 +100,7 @@ export const pageQuery = graphql`
             html
             frontmatter {
                 title
-                date(formatString: "MMMM DD, YYYY")
+                date(formatString: "MMMM Do, YYYY")
             }
         }
     }

@@ -12,13 +12,13 @@ sutro.overrideThemeStyles = () => ({
    },*/
    'a': {
       textDecoration: `none`,
-      fontWeight: 700,
+      fontWeight: 400,
    },
    'a:link': {
       color: global.color.blue
    },
    'a:visited': {
-      color: global.color.purple,
+      color: global.color.blue,
    },
    'a:hover': {
       textDecoration: `underline`,

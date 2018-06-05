@@ -125,6 +125,7 @@ class Template extends React.Component {
                  boxShadow: 'none',
                  textDecoration: 'none',
                  color: 'inherit',
+                 fontWeight: '700',
               }}
               to={'/'}
              >
@@ -160,6 +161,7 @@ class Template extends React.Component {
                  boxShadow: 'none',
                  textDecoration: 'none',
                  color: 'inherit',
+                 fontWeight: '700',
               }}
               to={'/'}
              >
