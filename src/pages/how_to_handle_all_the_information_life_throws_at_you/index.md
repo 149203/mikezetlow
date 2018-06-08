@@ -27,7 +27,7 @@ I’m not going to talk much about *why* you should manage information better; t
 
 - By 2020, 1.7 megabytes of new information will be created every second, for every human being on the earth. (This is around 3 novels worth of text. Per second. Per person. Fancy reading a quarter of a million novels a day?)
 
-###So what do you do?
+### So what do you do?
 
 Just like one of the ways to increase profits is to reduce costs, one of the ways to get a handle on information is to **reduce the amount coming in**. You may have to be incredibly proactive, like [the guy who created an information Blockade](https://www.nytimes.com/2018/03/10/style/the-man-who-knew-too-little.html).
 
@@ -35,7 +35,7 @@ Secondly, you can build methods to **process the information** that does make it
 
 Everything I list below has been said by smart people. Below is my synthesis of what they’ve said and what is presently working for me.
 
-##Reduce the amount of information coming in
+## Reduce the amount of information coming in
 
 1. **Turn off most notifications on your phone and computer.** I put my phone on do not disturb permanently. You can set it to allow Contacts or Favorites through. Or you can tell your close friends to call twice within 3 minutes to reach you in an emergency. Respect people’s time and schedule a phone call in the rare occurrence you must make one.
 
@@ -121,7 +121,7 @@ Credit: [The Cooper Review](https://thecooperreview.com/how-to-avoid-being-invit
 
 ![](zelda_how_to_handle_all_the_information_life_throws_at_you_mike_zetlow.jpeg)
 
-##Process the information you let in
+## Process the information you let in
 
 So now how do you deal with the information that actually makes its way to you? This could include actionable items, stuff you need to remember, or just stuff you find interesting or helpful.
 
@@ -195,7 +195,7 @@ The first draft.
 
 16. **Finally, don’t feel bad about forgetting information.** My favorite Mitch Hedberg joke goes something like this: “If I wake up in the middle of the night with an idea for a joke, I have to find a pen and paper and try to write it down. Or I can just convince myself that it’s not funny and go back to sleep.” If I admit that not every idea or thought I have is a brilliant one and must be processed information, I’m ok with just letting it go.
 
-##Reboot
+## Reboot
 
 When life gives me too much information—I’ve got papers everywhere, email incoming, and work piling up—I do a 1-hour reboot. I spend a half hour just cleaning up, putting stuff into 1 big folder or box. Then I spend the next half hour pulling out items from that container and processing the information in one of the ways I list above. That’s it. And then I get to work.
 

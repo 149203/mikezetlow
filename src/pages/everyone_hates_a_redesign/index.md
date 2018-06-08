@@ -29,7 +29,7 @@ You’d probably start updating your LinkedIn profile and resume (omitting this 
 
 Now imagine that everyone was wrong. You’d done your research. You’d tested with users (they loved it!). Imagine that, while hundreds of thousands protested, others used the redesigned product and profits soared. Imagine your redesign actually changed the world and how people interacted in it forever.
 
-##It’s a true story
+## It’s a true story
 
 It’s my favorite design story — the story of Facebook’s News Feed. I lived in a college town when Facebook rolled out its News Feed feature in 2006. I could literally hear the students rebelling.
 
@@ -55,7 +55,7 @@ The News Feed stuck around, the Mini Feed became the Timeline, Mark Zuckerberg b
 
 Now, you’re **definitely** listing that on your resume and LinkedIn profile.
 
-##If everyone hated it, why did it win?
+## If everyone hated it, why did it win?
 
 Everyone didn’t hate it — it just sounded like everyone did. Facebook had around [12 million users](https://1reddrop.com/2017/06/14/why-facebook-nowhere-close-done-user-growth/) when it rolled out the News Feed. Protest groups (ironically, on Facebook) like Students Against Facebook News Feeds had “[well over 700,000 members](https://www.danah.org/papers/FacebookAndPrivacy.html).” That’s a lot of angry people, but not enough to matter when weighed against the silent majority who thought “huh, that’s nifty” when they saw the new feature.
 
@@ -68,7 +68,7 @@ With “hindsight is 20/20” vision, we can look back and attribute the success
 3. The company’s response to users
 4. Respecting innovation
 
-###Standing by the data
+### Standing by the data
 
 Facebook prototyped, tested, iterated, and tested even more with users. The test users loved it! Bloggers who got to see it pre-release gave it a “[thumbs-up](http://www.techcrunch.com/2006/09/05/new-facebook-redesign-more-than-just-aesthetics/).” The data was overwhelmingly in favor of the News Feed feature.
 
@@ -78,7 +78,7 @@ But if you did your due diligence in the early stages, you actually have little 
 
 It takes strong leadership to stick by the team and weather the complaints. Many CEOs may not have the courage to tell 700,000+ users, “[Calm down. Breathe. We hear you.](http://blog.facebook.com/blog.php?post=2208197130)”
 
-###The company’s response to users
+### The company’s response to users
 
 ![](mark_zuckerberg_everyone_hates_a_redesign_mike_zetlow.jpeg)
 
@@ -112,7 +112,7 @@ In each case, what they needed could be done within the framework of the redesig
 
 I channeled my inner Zuckerberg: empathetic but resolute.
 
-###The love it / hate it nature of the feature
+### The love it / hate it nature of the feature
 
 Say that around 6% of your user base was vocally protesting and boycotting the feature, and the remaining 94% were blasé about it. You might be in some trouble and the outcry might win out, especially if your company was sensitive to “looking bad.” But if more people love it than hate it — even if the feature-lovers are relatively silent as opposed to the protesters — the feature will win out if the company stays the course.
 
@@ -130,7 +130,7 @@ When your feature has a love it or hate it nature, as long as the “love its”
 
 The News Feed design team might have been shaken by hundreds of thousands of complaints. But I’m sure someone on the team was quick to point out the millions adopting and enjoying the feature.
 
-###Respecting Innovation
+### Respecting Innovation
 
 Customers yelling at you or fighting you on a change is painful. You may just want to stop the pain and offer a way out.
 
@@ -165,7 +165,7 @@ And if companies are exhausting their development resources maintaining the old 
 
 </figcaption>
 
-##It seems like everyone hates a redesign
+## It seems like everyone hates a redesign
 
 But it might just be a vocal minority.
 
