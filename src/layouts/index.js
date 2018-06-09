@@ -2,7 +2,9 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import { rhythm, scale } from '../utils/typography'
-import profile_pic from './mike_zetlow_profile_picture.jpg'
+import profile_pic from '../pages/mike_zetlow_profile_picture.jpg'
+import Img from 'gatsby-image'
+import get from 'lodash/get'
 
 class Template extends React.Component {
 
@@ -139,17 +141,6 @@ class Template extends React.Component {
               }}
               to={'/'}
              >
-                {/*<img
-                 src={profile_pic_small}
-                 alt={`Mike Zetlow`}
-                 style={{
-                    marginRight: rhythm(1 / 2),
-                    marginBottom: `-${rhythm(1/2)}`,
-                    width: rhythm(2),
-                    height: rhythm(2),
-                 }}
-                />*/}
-
                 Hi, I'm Mike Zetlow.
              </Link>
           </h1>
@@ -197,10 +188,16 @@ class Template extends React.Component {
         }        
       `
 
+      const profile_pic_src = get(this, 'props.data.file.childImageSharp.sizes.srcSet')
+
       return (
        <div>
           <Profile_Pic>
-             <img src={profile_pic} id="hero_pic"/>
+             <img srcSet={profile_pic_src} id="hero_pic" title="Mike Zetlow"/>
+             {/*<Img
+              title="Mike Zetlow"
+              sizes={profile_pic_src}
+             />*/}
           </Profile_Pic>
           <div
            id="hero_content"
@@ -221,3 +218,15 @@ class Template extends React.Component {
 }
 
 export default Template
+
+export const pageQuery = graphql`
+    query ProfilePic {
+        file(name: {eq: "mike_zetlow_profile_picture"}) {
+            childImageSharp {
+                sizes {
+                    srcSet
+                }
+            }
+        }
+    }
+`
