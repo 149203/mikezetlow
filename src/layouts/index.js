@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 import { rhythm, scale } from '../utils/typography'
 import Img from 'gatsby-image'
-
+import _round from 'lodash/round'
 
 class Template extends React.Component {
 
@@ -12,51 +12,56 @@ class Template extends React.Component {
       this.update_responsive_layout = this.update_responsive_layout.bind(this)
       this.state = {
          responsive: {
-            hero_content_margin_left: `auto`,
-            hero_content_margin_right: `auto`,
+            hero_pic_display: `none`,
             hero_content_float: ``,
-            hero_pic_display: `block`
+            hero_content_margin_right: `auto`,
          }
       }
    }
 
    update_responsive_layout() {
-      const hero_pic = document.getElementById('hero_pic')
-      const hero_content = document.getElementById('hero_content')
+      // Magic numbers
+      const hero_content_margin_right = 30
+      const pic_original_width = 624
+      const pic_original_height = 1080
+      const hero_content_width = 799
+      //const hero_content_width = document.getElementById('hero_content').offsetWidth + hero_content_margin_right // 799
+
+      // Maths
+      const pic_original_aspect_ratio = _round(pic_original_width / pic_original_height, 4) // 624 / 1080 = 0.5778
       const screen_width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
-      let responsive = { ...this.state.responsive }
+      const screen_height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+      const remaining_width = screen_width - hero_content_width
+      const pic_dom_width = _round(screen_height * pic_original_aspect_ratio, 4)
+      let responsive = { ...this.state.responsive } // dupe state for the changes that follow
+      console.log('screen_width : ', screen_width)
+      console.log('screen_height : ', screen_height)
+      console.log('remaining_width : ', remaining_width)
+      console.log('pic_dom_width * 2 : ', pic_dom_width * 2)
 
-      // https://stackoverflow.com/a/626505
-      const hero_pic_width = hero_pic.clientWidth + 30 // arbitrary white space to make look better
-      const hero_content_width = hero_content.clientWidth
-      console.log('Hero pic has width: ', hero_pic_width)
-      console.log('Hero content has width: ', hero_content_width)
-      console.log('Screen has width: ', screen_width)
-      const wide_content_width = (hero_pic_width * 2) + hero_content_width
-      const content_width = hero_pic_width + hero_content_width
+      if (screen_width >= hero_content_width + pic_dom_width) { // if there's room for a profile pic
 
-      if (screen_width < content_width) {
-         console.log(`MOBILE VIEW`)
-         responsive.hero_content_margin_left = `auto`
-         responsive.hero_content_margin_right = `auto`
-         responsive.hero_content_float = ``
+         if (remaining_width >= pic_dom_width * 2) {
+            console.log(`WIDE SCREEN`)
+            responsive.hero_pic_display = `block`
+            responsive.hero_content_float = ``
+            responsive.hero_content_margin_right = `auto`
+            this.setState({ responsive })
+         }
+         else {
+            console.log(`STANDARD SCREEN`)
+            responsive.hero_pic_display = `block`
+            responsive.hero_content_float = `right`
+            responsive.hero_content_margin_right = pic_dom_width + hero_content_margin_right
+            this.setState({ responsive })
+         }
+      }
+
+      else {
+         console.log(`MOBILE / PORTRAIT SCREEN`)
          responsive.hero_pic_display = `none`
-         this.setState({ responsive })
-      }
-      else if (screen_width >= content_width && screen_width < wide_content_width) {
-         console.log(`STANDARD SCREEN VIEW`)
-         responsive.hero_content_margin_left = `auto`
-         responsive.hero_content_margin_right = hero_pic_width
-         responsive.hero_content_float = `right`
-         responsive.hero_pic_display = `block`
-         this.setState({ responsive })
-      }
-      else if (screen_width >= wide_content_width) {
-         console.log(`WIDE SCREEN VIEW`)
-         responsive.hero_content_margin_left = `auto`
-         responsive.hero_content_margin_right = `auto`
          responsive.hero_content_float = ``
-         responsive.hero_pic_display = `block`
+         responsive.hero_content_margin_right = `auto`
          this.setState({ responsive })
       }
 
@@ -64,36 +69,7 @@ class Template extends React.Component {
 
    componentDidMount() {
       window.addEventListener("resize", this.update_responsive_layout);
-      const hero_pic = document.getElementById('hero_pic')
-      const hero_content = document.getElementById('hero_content')
-      const screen_width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
-      let responsive = { ...this.state.responsive }
-      hero_pic.onload = () => {
-         // https://stackoverflow.com/a/626505
-         const hero_pic_width = hero_pic.clientWidth + 30 // arbitrary white space to make look better
-         const hero_content_width = hero_content.clientWidth
-         console.log('Hero pic has width: ', hero_pic_width)
-         console.log('Hero content has width: ', hero_content_width)
-         console.log('Screen has width: ', screen_width)
-         const wide_content_width = (hero_pic_width * 2) + hero_content_width
-         const content_width = hero_pic_width + hero_content_width
-
-         if (screen_width < content_width) {
-            console.log(`MOBILE VIEW`)
-            responsive.hero_pic_display = `none`
-            this.setState({ responsive })
-         }
-         else if (screen_width >= content_width && screen_width < wide_content_width) {
-            console.log(`STANDARD SCREEN VIEW`)
-            responsive.hero_content_float = `right`
-            responsive.hero_content_margin_right = hero_pic_width
-            this.setState({ responsive })
-         }
-         else if (screen_width >= wide_content_width) {
-            console.log(`WIDE SCREEN VIEW`)
-            this.setState({ responsive })
-         }
-      }
+      this.update_responsive_layout()
    }
 
    componentWillUnmount() {
@@ -199,7 +175,7 @@ class Template extends React.Component {
           <div
            id="hero_content"
            style={{
-              marginLeft: this.state.responsive.hero_content_margin_left,
+              marginLeft: `auto`,
               marginRight: this.state.responsive.hero_content_margin_right,
               float: this.state.responsive.hero_content_float,
               maxWidth: rhythm(24),
@@ -217,13 +193,13 @@ class Template extends React.Component {
 export default Template
 
 export const pageQuery = graphql`
-   query ProfilePic {
-       hero_pic: file(name: {eq: "mike-zetlow-profile-picture"}) {
-           childImageSharp {
-               sizes {
-                   srcSet
-               }
-           }
-       }
-   }
+    query ProfilePic {
+        hero_pic: file(name: {eq: "mike-zetlow-profile-picture"}) {
+            childImageSharp {
+                sizes {
+                    srcSet
+                }
+            }
+        }
+    }
 `
