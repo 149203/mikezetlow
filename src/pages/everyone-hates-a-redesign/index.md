@@ -1,15 +1,15 @@
 ---
 title: "Everyone hates a redesign"
 date: "2017-09-16"
-featuredImage: "./flaming_garbage_everyone_hates_a_redesign_mike_zetlow.jpeg"
-topic: "ux"
+featuredImage: "./flaming-garbage-everyone-hates-a-redesign-mike-zetlow.jpeg"
+topic: "user experience"
 type: "article"
 rating: "500"
 ---
 
 *This article was originally published on [freeCodeCamp](https://medium.freecodecamp.org/everyone-hates-a-redesign-or-do-they-b8a2fec9efbe).*
 
-![](flaming_garbage_everyone_hates_a_redesign_mike_zetlow.jpeg)
+![](flaming-garbage-everyone-hates-a-redesign-mike-zetlow.jpeg)
 
 Imagine you’re a software developer. You get put on a team to redesign a core feature of your company’s application. You spend months collecting user data, prototyping, testing with users (they love it!), and building the application. And today it goes live.
 
@@ -17,7 +17,7 @@ As soon as your feature goes live, phones start ringing, emails start pouring in
 
 Imagine hundreds of thousands of people protest the change. They start anti-your-feature webpages. They boycott your product en masse. Time magazine writes an article dissecting your failure.
 
-![](riot_everyone_hates_a_redesign_mike_zetlow.jpeg)
+![](riot-everyone-hates-a-redesign-mike-zetlow.jpeg)
 
 <figcaption>
 
@@ -41,7 +41,7 @@ People went hard on Facebook. It seemed like everyone was weighing in and 100% o
 
 Of course, we all know the outcome of this story over a decade later:
 
-![](facebook_growth_everyone_hates_a_redesign_mike_zetlow.png)
+![](facebook-growth-everyone-hates-a-redesign-mike-zetlow.png)
 
 <figcaption>
 
@@ -80,7 +80,7 @@ It takes strong leadership to stick by the team and weather the complaints. Many
 
 ### The company’s response to users
 
-![](mark_zuckerberg_everyone_hates_a_redesign_mike_zetlow.jpeg)
+![](mark-zuckerberg-everyone-hates-a-redesign-mike-zetlow.jpeg)
 
 Which is the next thing Facebook did well. When the outcry was at fever pitch, Mark Zuckerberg was humble in his response. He listened to complaints. He put the company on a path forward to consider these users more in the future. But he didn’t back down, revert the change, or offer a silly compromise like making the new feature optional.
 
@@ -88,7 +88,7 @@ He was empathetic but resolute.
 
 I have to admit, this Facebook News Feed tale is on my mind lately because I recently faced a barrage of angry emails regarding a feature my team just released at [CHSI Technologies](https://chsiconnections.com/a-new-crm-customer-relationship-management-insurers/) — a new customer relationship management (CRM) interface.
 
-![](chsi_old_crm_everyone_hates_a_redesign_mike_zetlow.png)
+![](chsi-old-crm-everyone-hates-a-redesign-mike-zetlow.png)
 
 <figcaption>
 
@@ -96,7 +96,7 @@ Our old CRM
 
 </figcaption>
 
-![](chsi_new_crm_everyone_hates_a_redesign_mike_zetlow.jpeg)
+![](chsi-new-crm-everyone-hates-a-redesign-mike-zetlow.jpeg)
 
 <figcaption>
 
@@ -157,7 +157,7 @@ Many people may be clamoring for the old thing, but perhaps many more are intere
 
 And if companies are exhausting their development resources maintaining the old things out of fear of user backlash, innovative startups — unencumbered by such concerns — can swoop in and disrupt the market.
 
-![](satya_nadella_everyone_hates_a_redesign_mike_zetlow.jpeg)
+![](satya-nadella-everyone-hates-a-redesign-mike-zetlow.jpeg)
 
 <figcaption>
 

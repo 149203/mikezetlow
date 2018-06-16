@@ -1,7 +1,7 @@
 ---
 title: "How to handle all the information life throws at you"
 date: "2018-04-06"
-featuredImage: "./times_square_how_to_handle_all_the_information_life_throws_at_you_mike_zetlow.jpeg"
+featuredImage: "./times-square-how-to-handle-all-the-information-life-throws-at-you-mike-zetlow.jpeg"
 topic: "how we work"
 type: "article"
 rating: "400"
@@ -9,7 +9,7 @@ rating: "400"
 
 *This article was originally published on [thinkgrowth.org](https://thinkgrowth.org/how-to-handle-all-the-information-life-throws-at-you-7e5440d58498).*
 
-![](times_square_how_to_handle_all_the_information_life_throws_at_you_mike_zetlow.jpeg)
+![](times-square-how-to-handle-all-the-information-life-throws-at-you-mike-zetlow.jpeg)
 
 Most people in the Information Age don’t handle incoming information well.
 
@@ -47,7 +47,7 @@ Everything I list below has been said by smart people. Below is my synthesis of 
 
 4. **Treat Slack like email, not a direct line into your soul.** Again, turn off notifications and schedule times to check it. If something is truly critical, you can have Slack notify you when someone uses a keyword like, “everythingisonfire.” (Though I’m less impressed by organizations that need their people to address emergencies frequently. There is likely a more systematic problem from the top in these organizations, and a valid strategy to manage this problem for yourself is to simply leave them.)
 
-![](slack_keyword_how_to_handle_all_the_information_life_throws_at_you_mike_zetlow.png)
+![](slack-keyword-how-to-handle-all-the-information-life-throws-at-you-mike-zetlow.png)
 
 <figcaption>
 
@@ -61,7 +61,7 @@ For Slack powerusers.
 
 7. **Regarding email, practice [inbox zero](http://www.43folders.com/izero).** The easiest way to start is to set aside time to tackle any pressing emails or convert them to tasks to deal with later. Then “select all” and archive. (I’ll go over how to process new emails in the next section.) This is a quick fresh start — everything is still available in the archive, but you have focus and clarity going forward. [Don’t use your email as a todo list](https://hbr.org/2014/03/stop-using-your-inbox-as-a-to-do-list); from now on, move actions required of you into a todo list.
 
-![](inbox_zero_how_to_handle_all_the_information_life_throws_at_you_mike_zetlow.png)
+![](inbox-zero-how-to-handle-all-the-information-life-throws-at-you-mike-zetlow.png)
 
 <figcaption>
 
@@ -73,7 +73,7 @@ Here’s what my inbox looks like.
    
     There may be emails that you DO want to subscribe to with relevant content. Create an email filter for these and put them into their own folder, skipping the inbox. I stringently curate good email subscriptions, let them go to their own folder, and then when I have a moment and would like to read new content, I go to that folder. I ignore it until I’m ready for it, turning “push” content into “pull” content.
    
-![](email_subscriptions_how_to_handle_all_the_information_life_throws_at_you_mike_zetlow.png)
+![](email-subscriptions-how-to-handle-all-the-information-life-throws-at-you-mike-zetlow.png)
 
 <figcaption>
 
@@ -87,7 +87,7 @@ Here’s what my filtered email subscriptions folder looks like.
    
     Content pushed on you is the Information Overload enemy advancing. Push back!
    
-![](newsfeed_eradicator_how_to_handle_all_the_information_life_throws_at_you_mike_zetlow.png)
+![](newsfeed-eradicator-how-to-handle-all-the-information-life-throws-at-you-mike-zetlow.png)
 
 <figcaption>
 
@@ -105,7 +105,7 @@ Here’s what my filtered email subscriptions folder looks like.
    
 12. **Also, attend fewer meetings.** This is a corporate culture thing, so you may have to try to change the corporate culture or look for a job that respects your time more. Most poorly-run meetings fall into two categories: bringing everyone up to speed on an issue (which can be done via an asynchronous channel) or building consensus on an issue in which no clear decision-maker was defined (which is organizational cancer). My boss likes small meetings with a clear decision-maker defined, and that’s great; I’m not pulled into a meeting where my input isn’t required.
 
-![](meetings_how_to_handle_all_the_information_life_throws_at_you_mike_zetlow.jpeg)
+![](meetings-how-to-handle-all-the-information-life-throws-at-you-mike_zetlow.jpeg)
 
 <figcaption>
 
@@ -119,7 +119,7 @@ Credit: [The Cooper Review](https://thecooperreview.com/how-to-avoid-being-invit
 
 14. **Finally, drink only “pure, filtered” information.** When someone rants on TV or on Facebook, you’re drinking raw info with lots of crappy parasites and dirt. When you read an online or magazine article, the information is distilled a bit, a little better for you. When you read a book that’s gone through a publisher and is widely acclaimed, you’re drinking in some pretty clean info. But when you talk to an expert who has read countless books on the subject and has determined best practices for themselves, you’re drinking from a magic fountain.
 
-![](zelda_how_to_handle_all_the_information_life_throws_at_you_mike_zetlow.jpeg)
+![](zelda-how-to-handle-all-the-information-life-throws-at-you-mike-zetlow.jpeg)
 
 ## Process the information you let in
 
@@ -131,7 +131,7 @@ So now how do you deal with the information that actually makes its way to you? 
 
 3. **Find a project management or todo list app that works for you** and is easy to incorporate into your daily routine. I use [Moo.do](https://www.moo.do/) because the tasks can be nested hierarchically. I can have a bird’s-eye view of all my projects and also drill down to the smallest task, and I can add these small sub-tasks infinitely.
 
-![](moodo_how_to_handle_all_the_information_life_throws_at_you_mike_zetlow.png)
+![](moodo-how-to-handle-all-the-information-life-throws-at-you-mike-zetlow.png)
 
 <figcaption>
 
@@ -147,7 +147,7 @@ Screencap from [Moo.do](https://www.moo.do/).
 
 6. **"Ping pong” email / DM requests back to people.** I try to never have the holdup be on my end. I reply quickly and concisely, whether it’s asking for more information, confirming information, or saying thank you. It’s part of inbox zero. Let someone else’s inbox be full.
 
-![](ping_pong_how_to_handle_all_the_information_life_throws_at_you_mike_zetlow.gif)
+![](ping-pong-how-to-handle-all-the-information-life-throws-at-you-mike-zetlow.gif)
 
 <figcaption>
 
@@ -165,7 +165,7 @@ Credit: [Giphy](https://giphy.com/gifs/frog-ping-pong-glove-and-boots-MhHmVf60oE
 
 11. **Put information you must recall frequently into a [spaced repetition application](https://www.wired.com/2008/04/ff-wozniak/)** (I use [Anki](https://apps.ankiweb.net/)) and make a habit of using it regularly. Be sure to [formulate the information effectively](https://www.supermemo.com/en/articles/20rules). Or you can use good, old-fashioned homemade flash cards.
 
-![](anki_how_to_handle_all_the_information_life_throws_at_you_mike_zetlow.png)
+![](anki-how-to-handle-all-the-information-life-throws-at-you-mike-zetlow.png)
 
 <figcaption>
 
@@ -185,7 +185,7 @@ An example of a cloze deletion question from my Anki deck.
 
 15. **Write an article or report on the information.** Every one of these points I mention here, I’ve read somewhere else. By synthesizing them into *this article you’re reading*, I’ve made the information memorable and searchable for myself first, and helpful to others second.
 
-![](first_draft_how_to_handle_all_the_information_life_throws_at_you_mike_zetlow.jpeg)
+![](first-draft-how-to-handle-all-the-information-life-throws-at-you-mike-zetlow.jpeg)
 
 <figcaption>
 
@@ -201,7 +201,7 @@ When life gives me too much information—I’ve got papers everywhere, email in
 
 Over the next couple days, I work through more of the items, processing all the information I’ve let into my life.
 
-![](emergency_inbox_how_to_handle_all_the_information_life_throws_at_you_mike_zetlow.jpeg)
+![](emergency-inbox-how-to-handle-all-the-information-life-throws-at-you-mike-zetlow.jpeg)
 
 <figcaption>
 

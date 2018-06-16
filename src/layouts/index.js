@@ -2,9 +2,8 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import { rhythm, scale } from '../utils/typography'
-import profile_pic from '../pages/mike_zetlow_profile_picture.jpg'
 import Img from 'gatsby-image'
-import get from 'lodash/get'
+
 
 class Template extends React.Component {
 
@@ -187,16 +186,14 @@ class Template extends React.Component {
           z-index: -5000;
         }        
       `
-
-      const profile_pic_src = get(this, 'props.data.file.childImageSharp.sizes.srcSet')
-
       return (
        <div>
           <Profile_Pic>
-             <img srcSet={profile_pic_src} id="hero_pic" title="Mike Zetlow"/>
+             <img srcSet={this.props.data.hero_pic.childImageSharp.sizes.srcSet} id="hero_pic" title="Mike Zetlow"/>
              {/*<Img
+              id="hero_pic"
               title="Mike Zetlow"
-              sizes={profile_pic_src}
+              sizes={this.props.data.hero_pic}
              />*/}
           </Profile_Pic>
           <div
@@ -220,13 +217,13 @@ class Template extends React.Component {
 export default Template
 
 export const pageQuery = graphql`
-    query ProfilePic {
-        file(name: {eq: "mike_zetlow_profile_picture"}) {
-            childImageSharp {
-                sizes {
-                    srcSet
-                }
-            }
-        }
-    }
+   query ProfilePic {
+       hero_pic: file(name: {eq: "mike-zetlow-profile-picture"}) {
+           childImageSharp {
+               sizes {
+                   srcSet
+               }
+           }
+       }
+   }
 `
