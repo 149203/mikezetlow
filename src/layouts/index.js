@@ -149,29 +149,37 @@ class Template extends React.Component {
          )
       }
 
-      const Profile_Pic = styled.div`
-        img {
-          display: ${this.state.responsive.hero_pic_display};
-          position: fixed;
-          right: 0;
-          bottom: 0;
-          margin-bottom: 0;
-          opacity: ${profile_pic_opacity};
-          filter: ${profile_pic_blur};
-          max-height: 100vh;
-          z-index: -5000;
-        }        
-      `
+      const Hero_Pic = styled.div`
+          .hero_pic div {
+            padding-bottom: 0 !important;
+          }
+`
+
       return (
        <div>
-          <Profile_Pic>
-             <img srcSet={this.props.data.hero_pic.childImageSharp.sizes.srcSet} id="hero_pic" title="Mike Zetlow"/>
-             {/*<Img
+          <Hero_Pic>
+             <Img
               id="hero_pic"
               title="Mike Zetlow"
-              sizes={this.props.data.hero_pic}
-             />*/}
-          </Profile_Pic>
+              sizes={this.props.data.file.childImageSharp.sizes}
+              /*sizes={{...this.props.data.file.childImageSharp.sizes, aspectRatio: 1080/624}}*/
+              imgStyle={{
+                 position: `fixed`,
+                 right: 0,
+                 bottom: 0,
+                 left: `inherit`,
+                 marginBottom: 0,
+                 paddingBottom: 0,
+                 opacity: profile_pic_opacity,
+                 filter: profile_pic_blur,
+                 height: `100vh`,
+                 width: `auto`,
+                 zIndex: -5000,
+                 display: this.state.responsive.hero_pic_display,
+              }}
+              className='hero_pic'
+             />
+          </Hero_Pic>
           <div
            id="hero_content"
            style={{
@@ -180,6 +188,7 @@ class Template extends React.Component {
               float: this.state.responsive.hero_content_float,
               maxWidth: rhythm(24),
               padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+              top: 0,
            }}
           >
              {header}
@@ -194,11 +203,12 @@ export default Template
 
 export const pageQuery = graphql`
     query ProfilePic {
-        hero_pic: file(name: {eq: "mike-zetlow-profile-picture"}) {
+        file(name: {eq: "mike-zetlow-profile-picture"}) {
             childImageSharp {
-                sizes {
-                    srcSet
-                }
+                sizes(maxWidth: 624) {
+                    ...GatsbyImageSharpSizes
+                },
+
             }
         }
     }
