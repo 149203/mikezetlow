@@ -36,6 +36,20 @@ const Post_Preview = styled.div`
     margin-bottom: ${rhythm(1 / 4)};
     padding-top: ${rhythm(1)};
    }   
+   
+   .gatsby-image-wrapper {
+    float: left;
+    width: 172px;
+    margin-right: ${rhythm(1)};
+       
+    @media(max-width: 559px) {
+      width: 100%;
+      margin-bottom: ${rhythm(1 / 4)};
+      
+    }
+     
+   }
+   
 `
 
 const Popularity_Bar = styled.div`  
@@ -106,6 +120,7 @@ class BlogIndex extends React.Component {
    render() {
       const siteTitle = get(this, 'props.data.site.siteMetadata.title')
       const posts = get(this, 'props.data.allMarkdownRemark.edges')
+      //console.log('data: ', get(this, 'props.data'))
 
       return (
        <div>
@@ -123,9 +138,7 @@ class BlogIndex extends React.Component {
                           {title}
                        </h2>
 
-                       <Img sizes={node.frontmatter.featuredImage.childImageSharp.resize}
-                            style={{width: '172px', float: 'left', marginRight: rhythm(1)}}
-                       />
+                       <Img sizes={node.frontmatter.featuredImage.childImageSharp.resize}/>
 
                        <Tags>
                           <span>{node.frontmatter.topic}</span>
@@ -133,7 +146,7 @@ class BlogIndex extends React.Component {
                           <span>{node.frontmatter.type}</span>
                        </Tags>
 
-                       <p>Posted on {node.frontmatter.date}</p>
+                       <p>{node.frontmatter.date}</p>
 
                        <div style={{ display: 'flex' }}>
                           <p>Popularity:&nbsp;</p>
@@ -189,7 +202,7 @@ export const pageQuery = graphql`
                             relativePath
                             publicURL
                             childImageSharp {
-                                resize(width: 172, height: 92, cropFocus: ENTROPY) {
+                                resize(width: 496, height: 262, cropFocus: ENTROPY) {
                                     src
                                     width
                                     height

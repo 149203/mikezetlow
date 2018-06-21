@@ -4,7 +4,6 @@ import Link from 'gatsby-link'
 import get from 'lodash/get'
 import styled from 'styled-components'
 import global from '../utils/global_style'
-import Merriweather from 'typeface-merriweather'
 
 import { rhythm, scale } from '../utils/typography'
 
