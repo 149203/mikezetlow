@@ -7,7 +7,7 @@ type: "video"
 rating: "400"
 ---
 
-*This talk was given at [Demo Day Las Vegas](https://medium.freecodecamp.org/everyone-hates-a-redesign-or-do-they-b8a2fec9efbe).*
+*This talk was given at [Demo Day Las Vegas](http://demoday.vegas/).*
 
 <iframe width="720" height="405" src="https://www.youtube.com/embed/eTWl4nY-XJM?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
