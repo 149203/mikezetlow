@@ -86,6 +86,17 @@ class Template extends React.Component {
           text-decoration: underline !important;
         }   
       `
+      const Hello = styled.h1`
+        font-size: 250%;
+        margin-bottom: rhythm(1.25);
+        margin-top: 0;
+        
+        @media(max-width: 480px) {
+          font-size: 190%;
+        }
+        
+
+`
 
       const { location, children } = this.props
       let header
@@ -99,13 +110,7 @@ class Template extends React.Component {
 
       if (location.pathname === rootPath) {
          header = (
-          <h1
-           style={{
-              ...scale(1.25),
-              marginBottom: rhythm(1.25),
-              marginTop: 0,
-           }}
-          >
+          <Hello>
              <Link
               style={{
                  boxShadow: 'none',
@@ -118,7 +123,7 @@ class Template extends React.Component {
              >
                 Hi, I'm Mike Zetlow.
              </Link>
-          </h1>
+          </Hello>
          )
       }
 

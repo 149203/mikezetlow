@@ -11,7 +11,7 @@ rating: "400"
 
 <iframe width="720" height="405" src="https://www.youtube.com/embed/eTWl4nY-XJM?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-*Begin transcription:* Alright so my name is Mike Zetlow, and I'm going to give a presentation on how to live forever on the internet. And I don't really mean like you living forever. I mean, your work. As developers we do a lot of stuff. We code stuff online. Maybe articles get written about us. We have talks like this.
+*Transcription from video:* Alright so my name is Mike Zetlow, and I'm going to give a presentation on how to live forever on the internet. And I don't really mean like you living forever. I mean, your work. As developers we do a lot of stuff. We code stuff online. Maybe articles get written about us. We have talks like this.
 
 So on my portfolio page, I was linking to all this stuff that was me. I was able to direct people to my portfolio page and use it as a hub to say, hey check this out, read about me, or watch these talks, or see some of my code. But then I went out, recently I checked out my portfolio page, and there's dead links. Like the article that I was in, they changed their slug or whatever it was, or the app that I had built, that company folded.
 
