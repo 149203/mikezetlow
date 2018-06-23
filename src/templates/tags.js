@@ -1,3 +1,6 @@
+/*
+/!* DELETE THIS FILE AFTER REFACTOR *!/
+
 import React from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
@@ -78,3 +81,4 @@ export const pageQuery = graphql`
         }
     }
 `
+*/

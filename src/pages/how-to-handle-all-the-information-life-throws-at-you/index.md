@@ -5,6 +5,7 @@ featuredImage: "./times-square-how-to-handle-all-the-information-life-throws-at-
 topic: "how we work"
 type: "article"
 rating: "400"
+draft: false
 ---
 
 *This article was originally published on [thinkgrowth.org](https://thinkgrowth.org/how-to-handle-all-the-information-life-throws-at-you-7e5440d58498).*

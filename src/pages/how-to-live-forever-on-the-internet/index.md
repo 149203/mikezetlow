@@ -5,6 +5,7 @@ featuredImage: "./1-girl-in-field-how-to-live-forever-on-the-internet-mike-zetlo
 topic: "other stuff"
 type: "video"
 rating: "400"
+draft: false
 ---
 
 *This talk was given at [Demo Day Las Vegas](http://demoday.vegas/).*
