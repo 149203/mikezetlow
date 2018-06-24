@@ -24,4 +24,4 @@ Colors were originally based off of the palette found at https://www.materialui.
 
 The orange was mixed using https://meyerweb.com/eric/tools/color-blend/#FBC02D:F44336:1:hex
 
-The names come from https://coolors.co/2196f3-4caf50-fbc02d-f44336-f88232
+The names come from https://coolors.co/2196f3-4caf50-fbc02d-f44336-7e57c2
