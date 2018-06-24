@@ -4,8 +4,7 @@
 
 ## Colors
 
-Image | Name | Semantic Name | Hex
---- | --- | --- | ---
+**Image** | **Name** | **Semantic Name** | **Hex**
 ![#000000](https://placehold.it/48x14/000000/000000?text=+) | Black | black | #000000
 ![#1f1f1f](https://placehold.it/48x14/1f1f1f/000000?text=+) | Gray Darkest | gray_darkest | #1f1f1f
 ![#505050](https://placehold.it/48x14/505050/000000?text=+) | Gray Dark | gray_dark | #505050
