@@ -42,7 +42,7 @@ draft: false
 ```
 `---`
 
-## Images
+##Images
 
 Images are named with this convention:
 
@@ -58,7 +58,7 @@ mike-zetlow
 ![](mountaintop-theres-no-divine-inspiration-in-design-mike-zetlow.jpg)
 ```
 
-Save the images in .jpg format—no more than 1920px width and 1080px height. Save with the lowest quality before degradation is seen in the image.
+Save the images in .jpg format—no more than 1920px width and 1080px height. Save with the lowest quality before degradation is visible in the image.
 
 If the image has a caption, wrap it in a `<figcaption>` tag. You can include links in captions.
 
@@ -82,7 +82,7 @@ All posts and their related images are saved in a folder named with the title of
 
 The `.md` file itself is named `index.md` (for Gatsby's page creation purposes).
 
-See [Images](## Images) for naming of image files.
+See [Images](##Images) for naming of image files.
 
 **Kebab case is used for filenames and folders only.** They are always lowercase as well.
 
