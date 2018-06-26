@@ -44,7 +44,7 @@ I don't have firm breakpoints. Rather, before the layout starts to crumble, it c
 
 # Post style guide
 
-## Frontmatter:
+## Frontmatter
 
 `---`
 ```
