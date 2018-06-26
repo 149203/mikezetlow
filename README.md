@@ -82,8 +82,8 @@ All posts and their related images are saved in a folder named with the title of
 
 The `.md` file itself is named `index.md` (for Gatsby's page creation purposes).
 
-See [Images](#Images) for naming of image files.
+See [Images](#images) for naming of image files.
 
-**Kebab case is used for filenames and folders only.** They are always lowercase as well.
+**Kebab case is used for public filenames and folders only.** They are always lowercase as well.
 
 I know, this sucks. It's best to stay consistent with lower_snake_case for everything, but the consensus in 2018 is still that [URLs are best parsed using the dash as a word separator](https://www.ecreativeim.com/blog/index.php/2011/03/30/seo-basics-hyphen-or-underscore-for-seo-urls/).
