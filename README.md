@@ -1,5 +1,17 @@
 # Code style guide
 
+No semicolons.
+
+lower_snake_case for all variable names.
+
+3 spaces.
+
+Of course, I'll be using libraries that break these rules. I don't need to go through and "fix" these, just accept them. Disgustedly.
+
+The biggest rule of all:
+
+>Any dummy can write code that machines can read. It takes work to write code that another human can read. Write code that other people can reason about at a glance and will want to dive into. Write code that you will be happy to go back to in six months. 
+
 # Design style guide
 
 ## Colors
@@ -25,6 +37,10 @@ Colors were originally based off of the palette found at https://www.materialui.
 The orange was mixed using https://meyerweb.com/eric/tools/color-blend/#FBC02D:F44336:1:hex
 
 The names come from https://coolors.co/2196f3-4caf50-fbc02d-f44336-7e57c2
+
+## Breakpoints
+
+I don't have firm breakpoints. Rather, before the layout starts to crumble, it changes.
 
 # Post style guide
 
