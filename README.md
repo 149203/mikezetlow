@@ -30,8 +30,8 @@ The names come from https://coolors.co/2196f3-4caf50-fbc02d-f44336-7e57c2
 
 ## Frontmatter:
 
+`---`
 ```
----
 title: "There's no divine inspiration in design"
 date: "2017-05-14"
 featuredImage: "./mountaintop-theres-no-divine-inspiration-in-design-mike-zetlow.jpg"
@@ -39,7 +39,51 @@ topic: "user experience"
 type: "article"
 rating: "580"
 draft: false
----
 ```
+`---`
 
 ## Images
+
+Images are named with this convention:
+
+what-it-is-
+
+title-of-post-
+
+mike-zetlow
+
+.jpg
+
+```
+![](mountaintop-theres-no-divine-inspiration-in-design-mike-zetlow.jpg)
+```
+
+Save the images in .jpg format—no more than 1920px width and 1080px height. Save with the lowest quality before degradation is seen in the image.
+
+If the image has a caption, wrap it in a `<figcaption>` tag. You can include links in captions.
+
+```
+<figcaption>
+
+Credit: [The Cooper Review](https://thecooperreview.com/how-to-avoid-being-invited-to-meetings/)
+
+</figcaption>
+```
+
+## Headings
+
+The highest heading in a post is `##`. The next highest is `###` and so on.
+
+## File naming
+
+All posts and their related images are saved in a folder named with the title of the post in kebab case.
+
+`everyone-hates-a-redesign`
+
+The `.md` file itself is named `index.md` (for Gatsby's page creation purposes).
+
+See [Images](## Images) for naming of image files.
+
+**Kebab case is used for filenames and folders only.** They are always lowercase as well.
+
+I know, this sucks. It's best to stay consistent with lower_snake_case for everything, but the consensus in 2018 is still that [URLs are best parsed using the dash as a word separator](https://www.ecreativeim.com/blog/index.php/2011/03/30/seo-basics-hyphen-or-underscore-for-seo-urls/).
