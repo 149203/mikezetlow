@@ -8,11 +8,13 @@ lower_snake_case for all variable names.
 
 3 spaces.
 
+Prefer not to use `for` loops. `for..in` and `for..of` are ok. Recursive functions are best.
+
 Of course, I'll be using libraries that break these rules. I don't need to go through and "fix" these, just accept them. Disgustedly.
 
-The biggest rule of all:
+## The biggest rule of all
 
->Any dummy can write code that machines can read. It takes work to write code that another human can read. Write code that other people can reason about at a glance and will want to dive into. Write code that you will be happy to go back to in six months.
+Any dummy can write code that machines can read. It takes work to write code that another human can read. Write code that other people can reason about at a glance and will want to dive into. Write code that you will be happy to go back to in six months.
 
 ## Folder structure
 
