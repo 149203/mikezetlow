@@ -193,17 +193,13 @@ export const pageQuery = graphql`
         ) {
             edges {
                 node {
-                    excerpt
                     fields {
                         slug
                     }
                     frontmatter {
                         date(formatString: "MMMM Do, YYYY")
                         title
-                        rating
                         featuredImage {
-                            relativePath
-                            publicURL
                             childImageSharp {
                                 resize(width: 496, height: 262, cropFocus: ENTROPY) {
                                     src

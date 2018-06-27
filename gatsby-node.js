@@ -94,7 +94,7 @@ function create_blog_posts(createPage, posts) {
 }
 
 function create_tag_pages(createPage, posts, order) {
-   const blog_post = path.resolve(`src/templates/blog-post.js`); // TODO: change or make this template handle context
+   const blog_post = path.resolve(`src/templates/tags.js`); // TODO: change or make this template handle context
    _.each(posts, (post) => {
 
       // TODO: make all topics and types uniq

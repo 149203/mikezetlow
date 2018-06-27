@@ -15,8 +15,10 @@ class Bio extends React.Component {
         }}
       >
         <p>
-           I’m a software developer interested in user experience, how we work, entrepreneurship, public domain music, poker, and other stuff.<br/><br/>
-           Below is a collection of articles, videos, and press sorted by most recent.
+           I’m a software developer interested in user experience, how we work, and other stuff.
+           {/*I’m a software developer interested in user experience, how we work, entrepreneurship, public domain music, poker, and other stuff.*/}<br/><br/>
+           {/*Below is a collection of articles, videos, and press sorted by most recent.*/}
+           Below is a collection of articles and videos sorted by most recent.
         </p>
       </div>
     )
