@@ -1,5 +1,7 @@
 # Code style guide
 
+## Petty shit
+
 No semicolons.
 
 lower_snake_case for all variable names.
@@ -10,7 +12,13 @@ Of course, I'll be using libraries that break these rules. I don't need to go th
 
 The biggest rule of all:
 
->Any dummy can write code that machines can read. It takes work to write code that another human can read. Write code that other people can reason about at a glance and will want to dive into. Write code that you will be happy to go back to in six months. 
+>Any dummy can write code that machines can read. It takes work to write code that another human can read. Write code that other people can reason about at a glance and will want to dive into. Write code that you will be happy to go back to in six months.
+
+## Folder structure
+
+**NEVER BREAK PERMALINKS!**
+
+The permalink / slug should always look like mikezetlow.com/the-title-of-the-page — the title should always come right after the root. This is so we never break permalinks. It is terrible UX to have a post under a category or tag folder, and then one day have that change and break the link. When making a link to a page, do some planning first. Links are forever. **Never break them.**
 
 # Design style guide
 
@@ -103,3 +111,5 @@ See [Images](#images) for naming of image files.
 **Kebab case is used for public filenames and folders only.** They are always lowercase as well.
 
 I know, this sucks. It's best to stay consistent with lower_snake_case for everything, but the consensus in 2018 is still that [URLs are best parsed using the dash as a word separator](https://www.ecreativeim.com/blog/index.php/2011/03/30/seo-basics-hyphen-or-underscore-for-seo-urls/).
+
+All posts are displayed from the root folder. See [Folder structure](#folder-structure) for the explanation: **never break links!**
