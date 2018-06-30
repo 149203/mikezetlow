@@ -128,10 +128,12 @@ class BlogIndex extends React.Component {
       console.log('posts: ', posts)
       console.log('data: ', get(this, 'props.data'))
       console.log('props: ', get(this, 'props'))
+      const location = this.props.location
 
-      filter_posts_by_url()
+      filter_posts_by_url(location)
 
-      function filter_posts_by_url() {
+      function filter_posts_by_url(location) {
+
          const url = location.pathname.slice(1)
          const url_order = url.slice(0, url.lastIndexOf('/')) // a single word, either 'recent' or 'popular'
          let url_topic = url.slice(url.indexOf('/') + 1, url.lastIndexOf('-')).replace(/-/g, ' ') // added 'all'
