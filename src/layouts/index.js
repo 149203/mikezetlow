@@ -15,6 +15,13 @@ class Template extends React.Component {
             hero_pic_display: `none`,
             hero_content_float: ``,
             hero_content_margin_right: `auto`,
+         },
+         filter: {
+            topic_is_selected: false,
+            type_is_selected: false,
+            order: 'recent',
+            topic: 'all',
+            type: 'posts',
          }
       }
    }
@@ -114,20 +121,34 @@ class Template extends React.Component {
           || /\/popular\//.test(location.pathname)
       ) {
          header = (
-          <Hello>
-             <Link
+          <div>
+             <Hello>
+                <Link
+                 style={{
+                    boxShadow: 'none',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                    fontWeight: '700',
+                    cursor: 'pointer',
+                 }}
+                 to={'/'}
+                >
+                   Hi, I'm Mike Zetlow.
+                </Link>
+
+             </Hello>
+             <div
               style={{
-                 boxShadow: 'none',
-                 textDecoration: 'none',
-                 color: 'inherit',
-                 fontWeight: '700',
-                 cursor: 'pointer',
+                 display: 'flex',
               }}
-              to={'/'}
              >
-                Hi, I'm Mike Zetlow.
-             </Link>
-          </Hello>
+                <p>
+                   I’m a software developer interested in <span className='topic_filter tag_filter' onClick={(e) => this.props.history.push('/popular/user-experience-posts')}>user experience</span>, <span className='topic_filter tag_filter'>how we work</span>, and <span className='topic_filter tag_filter'>other stuff</span>.
+                   <br/><br/>
+                   Below is a collection of <span className='type_filter tag_filter'>articles</span> and <span className='type_filter tag_filter'>videos</span> sorted by <span className='order_filter tag_filter'>most recent</span>.
+                </p>
+             </div>
+          </div>
          )
       }
 

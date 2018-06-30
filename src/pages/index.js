@@ -1,12 +1,15 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
+import _filter from 'lodash/filter'
+import _orderBy from 'lodash/orderBy'
 import Helmet from 'react-helmet'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import global from '../utils/global_style'
-import Bio from '../components/Bio'
 import { rhythm } from '../utils/typography'
+import 'typeface-merriweather'
+import 'typeface-open-sans'
 
 const Post_Preview = styled.div`
 
@@ -117,17 +120,48 @@ const Tags = styled.div`
 `
 
 class BlogIndex extends React.Component {
+
    render() {
       const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-      const posts = get(this, 'props.data.allMarkdownRemark.edges')
+      let posts = get(this, 'props.data.allMarkdownRemark.edges')
       console.log('posts: ', posts)
       console.log('data: ', get(this, 'props.data'))
       console.log('props: ', get(this, 'props'))
 
+      filter_posts_by_url()
+
+      function filter_posts_by_url() {
+         const url = location.pathname.slice(1)
+         const url_order = url.slice(0, url.lastIndexOf('/')) // a single word, either 'recent' or 'popular'
+         let url_topic = url.slice(url.indexOf('/') + 1, url.lastIndexOf('-')).replace(/-/g, ' ') // added 'all'
+         let url_type = url.slice(url.lastIndexOf('-') + 1, -1) // a single word & removes the 's' at the end // added 'post'
+         console.log({url, url_order, url_topic, url_type})
+
+         if (url_topic === 'all' || url_topic === '') {
+            url_topic = /.*/
+         }
+         else url_topic = new RegExp(url_topic)
+
+         if (url_type === 'post' || url_type === '') {
+            url_type = /.*/
+         }
+         else url_type = new RegExp(url_type)
+
+         posts = _filter(posts, post => {
+            return url_topic.test(post.node.frontmatter.topic)
+            && url_type.test(post.node.frontmatter.type)
+         })
+
+         if (url_order === 'popular') {
+            posts = _orderBy(posts, ['node.frontmatter.rating', 'node.frontmatter.date'], ['desc', 'desc'])
+         }
+         else posts = _orderBy(posts, ['node.frontmatter.date', 'node.frontmatter.rating'], ['desc', 'desc'])
+      }
+
       return (
        <div>
           <Helmet title={siteTitle}/>
-          <Bio/>
+
           {posts &&
            posts.map(({ node }) => {
               console.log('node: ', node)
@@ -180,10 +214,8 @@ class BlogIndex extends React.Component {
 
 export default BlogIndex
 
-/* https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp
-Information on Sharp, try CENTER or ATTENTION or ENTROPY for cropFocus
-*/
-
+// https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp
+// Information on Sharp, try CENTER or ATTENTION or ENTROPY for cropFocus
 export const pageQuery = graphql`
     query IndexQuery {
         site {
