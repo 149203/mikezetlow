@@ -240,7 +240,7 @@ export const pageQuery = graphql`
                         slug
                     }
                     frontmatter {
-                        date(formatString: "MMMM Do, YYYY")
+                        date
                         title
                         featuredImage {
                             childImageSharp {

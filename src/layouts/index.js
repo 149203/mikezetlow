@@ -5,6 +5,7 @@ import { rhythm, scale } from '../utils/typography'
 import Img from 'gatsby-image'
 import _round from 'lodash/round'
 import _kebabCase from 'lodash/kebabCase'
+import global from '../utils/global_style'
 
 class Template extends React.Component {
 
@@ -147,9 +148,23 @@ class Template extends React.Component {
         @media(max-width: 480px) {
           font-size: 190%;
         }
+      `
+      const Bio = styled.div`
+        display: flex;
+        p {
+          margin-bottom: 0;
+        }
         
-
-`
+        .tag_filter {
+          color: ${global.color.blue};
+          cursor: pointer;
+        }
+        
+        .tag_filter:hover {
+          text-decoration: underline;
+        }
+        
+      `
 
       const { location, children } = this.props
       let header
@@ -184,17 +199,13 @@ class Template extends React.Component {
                 </Link>
 
              </Hello>
-             <div
-              style={{
-                 display: 'flex',
-              }}
-             >
+             <Bio>
                 <p>
-                   I’m a software developer interested in <span className='topic_filter tag_filter' onClick={(e) => this.update_url_topic(e)}>user experience</span>, <span className='topic_filter tag_filter' onClick={(e) => this.update_url_topic(e)}>how we work</span>, and <span className='topic_filter tag_filter' onClick={(e) => this.update_url_topic(e)}>other stuff</span>.
+                   I’m a software developer interested in <span className='topic_filter tag_filter' onClick={(e) => this.update_url_topic(e)}>user experience</span>, <span className='topic_filter tag_filter' onClick={(e) => this.update_url_topic(e)}>how we work</span>, and <span className='topic_filter tag_filter' onClick={(e) => this.update_url_topic(e)}>other stuff</span>. Below is a collection of <span className='type_filter tag_filter' onClick={(e) => this.update_url_type(e)}>articles</span> and <span className='type_filter tag_filter' onClick={(e) => this.update_url_type(e)}>videos</span> sorted by <span className='order_filter tag_filter' onClick={(e) => {this.toggle_url_order(e)}}>most {this.state.filter.order}</span>.
                    <br/><br/>
-                   Below is a collection of <span className='type_filter tag_filter' onClick={(e) => this.update_url_type(e)}>articles</span> and <span className='type_filter tag_filter' onClick={(e) => this.update_url_type(e)}>videos</span> sorted by <span className='order_filter tag_filter' onClick={(e) => {this.toggle_url_order(e)}}>most {this.state.filter.order}</span>.
+                   You can reach me at: mike@mikezetlow.com
                 </p>
-             </div>
+             </Bio>
           </div>
          )
       }
