@@ -158,7 +158,7 @@ class BlogIndex extends React.Component {
          }
          else posts = _orderBy(posts, ['node.frontmatter.date', 'node.frontmatter.rating'], ['desc', 'desc'])
 
-         posts = _take(posts, 20)
+         posts = _take(posts, 20) // only display top 20 results // TODO: include a link to archive at the bottom
       }
 
       return (

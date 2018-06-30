@@ -4,12 +4,17 @@ import styled from 'styled-components'
 import { rhythm, scale } from '../utils/typography'
 import Img from 'gatsby-image'
 import _round from 'lodash/round'
+import _kebabCase from 'lodash/kebabCase'
 
 class Template extends React.Component {
 
    constructor(props) {
       super(props)
       this.update_responsive_layout = this.update_responsive_layout.bind(this)
+      this.update_url_topic = this.update_url_topic.bind(this)
+      this.update_url_type = this.update_url_type.bind(this)
+      this.toggle_url_order = this.toggle_url_order.bind(this)
+      this.reset_filters = this.reset_filters.bind(this)
       this.state = {
          responsive: {
             hero_pic_display: `none`,
@@ -83,6 +88,47 @@ class Template extends React.Component {
       window.removeEventListener("resize", this.update_responsive_layout);
    }
 
+   update_url_topic(e) {
+      console.log(e.currentTarget.textContent)
+      const filter = { ...this.state.filter }
+      filter.topic = _kebabCase(e.currentTarget.textContent)
+      this.setState({ filter })
+      this.props.history.push(`/${this.state.filter.order}/${filter.topic}-${this.state.filter.type}`)
+   }
+
+   update_url_type(e) {
+      console.log(e.currentTarget.textContent)
+      const filter = { ...this.state.filter }
+      filter.type = e.currentTarget.textContent
+      this.setState({ filter })
+      this.props.history.push(`/${this.state.filter.order}/${this.state.filter.topic}-${filter.type}`)
+   }
+
+   toggle_url_order(e) {
+      // TODO: CHANGE HTML TEXT ON TOGGLE
+      const filter = { ...this.state.filter }
+      const text = e.currentTarget.textContent
+      if (text === 'most recent') {
+         filter.order = 'popular'
+         this.props.history.push(`/popular/${this.state.filter.topic}-${this.state.filter.type}`)
+      }
+      else {
+         filter.order = 'recent'
+         this.props.history.push(`/recent/${this.state.filter.topic}-${this.state.filter.type}`)
+      }
+      this.setState({ filter })
+   }
+
+   reset_filters(e) {
+      const filter = { ...this.state.filter }
+      filter.topic_is_selected = false
+      filter.type_is_selected = false
+      filter.order = 'recent'
+      filter.topic = 'all'
+      filter.type = 'posts'
+      this.setState({filter})
+   }
+
    render() {
 
       const Home = styled.div`             
@@ -132,6 +178,7 @@ class Template extends React.Component {
                     cursor: 'pointer',
                  }}
                  to={'/'}
+                 onClick={(e) => {this.reset_filters(e)}}
                 >
                    Hi, I'm Mike Zetlow.
                 </Link>
@@ -143,9 +190,9 @@ class Template extends React.Component {
               }}
              >
                 <p>
-                   I’m a software developer interested in <span className='topic_filter tag_filter' onClick={(e) => this.props.history.push('/popular/user-experience-posts')}>user experience</span>, <span className='topic_filter tag_filter'>how we work</span>, and <span className='topic_filter tag_filter'>other stuff</span>.
+                   I’m a software developer interested in <span className='topic_filter tag_filter' onClick={(e) => this.update_url_topic(e)}>user experience</span>, <span className='topic_filter tag_filter' onClick={(e) => this.update_url_topic(e)}>how we work</span>, and <span className='topic_filter tag_filter' onClick={(e) => this.update_url_topic(e)}>other stuff</span>.
                    <br/><br/>
-                   Below is a collection of <span className='type_filter tag_filter'>articles</span> and <span className='type_filter tag_filter'>videos</span> sorted by <span className='order_filter tag_filter'>most recent</span>.
+                   Below is a collection of <span className='type_filter tag_filter' onClick={(e) => this.update_url_type(e)}>articles</span> and <span className='type_filter tag_filter' onClick={(e) => this.update_url_type(e)}>videos</span> sorted by <span className='order_filter tag_filter' onClick={(e) => {this.toggle_url_order(e)}}>most {this.state.filter.order}</span>.
                 </p>
              </div>
           </div>
