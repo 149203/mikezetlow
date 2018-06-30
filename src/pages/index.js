@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import get from 'lodash/get'
 import _filter from 'lodash/filter'
 import _orderBy from 'lodash/orderBy'
+import _take from 'lodash/take'
 import Helmet from 'react-helmet'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
@@ -156,6 +157,8 @@ class BlogIndex extends React.Component {
             posts = _orderBy(posts, ['node.frontmatter.rating', 'node.frontmatter.date'], ['desc', 'desc'])
          }
          else posts = _orderBy(posts, ['node.frontmatter.date', 'node.frontmatter.rating'], ['desc', 'desc'])
+
+         posts = _take(posts, 20)
       }
 
       return (
