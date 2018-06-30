@@ -107,8 +107,12 @@ class Template extends React.Component {
       if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
          rootPath = __PATH_PREFIX__ + `/`
       }
+      console.log('location.pathname: ', location.pathname)
 
-      if (location.pathname === rootPath) {
+      if (location.pathname === rootPath
+          || /\/recent\//.test(location.pathname)
+          || /\/popular\//.test(location.pathname)
+      ) {
          header = (
           <Hello>
              <Link
@@ -117,7 +121,7 @@ class Template extends React.Component {
                  textDecoration: 'none',
                  color: 'inherit',
                  fontWeight: '700',
-                 cursor: 'default',
+                 cursor: 'pointer',
               }}
               to={'/'}
              >

@@ -51,10 +51,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 }
 
 function create_blog_posts(createPage, posts) {
-   /* Create pages for each markdown file. */
-   // Creates a page
-   // Sends the slug to the page template
-   // The page template queries the data by each slug it was sent
 
    _.each(posts, (post) => {
       const slug = post.node.fields.slug
@@ -63,7 +59,7 @@ function create_blog_posts(createPage, posts) {
          path: slug,
          component: path.resolve(`src/templates/blog-post.js`),
          context: {
-            slug: slug, // sends the context of the slug so that the query on the template page can query for just that slug
+            slug, // sends the context of the slug so that the query on the template page can query for just that slug
          },
       })
    })
@@ -78,18 +74,15 @@ function create_tag_pages(createPage, posts) {
    _.forEach(topics, topic => {
       _.forEach(orders, order => {
          _.forEach(types, type => {
-            const slug = `/blog/${slugify(topic)}-${order}-${slugify(type)}/`
+
+            const slug = `/${order}/${slugify(topic)}-${slugify(type)}` // FRAGILE: the type has to be one word
             console.log(`I'm creating a slug that look like: ${slug}`)
 
             createPage({
                path: slug,
-               component: path.resolve(`src/templates/tags.js`),
+               component: path.resolve(`src/pages/index.js`),
                context: {
-                  // pass stuff into here to have it appear in template query
-                  slug,
-                  topic,
-                  order,
-                  type,
+                  slug
                },
             })
 
@@ -101,48 +94,8 @@ function create_tag_pages(createPage, posts) {
 
 function slugify(str) {
    if (str === 'video' || str === 'article') str += 's' // pluralize these types, not really necessary though
-   return str.toLowerCase().replace(/[^a-z0-9\s_\-]/g, '').replace(/\s/g, '-')
+   return _.kebabCase(str) //str.toLowerCase().replace(/[^a-z0-9\s_\-]/g, '').replace(/\s/g, '-')
 }
-
-/**
- * Create pages for tags
- */
-/*function createTagPages(createPage, edges) {
-   const tag_template = path.resolve(`src/templates/tags.js`);
-   const posts = {};
-
-   edges.forEach(({ node }) => {
-      if (node.frontmatter.topic) {
-         node.frontmatter.topic.forEach(tag => {
-            if (!posts[ tag ]) {
-               posts[ tag ] = [];
-            }
-            posts[ tag ].push(node);
-         });
-      }
-   });
-
-   Object.keys(posts).forEach(tagName => {
-      const pageSize = 5;
-      const pagesSum = Math.ceil(posts[ tagName ].length / pageSize);
-
-      for (let page = 1; page <= pagesSum; page++) {
-         createPage({
-            path:
-             page === 1
-             ? `/tag/${tagName.toLowerCase()}`
-             : `/tag/${tagName.toLowerCase()}/page/${page}`,
-            component: tag_template,
-            context: {
-               posts: paginate(posts[ tagName ], pageSize, page),
-               tag: tagName,
-               pagesSum,
-               page,
-            },
-         });
-      }
-   });
-}*/
 
 exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
    const { createNodeField } = boundActionCreators

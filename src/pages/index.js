@@ -120,55 +120,59 @@ class BlogIndex extends React.Component {
    render() {
       const siteTitle = get(this, 'props.data.site.siteMetadata.title')
       const posts = get(this, 'props.data.allMarkdownRemark.edges')
-      //console.log('data: ', get(this, 'props.data'))
+      console.log('posts: ', posts)
+      console.log('data: ', get(this, 'props.data'))
+      console.log('props: ', get(this, 'props'))
 
       return (
        <div>
           <Helmet title={siteTitle}/>
           <Bio/>
-          {posts.map(({ node }) => {
-             const title = get(node, 'frontmatter.title') || node.fields.slug
-             return (
+          {posts &&
+           posts.map(({ node }) => {
+              console.log('node: ', node)
+              const title = get(node, 'frontmatter.title') || node.fields.slug
+              return (
 
-              <Post_Preview key={node.fields.slug}>
-                 <div className="post_preview">
-                    <Link to={node.fields.slug}>
+               <Post_Preview key={node.fields.slug}>
+                  <div className="post_preview">
+                     <Link to={node.fields.slug}>
 
-                       <h2 className="pseudo_link">
-                          {title}
-                       </h2>
+                        <h2 className="pseudo_link">
+                           {title}
+                        </h2>
 
-                       <Img sizes={node.frontmatter.featuredImage.childImageSharp.resize}/>
+                        <Img sizes={node.frontmatter.featuredImage.childImageSharp.resize}/>
 
-                       <Tags>
-                          <span>{node.frontmatter.topic}</span>
-                          &nbsp;&nbsp;&nbsp;
-                          <span>{node.frontmatter.type}</span>
-                       </Tags>
+                        <Tags>
+                           <span>{node.frontmatter.topic}</span>
+                           &nbsp;&nbsp;&nbsp;
+                           <span>{node.frontmatter.type}</span>
+                        </Tags>
 
-                       <p>{node.frontmatter.date}</p>
+                        <p>{node.frontmatter.date}</p>
 
-                       <div style={{ display: 'flex' }}>
-                          <p>Popularity:&nbsp;</p>
-                          <Popularity_Bar/>
-                          <Popularity_Bar_Mask rating={() => {
-                             const rating = node.frontmatter.rating
-                             const rating_num = Number(rating.split('').slice(0, 1).join())
-                             if (rating_num < 5) {
-                                const bar_cover_length = (5 - rating_num) * 40 // 40 is 1/3 of the width of the bar, which is 120px
-                                return bar_cover_length
-                             }
-                             else return 0
-                          }
-                          }/>
-                       </div>
+                        <div style={{ display: 'flex' }}>
+                           <p>Popularity:&nbsp;</p>
+                           <Popularity_Bar/>
+                           <Popularity_Bar_Mask rating={() => {
+                              const rating = node.frontmatter.rating
+                              const rating_num = Number(rating.split('').slice(0, 1).join())
+                              if (rating_num < 5) {
+                                 const bar_cover_length = (5 - rating_num) * 40 // 40 is 1/3 of the width of the bar, which is 120px
+                                 return bar_cover_length
+                              }
+                              else return 0
+                           }
+                           }/>
+                        </div>
 
-                    </Link>
-                 </div>
-              </Post_Preview>
+                     </Link>
+                  </div>
+               </Post_Preview>
 
-             )
-          })}
+              )
+           })}
        </div>
       )
    }
@@ -178,8 +182,8 @@ export default BlogIndex
 
 /* https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp
 Information on Sharp, try CENTER or ATTENTION or ENTROPY for cropFocus
-
 */
+
 export const pageQuery = graphql`
     query IndexQuery {
         site {
@@ -189,7 +193,9 @@ export const pageQuery = graphql`
         }
         allMarkdownRemark(
             sort: { fields: [frontmatter___date], order: DESC }
-            filter: { frontmatter: { draft: { ne: true } } }
+            filter: { frontmatter: {
+                draft: { ne: true }
+            } }
         ) {
             edges {
                 node {

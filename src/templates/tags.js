@@ -33,7 +33,7 @@ class TagTemplate extends React.Component {
 export default TagTemplate
 
 export const pageQuery = graphql`
-    query TagIndexQuery {
+    query TagIndexQuery($topic: String!) {
         site {
             siteMetadata {
                 title
@@ -41,7 +41,12 @@ export const pageQuery = graphql`
         }
         allMarkdownRemark(
             sort: { fields: [frontmatter___date], order: DESC }
-            filter: { frontmatter: { draft: { ne: true } } }
+            filter: {
+                frontmatter: {
+                    draft: { ne: true }
+                    topic: {eq: $topic}
+                }
+            }
         ) {
             edges {
                 node {

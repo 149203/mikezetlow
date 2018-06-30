@@ -11,7 +11,7 @@ class BlogPostTemplate extends React.Component {
    render() {
       const post = this.props.data.markdownRemark
       const siteTitle = get(this.props, 'data.site.siteMetadata.title')
-      const { previous, next } = this.props.pathContext
+      // const { previous, next } = this.props.pathContext
 
       const Post = styled.div`
         figcaption {
@@ -28,6 +28,7 @@ class BlogPostTemplate extends React.Component {
         }
         
 `
+      console.log('props: ', this.props)
 
       return (
 
