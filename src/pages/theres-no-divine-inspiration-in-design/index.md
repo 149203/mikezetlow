@@ -8,7 +8,7 @@ rating: "580"
 draft: false
 ---
 
-*This article was originally published on [CHSI Technologies](https://medium.com/chsi-technologies/theres-no-divine-inspiration-in-design-8a2fdd521d16).*
+*Published in [CHSI Technologies](https://medium.com/chsi-technologies/theres-no-divine-inspiration-in-design-8a2fdd521d16).*
 
 ![](mountaintop-theres-no-divine-inspiration-in-design-mike-zetlow.jpg)
 

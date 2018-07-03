@@ -8,7 +8,7 @@ rating: "400"
 draft: false
 ---
 
-*This article was originally published on [thinkgrowth.org](https://thinkgrowth.org/how-to-handle-all-the-information-life-throws-at-you-7e5440d58498).*
+*Published in [thinkgrowth.org](https://thinkgrowth.org/how-to-handle-all-the-information-life-throws-at-you-7e5440d58498).*
 
 ![](times-square-how-to-handle-all-the-information-life-throws-at-you-mike-zetlow.jpeg)
 

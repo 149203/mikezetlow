@@ -67,29 +67,38 @@ function create_blog_posts(createPage, posts) {
 
 function create_tag_pages(createPage, posts) {
 
-   const topics = _.uniq(_.map(posts, post => post.node.frontmatter.topic).concat([ 'all' ]))
+   const topics = _.uniq(_.map(posts, post => post.node.frontmatter.topic))
    const orders = [ 'recent', 'popular' ]
-   const types = _.uniq(_.map(posts, post => post.node.frontmatter.type).concat([ 'posts' ]))
 
    _.forEach(topics, topic => {
       _.forEach(orders, order => {
-         _.forEach(types, type => {
 
-            const slug = `/${order}/${slugify(topic)}-${slugify(type)}` // FRAGILE: the type has to be one word
-            console.log(`I'm creating a slug that look like: ${slug}`)
+         const slug = `/${order}/${slugify(topic)}`
+         console.log(`I'm creating a slug that look like: ${slug}`)
 
-            createPage({
-               path: slug,
-               component: path.resolve(`src/pages/index.js`),
-               context: {
-                  slug
-               },
-            })
-
+         createPage({
+            path: slug,
+            component: path.resolve(`src/pages/index.js`),
+            context: {
+               slug
+            },
          })
       })
    })
 
+   _.forEach(orders, order => {
+
+      const slug = `/${order}/`
+      console.log(`I'm creating a slug that look like: ${slug}`)
+
+      createPage({
+         path: slug,
+         component: path.resolve(`src/pages/index.js`),
+         context: {
+            slug
+         },
+      })
+   })
 }
 
 function slugify(str) {

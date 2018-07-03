@@ -8,7 +8,7 @@ rating: "570"
 draft: false
 ---
 
-*This article was originally published on [freeCodeCamp](https://medium.freecodecamp.org/everyone-hates-a-redesign-or-do-they-b8a2fec9efbe).*
+*Published in [freeCodeCamp](https://medium.freecodecamp.org/everyone-hates-a-redesign-or-do-they-b8a2fec9efbe).*
 
 ![](flaming-garbage-everyone-hates-a-redesign-mike-zetlow.jpeg)
 

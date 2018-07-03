@@ -126,8 +126,6 @@ class BlogIndex extends React.Component {
       const siteTitle = get(this, 'props.data.site.siteMetadata.title')
       let posts = get(this, 'props.data.allMarkdownRemark.edges')
       console.log('posts: ', posts)
-      console.log('data: ', get(this, 'props.data'))
-      console.log('props: ', get(this, 'props'))
       const location = this.props.location
 
       filter_posts_by_url(location)
@@ -136,23 +134,15 @@ class BlogIndex extends React.Component {
 
          const url = location.pathname.slice(1)
          const url_order = url.slice(0, url.lastIndexOf('/')) // a single word, either 'recent' or 'popular'
-         let url_topic = url.slice(url.indexOf('/') + 1, url.lastIndexOf('-')).replace(/-/g, ' ') // added 'all'
-         let url_type = url.slice(url.lastIndexOf('-') + 1, -1) // a single word & removes the 's' at the end // added 'post'
-         console.log({url, url_order, url_topic, url_type})
+         let url_topic = new RegExp(url.slice(url.indexOf('/') + 1).replace(/-/g, ' '))
+         console.log({url, url_order, url_topic})
 
-         if (url_topic === 'all' || url_topic === '') {
-            url_topic = /.*/
-         }
-         else url_topic = new RegExp(url_topic)
-
-         if (url_type === 'post' || url_type === '') {
-            url_type = /.*/
-         }
-         else url_type = new RegExp(url_type)
+         if (url_topic) url_topic = new RegExp(url_topic)
+         else url_topic = /.*/
 
          posts = _filter(posts, post => {
-            return url_topic.test(post.node.frontmatter.topic)
-            && url_type.test(post.node.frontmatter.type)
+            if (post.topic === null) return true
+            else return url_topic.test(post.node.frontmatter.topic)
          })
 
          if (url_order === 'popular') {
@@ -169,7 +159,6 @@ class BlogIndex extends React.Component {
 
           {posts &&
            posts.map(({ node }) => {
-              console.log('node: ', node)
               const title = get(node, 'frontmatter.title') || node.fields.slug
               return (
 

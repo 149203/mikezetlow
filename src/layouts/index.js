@@ -13,7 +13,6 @@ class Template extends React.Component {
       super(props)
       this.update_responsive_layout = this.update_responsive_layout.bind(this)
       this.update_url_topic = this.update_url_topic.bind(this)
-      this.update_url_type = this.update_url_type.bind(this)
       this.toggle_url_order = this.toggle_url_order.bind(this)
       this.reset_filters = this.reset_filters.bind(this)
       this.state = {
@@ -23,11 +22,8 @@ class Template extends React.Component {
             hero_content_margin_right: `auto`,
          },
          filter: {
-            topic_is_selected: false,
-            type_is_selected: false,
             order: 'recent',
-            topic: 'all',
-            type: 'posts',
+            topic: null,
          }
       }
    }
@@ -38,7 +34,6 @@ class Template extends React.Component {
       const pic_original_width = 624
       const pic_original_height = 1080
       const hero_content_width = 799
-      //const hero_content_width = document.getElementById('hero_content').offsetWidth + hero_content_margin_right // 799
 
       // Maths
       const pic_original_aspect_ratio = _round(pic_original_width / pic_original_height, 4) // 624 / 1080 = 0.5778
@@ -90,44 +85,66 @@ class Template extends React.Component {
    }
 
    update_url_topic(e) {
-      console.log(e.currentTarget.textContent)
+      const location = this.props.location
+      const url = location.pathname.slice(1)
+      let url_topic = url.slice(url.indexOf('/') + 1)
       const filter = { ...this.state.filter }
-      filter.topic = _kebabCase(e.currentTarget.textContent)
-      this.setState({ filter })
-      this.props.history.push(`/${this.state.filter.order}/${filter.topic}-${this.state.filter.type}`)
-   }
+      const slugified_text = _kebabCase(e.currentTarget.textContent)
+      if (url_topic === slugified_text) {
+         filter.topic = null
+      }
+      else {
+         filter.topic = _kebabCase(slugified_text)
+      }
 
-   update_url_type(e) {
-      console.log(e.currentTarget.textContent)
-      const filter = { ...this.state.filter }
-      filter.type = e.currentTarget.textContent
-      this.setState({ filter })
-      this.props.history.push(`/${this.state.filter.order}/${this.state.filter.topic}-${filter.type}`)
+      this.setState({ filter }, () => { // setState is asynchronous, a callback is used to get updated state // https://stackoverflow.com/a/30783011/6305196
+         const state_filter = this.state.filter
+         if (state_filter.topic === null) this.props.history.push(`/${state_filter.order}/`)
+         else {
+            this.props.history.push(`/${state_filter.order}/${state_filter.topic}`)
+         }
+         console.log('NEW FILTER STATE: ', this.state.filter)
+      })
    }
 
    toggle_url_order(e) {
-      // TODO: CHANGE HTML TEXT ON TOGGLE
       const filter = { ...this.state.filter }
-      const text = e.currentTarget.textContent
-      if (text === 'most recent') {
-         filter.order = 'popular'
-         this.props.history.push(`/popular/${this.state.filter.topic}-${this.state.filter.type}`)
+      const selected_text = e.currentTarget.value
+      console.log('TEXT: ', selected_text)
+      const topic = this.state.filter.topic
+      if (topic !== null) {
+         const kebab_topic = _kebabCase(topic)
+         if (selected_text === 'recent') {
+            filter.order = 'recent'
+            this.props.history.push(`/recent/${kebab_topic}`)
+         }
+         else {
+            filter.order = 'popular'
+            this.props.history.push(`/popular/${kebab_topic}`)
+         }
       }
       else {
-         filter.order = 'recent'
-         this.props.history.push(`/recent/${this.state.filter.topic}-${this.state.filter.type}`)
+         console.log('topic is null')
+         if (selected_text === 'recent') {
+            filter.order = 'recent'
+            this.props.history.push(`/recent/`)
+         }
+         else {
+            filter.order = 'popular'
+            this.props.history.push(`/popular/`)
+         }
       }
-      this.setState({ filter })
+
+      this.setState({ filter }, () => {
+         console.log('NEW FILTER STATE: ', this.state.filter)
+      })
    }
 
    reset_filters(e) {
       const filter = { ...this.state.filter }
-      filter.topic_is_selected = false
-      filter.type_is_selected = false
       filter.order = 'recent'
-      filter.topic = 'all'
-      filter.type = 'posts'
-      this.setState({filter})
+      filter.topic = null
+      this.setState({ filter })
    }
 
    render() {
@@ -158,10 +175,46 @@ class Template extends React.Component {
         .tag_filter {
           color: ${global.color.blue};
           cursor: pointer;
+          position: relative;
+          top: 0;
+          padding-bottom: 0;
+          transition: top 0.3s ease, padding-bottom 0.3s ease;
+          
         }
         
         .tag_filter:hover {
-          text-decoration: underline;
+          border-bottom: dashed 1px ${global.color.blue};
+          padding-bottom: 3px;
+          top: -3px;
+        }
+        
+        select {
+          background-color: transparent;
+          padding: 0 4px 0 0;
+          border: none;
+          border-bottom: 1px solid ${global.color.blue};
+          border-radius: 0;
+          cursor: pointer;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+        }
+        
+        select:focus {
+          outline: none
+        }
+        
+        .select_wrapper {
+          position: relative;
+        }
+        
+        .select_wrapper::after {
+          content:'';
+          border-style: solid;
+          border-width: 7.8px 4.5px 0 4.5px;
+          border-color: ${global.color.blue} transparent transparent transparent;
+          position: absolute;
+          top: 9px;      
         }
         
       `
@@ -201,7 +254,13 @@ class Template extends React.Component {
              </Hello>
              <Bio>
                 <p>
-                   I’m a software developer interested in <span className='topic_filter tag_filter' onClick={(e) => this.update_url_topic(e)}>user experience</span>, <span className='topic_filter tag_filter' onClick={(e) => this.update_url_topic(e)}>how we work</span>, and <span className='topic_filter tag_filter' onClick={(e) => this.update_url_topic(e)}>other stuff</span>. Below is a collection of <span className='type_filter tag_filter' onClick={(e) => this.update_url_type(e)}>articles</span> and <span className='type_filter tag_filter' onClick={(e) => this.update_url_type(e)}>videos</span> sorted by <span className='order_filter tag_filter' onClick={(e) => {this.toggle_url_order(e)}}>most {this.state.filter.order}</span>.
+                   I’m a software developer interested in <span className='topic_filter tag_filter' onClick={(e) => this.update_url_topic(e)}>user experience</span>, <span className='topic_filter tag_filter' onClick={(e) => this.update_url_topic(e)}>how we work</span>, and <span className='topic_filter tag_filter' onClick={(e) => this.update_url_topic(e)}>other stuff</span>. The <span className='topic_filter tag_filter' onClick={(e) => this.update_url_topic(e)}>press</span> has said nice things about me. Sorted by&nbsp;
+                   <span className='select_wrapper'>
+                      <select value={this.state.filter.order} onChange={(e) => {this.toggle_url_order(e)}}>
+                         <option value='recent'>most recent</option>
+                         <option value='popular'>most popular</option>
+                      </select>
+                   </span>
                    <br/><br/>
                    You can reach me at: mike@mikezetlow.com
                 </p>
