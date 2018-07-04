@@ -5,16 +5,25 @@ import { rhythm, scale } from '../utils/typography'
 import Img from 'gatsby-image'
 import _round from 'lodash/round'
 import _kebabCase from 'lodash/kebabCase'
+import _forEach from 'lodash/forEach'
+import _filter from 'lodash/filter'
 import global from '../utils/global_style'
 
 class Template extends React.Component {
 
    constructor(props) {
       super(props)
+
+      const url = this.props.location.pathname.slice(1)
+      const url_order = url.slice(0, url.indexOf('/'))
+      const url_topic = url.slice(url.indexOf('/') + 1)
+
       this.update_responsive_layout = this.update_responsive_layout.bind(this)
       this.update_url_topic = this.update_url_topic.bind(this)
       this.toggle_url_order = this.toggle_url_order.bind(this)
       this.reset_filters = this.reset_filters.bind(this)
+      this.mouse_enter_topic = this.mouse_enter_topic.bind(this)
+      this.mouse_leave_topic = this.mouse_leave_topic.bind(this)
       this.state = {
          responsive: {
             hero_pic_display: `none`,
@@ -22,10 +31,23 @@ class Template extends React.Component {
             hero_content_margin_right: `auto`,
          },
          filter: {
-            order: 'recent',
-            topic: null,
+            order: return_url_order(url_order),
+            topic: return_url_topic(url_topic), // this-is-slugified
          }
       }
+
+      function return_url_order(url_order) {
+         if (url_order === 'popular') return 'popular'
+         else return 'recent'
+      }
+
+      function return_url_topic(url_topic) {
+         if (url_topic !== '') return url_topic
+         else return null
+      }
+
+
+
    }
 
    update_responsive_layout() {
@@ -78,6 +100,23 @@ class Template extends React.Component {
    componentDidMount() {
       window.addEventListener("resize", this.update_responsive_layout);
       this.update_responsive_layout()
+
+      const url = this.props.location.pathname.slice(1)
+      const url_topic = url.slice(url.indexOf('/') + 1)
+      const all_topics = document.getElementsByClassName('tag_filter')
+      const other_topics = _filter(all_topics, topic => {
+         return topic.innerText !== url_topic.replace(/-/g, ' ')
+      })
+      console.log('OTHER TOPICS FROM COMPONENTDIDMOUNT: ', other_topics)
+
+      if (url_topic !== '') {
+         _forEach(other_topics, topic => {
+            console.log('OTHER TOPICS FOREACH: ', topic)
+            topic.style.textDecoration = 'line-through'
+            topic.style.color = global.color.gray_light
+         })
+      }
+
    }
 
    componentWillUnmount() {
@@ -147,6 +186,45 @@ class Template extends React.Component {
       this.setState({ filter })
    }
 
+   mouse_enter_topic(e) {
+      const this_topic = e.currentTarget
+      const this_topic_text = this_topic.textContent
+      const all_topics = document.getElementsByClassName('tag_filter')
+      const other_topics = _filter(all_topics, topic => {
+         return topic.innerText !== this_topic_text
+      })
+
+      this_topic.style.textDecoration = 'underline'
+
+      if (this.state.filter.topic === _kebabCase(this_topic_text)) {
+         _forEach(other_topics, topic => {
+            topic.style.textDecoration = 'none'
+            topic.style.color = global.color.blue
+         })
+      }
+      else {
+         _forEach(other_topics, topic => {
+            topic.style.textDecoration = 'line-through'
+            topic.style.color = global.color.gray_light
+         })
+      }
+   }
+
+   mouse_leave_topic(e) {
+      const this_topic = e.currentTarget
+      const this_topic_text = this_topic.textContent
+      const all_topics = document.getElementsByClassName('tag_filter')
+      const other_topics = _filter(all_topics, topic => {
+         return topic.innerText !== this_topic_text
+      })
+
+      this_topic.style.textDecoration = 'none'
+      _forEach(other_topics, topic => {
+         topic.style.textDecoration = 'none'
+         topic.style.color = global.color.blue
+      })
+   }
+
    render() {
 
       const Home = styled.div`             
@@ -175,17 +253,6 @@ class Template extends React.Component {
         .tag_filter {
           color: ${global.color.blue};
           cursor: pointer;
-          position: relative;
-          top: 0;
-          padding-bottom: 0;
-          transition: top 0.3s ease, padding-bottom 0.3s ease;
-          
-        }
-        
-        .tag_filter:hover {
-          border-bottom: dashed 1px ${global.color.blue};
-          padding-bottom: 3px;
-          top: -3px;
         }
         
         select {
@@ -254,7 +321,31 @@ class Template extends React.Component {
              </Hello>
              <Bio>
                 <p>
-                   I’m a software developer interested in <span className='topic_filter tag_filter' onClick={(e) => this.update_url_topic(e)}>user experience</span>, <span className='topic_filter tag_filter' onClick={(e) => this.update_url_topic(e)}>how we work</span>, and <span className='topic_filter tag_filter' onClick={(e) => this.update_url_topic(e)}>other stuff</span>. The <span className='topic_filter tag_filter' onClick={(e) => this.update_url_topic(e)}>press</span> has said nice things about me. Sorted by&nbsp;
+                   I’m a software developer interested in&nbsp;
+                   <span className='tag_filter'
+                         onClick={(e) => this.update_url_topic(e)}
+                         onMouseEnter={(e) => this.mouse_enter_topic(e)}
+                         onMouseLeave={(e) => this.mouse_leave_topic(e)}
+                   >user experience</span>,&nbsp;
+
+                   <span className='tag_filter'
+                         onClick={(e) => this.update_url_topic(e)}
+                         onMouseEnter={(e) => this.mouse_enter_topic(e)}
+                         onMouseLeave={(e) => this.mouse_leave_topic(e)}
+                   >how we work</span>, and&nbsp;
+
+                   <span className='tag_filter'
+                         onClick={(e) => this.update_url_topic(e)}
+                         onMouseEnter={(e) => this.mouse_enter_topic(e)}
+                         onMouseLeave={(e) => this.mouse_leave_topic(e)}
+                   >other stuff</span>. The&nbsp;
+
+                   <span className='tag_filter'
+                         onClick={(e) => this.update_url_topic(e)}
+                         onMouseEnter={(e) => this.mouse_enter_topic(e)}
+                         onMouseLeave={(e) => this.mouse_leave_topic(e)}
+                   >press</span> has said nice things about me. Sorted by&nbsp;
+
                    <span className='select_wrapper'>
                       <select value={this.state.filter.order} onChange={(e) => {this.toggle_url_order(e)}}>
                          <option value='recent'>most recent</option>
