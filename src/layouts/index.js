@@ -7,7 +7,28 @@ import _round from 'lodash/round'
 import _kebabCase from 'lodash/kebabCase'
 import _forEach from 'lodash/forEach'
 import _filter from 'lodash/filter'
+import _merge from 'lodash/merge'
 import global from '../utils/global_style'
+
+const tag_ui = {
+   available: {
+      color: global.color.blue,
+      textDecoration: `none`
+   },
+   unavailable: {
+      color: global.color.gray_light,
+      textDecoration: `line-through`
+   },
+   hovered: {
+      color: global.color.blue,
+      textDecoration: `underline`
+   }
+}
+const topics_array = ['user-experience', 'how-we-work', 'other-stuff', 'press']
+const hero_content_margin_right = 30
+const pic_original_width = 624
+const pic_original_height = 1080
+const hero_content_width = 799
 
 class Template extends React.Component {
 
@@ -22,8 +43,9 @@ class Template extends React.Component {
       this.update_url_topic = this.update_url_topic.bind(this)
       this.toggle_url_order = this.toggle_url_order.bind(this)
       this.reset_filters = this.reset_filters.bind(this)
-      this.mouse_enter_topic = this.mouse_enter_topic.bind(this)
-      this.mouse_leave_topic = this.mouse_leave_topic.bind(this)
+      this.set_tag_style = this.set_tag_style.bind(this)
+      this.mouse_enter_style = this.mouse_enter_style.bind(this)
+      this.mouse_leave_style = this.mouse_leave_style.bind(this)
       this.state = {
          responsive: {
             hero_pic_display: `none`,
@@ -33,6 +55,7 @@ class Template extends React.Component {
          filter: {
             order: return_url_order(url_order),
             topic: return_url_topic(url_topic), // this-is-slugified
+            hovered: null,
          }
       }
 
@@ -46,18 +69,10 @@ class Template extends React.Component {
          else return null
       }
 
-
-
    }
 
    update_responsive_layout() {
-      // Magic numbers
-      const hero_content_margin_right = 30
-      const pic_original_width = 624
-      const pic_original_height = 1080
-      const hero_content_width = 799
 
-      // Maths
       const pic_original_aspect_ratio = _round(pic_original_width / pic_original_height, 4) // 624 / 1080 = 0.5778
       const screen_width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
       const screen_height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
@@ -100,23 +115,6 @@ class Template extends React.Component {
    componentDidMount() {
       window.addEventListener("resize", this.update_responsive_layout);
       this.update_responsive_layout()
-
-      const url = this.props.location.pathname.slice(1)
-      const url_topic = url.slice(url.indexOf('/') + 1)
-      const all_topics = document.getElementsByClassName('tag_filter')
-      const other_topics = _filter(all_topics, topic => {
-         return topic.innerText !== url_topic.replace(/-/g, ' ')
-      })
-      console.log('OTHER TOPICS FROM COMPONENTDIDMOUNT: ', other_topics)
-
-      if (url_topic !== '') {
-         _forEach(other_topics, topic => {
-            console.log('OTHER TOPICS FOREACH: ', topic)
-            topic.style.textDecoration = 'line-through'
-            topic.style.color = global.color.gray_light
-         })
-      }
-
    }
 
    componentWillUnmount() {
@@ -186,42 +184,102 @@ class Template extends React.Component {
       this.setState({ filter })
    }
 
-   mouse_enter_topic(e) {
-      const this_topic = e.currentTarget
-      const this_topic_text = this_topic.textContent
-      const all_topics = document.getElementsByClassName('tag_filter')
-      const other_topics = _filter(all_topics, topic => {
-         return topic.innerText !== this_topic_text
-      })
-
-      this_topic.style.textDecoration = 'underline'
-
-      if (this.state.filter.topic === _kebabCase(this_topic_text)) {
-         _forEach(other_topics, topic => {
-            topic.style.textDecoration = 'none'
-            topic.style.color = global.color.blue
-         })
+   set_tag_style(this_topic) {
+      // return an object for style
+      if (this.state.filter.topic) {
+         if (this_topic === this.state.filter.topic) return tag_ui.available
+         else return tag_ui.unavailable
       }
-      else {
-         _forEach(other_topics, topic => {
-            topic.style.textDecoration = 'line-through'
-            topic.style.color = global.color.gray_light
-         })
-      }
+      else return tag_ui.available
    }
 
-   mouse_leave_topic(e) {
-      const this_topic = e.currentTarget
-      const this_topic_text = this_topic.textContent
-      const all_topics = document.getElementsByClassName('tag_filter')
-      const other_topics = _filter(all_topics, topic => {
-         return topic.innerText !== this_topic_text
-      })
+   mouse_enter_style(this_topic) {
+      const filter = { ...this.state.filter }
+      filter.hovered = this_topic
 
-      this_topic.style.textDecoration = 'none'
-      _forEach(other_topics, topic => {
-         topic.style.textDecoration = 'none'
-         topic.style.color = global.color.blue
+      this.setState({ filter }, () => { // after setting the state, do this stuff
+         const state_topic = this.state.filter.topic
+         const hover_topic = this.state.filter.hovered
+         const topic_style = document.getElementById(this_topic).style
+         const other_topics = _filter(topics_array, topic => {
+            return topic !== this_topic
+         })
+
+         if (state_topic) { // there is a topic in the url
+            if (this_topic === state_topic) {
+               _merge(topic_style, tag_ui.hovered)
+               /*topic_style.color = tag_ui.hovered.color
+               topic_style.textDecoration = tag_ui.hovered.textDecoration*/
+               _forEach(other_topics, topic => {
+                  _merge(document.getElementById(topic).style, tag_ui.available)
+                  /*const topic_style = document.getElementById(topic).style
+                  topic_style.color = tag_ui.available.color
+                  topic_style.textDecoration = tag_ui.available.textDecoration*/
+               })
+            }
+            else {
+               topic_style.color = tag_ui.hovered.color
+               topic_style.textDecoration = tag_ui.hovered.textDecoration
+               _forEach(other_topics, topic => {
+                  const topic_style = document.getElementById(topic).style
+                  topic_style.color = tag_ui.unavailable.color
+                  topic_style.textDecoration = tag_ui.unavailable.textDecoration
+               })
+            }
+         }
+         else { // there is no topic in the url
+            _forEach(topics_array, topic => {
+               const topic_style = document.getElementById(topic).style
+               topic_style.color = tag_ui.available.color
+               topic_style.textDecoration = tag_ui.available.textDecoration
+            })
+            if (this_topic === hover_topic) {
+               topic_style.color = tag_ui.hovered.color
+               topic_style.textDecoration = tag_ui.hovered.textDecoration
+               _forEach(other_topics, topic => {
+                  const topic_style = document.getElementById(topic).style
+                  topic_style.color = tag_ui.unavailable.color
+                  topic_style.textDecoration = tag_ui.unavailable.textDecoration
+               })
+            }
+         }
+      })
+   }
+
+   mouse_leave_style(this_topic) {
+      const filter = { ...this.state.filter }
+      filter.hovered = null
+
+      this.setState({ filter }, () => { // after setting the state, do this stuff
+         const state_topic = this.state.filter.topic
+         const topic_style = document.getElementById(this_topic).style
+         const other_topics = _filter(topics_array, topic => {
+            return topic !== this_topic
+         })
+         const all_but_state_topic = _filter(topics_array, topic => {
+            return topic !== state_topic
+         })
+         if (state_topic) { // there is a topic in the url
+            if (this_topic === state_topic) {
+               topic_style.color = tag_ui.available.color
+               topic_style.textDecoration = tag_ui.available.textDecoration
+               _forEach(other_topics, topic => {
+                  const topic_style = document.getElementById(topic).style
+                  topic_style.color = tag_ui.unavailable.color
+                  topic_style.textDecoration = tag_ui.unavailable.textDecoration
+               })
+            }
+            else {
+               const state_topic_style = document.getElementById(state_topic).style
+               state_topic_style.color = tag_ui.available.color
+               state_topic_style.textDecoration = tag_ui.available.textDecoration
+               _forEach(all_but_state_topic, topic => {
+                  const topic_style = document.getElementById(topic).style
+                  topic_style.color = tag_ui.unavailable.color
+                  topic_style.textDecoration = tag_ui.unavailable.textDecoration
+               })
+            }
+         }
       })
    }
 
@@ -323,27 +381,35 @@ class Template extends React.Component {
                 <p>
                    I’m a software developer interested in&nbsp;
                    <span className='tag_filter'
+                         id='user-experience'
+                         style={this.set_tag_style('user-experience')}
                          onClick={(e) => this.update_url_topic(e)}
-                         onMouseEnter={(e) => this.mouse_enter_topic(e)}
-                         onMouseLeave={(e) => this.mouse_leave_topic(e)}
+                         onMouseEnter={() => this.mouse_enter_style('user-experience')}
+                         onMouseLeave={() => this.mouse_leave_style('user-experience')}
                    >user experience</span>,&nbsp;
 
                    <span className='tag_filter'
+                         id='how-we-work'
+                         style={this.set_tag_style('how-we-work')}
                          onClick={(e) => this.update_url_topic(e)}
-                         onMouseEnter={(e) => this.mouse_enter_topic(e)}
-                         onMouseLeave={(e) => this.mouse_leave_topic(e)}
+                         onMouseEnter={() => this.mouse_enter_style('how-we-work')}
+                         onMouseLeave={() => this.mouse_leave_style('how-we-work')}
                    >how we work</span>, and&nbsp;
 
                    <span className='tag_filter'
+                         id='other-stuff'
+                         style={this.set_tag_style('other-stuff')}
                          onClick={(e) => this.update_url_topic(e)}
-                         onMouseEnter={(e) => this.mouse_enter_topic(e)}
-                         onMouseLeave={(e) => this.mouse_leave_topic(e)}
+                         onMouseEnter={() => this.mouse_enter_style('other-stuff')}
+                         onMouseLeave={() => this.mouse_leave_style('other-stuff')}
                    >other stuff</span>. The&nbsp;
 
                    <span className='tag_filter'
+                         id='press'
+                         style={this.set_tag_style('press')}
                          onClick={(e) => this.update_url_topic(e)}
-                         onMouseEnter={(e) => this.mouse_enter_topic(e)}
-                         onMouseLeave={(e) => this.mouse_leave_topic(e)}
+                         onMouseEnter={() => this.mouse_enter_style('press')}
+                         onMouseLeave={() => this.mouse_leave_style('press')}
                    >press</span> has said nice things about me. Sorted by&nbsp;
 
                    <span className='select_wrapper'>

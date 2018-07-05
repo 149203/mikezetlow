@@ -36,8 +36,7 @@ const global = {
       md_and_down: `@media (max-width: 959px)`,
       lg_and_down: `@media (max-width: 1199px)`,
       xl_and_down: `@media (max-width: 1439px)`,
-   }
-
+   },
 }
 
 
