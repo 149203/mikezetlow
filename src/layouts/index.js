@@ -208,38 +208,25 @@ class Template extends React.Component {
          if (state_topic) { // there is a topic in the url
             if (this_topic === state_topic) {
                _merge(topic_style, tag_ui.hovered)
-               /*topic_style.color = tag_ui.hovered.color
-               topic_style.textDecoration = tag_ui.hovered.textDecoration*/
                _forEach(other_topics, topic => {
                   _merge(document.getElementById(topic).style, tag_ui.available)
-                  /*const topic_style = document.getElementById(topic).style
-                  topic_style.color = tag_ui.available.color
-                  topic_style.textDecoration = tag_ui.available.textDecoration*/
                })
             }
             else {
-               topic_style.color = tag_ui.hovered.color
-               topic_style.textDecoration = tag_ui.hovered.textDecoration
+               _merge(topic_style, tag_ui.hovered)
                _forEach(other_topics, topic => {
-                  const topic_style = document.getElementById(topic).style
-                  topic_style.color = tag_ui.unavailable.color
-                  topic_style.textDecoration = tag_ui.unavailable.textDecoration
+                  _merge(document.getElementById(topic).style, tag_ui.unavailable)
                })
             }
          }
          else { // there is no topic in the url
             _forEach(topics_array, topic => {
-               const topic_style = document.getElementById(topic).style
-               topic_style.color = tag_ui.available.color
-               topic_style.textDecoration = tag_ui.available.textDecoration
+               _merge(document.getElementById(topic).style, tag_ui.available)
             })
             if (this_topic === hover_topic) {
-               topic_style.color = tag_ui.hovered.color
-               topic_style.textDecoration = tag_ui.hovered.textDecoration
+               _merge(topic_style, tag_ui.hovered)
                _forEach(other_topics, topic => {
-                  const topic_style = document.getElementById(topic).style
-                  topic_style.color = tag_ui.unavailable.color
-                  topic_style.textDecoration = tag_ui.unavailable.textDecoration
+                  _merge(document.getElementById(topic).style, tag_ui.unavailable)
                })
             }
          }
@@ -261,22 +248,15 @@ class Template extends React.Component {
          })
          if (state_topic) { // there is a topic in the url
             if (this_topic === state_topic) {
-               topic_style.color = tag_ui.available.color
-               topic_style.textDecoration = tag_ui.available.textDecoration
+               _merge(topic_style, tag_ui.available)
                _forEach(other_topics, topic => {
-                  const topic_style = document.getElementById(topic).style
-                  topic_style.color = tag_ui.unavailable.color
-                  topic_style.textDecoration = tag_ui.unavailable.textDecoration
+                  _merge(document.getElementById(topic).style, tag_ui.unavailable)
                })
             }
             else {
-               const state_topic_style = document.getElementById(state_topic).style
-               state_topic_style.color = tag_ui.available.color
-               state_topic_style.textDecoration = tag_ui.available.textDecoration
+               _merge(document.getElementById(state_topic).style, tag_ui.available)
                _forEach(all_but_state_topic, topic => {
-                  const topic_style = document.getElementById(topic).style
-                  topic_style.color = tag_ui.unavailable.color
-                  topic_style.textDecoration = tag_ui.unavailable.textDecoration
+                  _merge(document.getElementById(topic).style, tag_ui.unavailable)
                })
             }
          }
@@ -353,7 +333,7 @@ class Template extends React.Component {
       if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
          rootPath = __PATH_PREFIX__ + `/`
       }
-      console.log('location.pathname: ', location.pathname)
+      //console.log('location.pathname: ', location.pathname)
 
       if (location.pathname === rootPath
           || /\/recent\//.test(location.pathname)

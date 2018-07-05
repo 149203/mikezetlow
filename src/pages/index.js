@@ -125,7 +125,7 @@ class BlogIndex extends React.Component {
    render() {
       const siteTitle = get(this, 'props.data.site.siteMetadata.title')
       let posts = get(this, 'props.data.allMarkdownRemark.edges')
-      console.log('posts: ', posts)
+      //console.log('posts: ', posts)
       const location = this.props.location
 
       filter_posts_by_url(location)
@@ -135,7 +135,7 @@ class BlogIndex extends React.Component {
          const url = location.pathname.slice(1)
          const url_order = url.slice(0, url.lastIndexOf('/')) // a single word, either 'recent' or 'popular'
          let url_topic = new RegExp(url.slice(url.indexOf('/') + 1).replace(/-/g, ' '))
-         console.log({url, url_order, url_topic})
+         //console.log({url, url_order, url_topic})
 
          if (url_topic) url_topic = new RegExp(url_topic)
          else url_topic = /.*/
