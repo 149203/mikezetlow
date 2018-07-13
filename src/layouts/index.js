@@ -7,24 +7,15 @@ import _round from 'lodash/round'
 import _kebabCase from 'lodash/kebabCase'
 import _forEach from 'lodash/forEach'
 import _filter from 'lodash/filter'
-import _merge from 'lodash/merge'
 import global from '../utils/global_style'
 
-const tag_ui = {
-   available: {
-      color: global.color.blue,
-      textDecoration: `none`
-   },
-   unavailable: {
-      color: global.color.gray_light,
-      textDecoration: `line-through`
-   },
-   hovered: {
-      color: global.color.blue,
-      textDecoration: `underline`
-   }
-}
-const topics_array = ['user-experience', 'how-we-work', 'other-stuff', 'press']
+const tag_available_color = global.color.blue
+const tag_available_textDecoration = 'none'
+const tag_unavailable_color = global.color.gray_light
+const tag_unavailable_textDecoration = 'line-through'
+const tag_hovered_color = global.color.blue
+const tag_hovered_textDecoration = 'underline'
+const topics_array = [ 'user-experience', 'how-we-work', 'other-stuff', 'press' ]
 const hero_content_margin_right = 30
 const pic_original_width = 624
 const pic_original_height = 1080
@@ -40,12 +31,14 @@ class Template extends React.Component {
       const url_topic = url.slice(url.indexOf('/') + 1)
 
       this.update_responsive_layout = this.update_responsive_layout.bind(this)
+      this.update_state_from_url = this.update_state_from_url.bind(this)
       this.update_url_topic = this.update_url_topic.bind(this)
       this.toggle_url_order = this.toggle_url_order.bind(this)
       this.reset_filters = this.reset_filters.bind(this)
       this.set_tag_style = this.set_tag_style.bind(this)
       this.mouse_enter_style = this.mouse_enter_style.bind(this)
       this.mouse_leave_style = this.mouse_leave_style.bind(this)
+      console.log(this.props.history, this.props.location, this.props.match)
       this.state = {
          responsive: {
             hero_pic_display: `none`,
@@ -115,10 +108,24 @@ class Template extends React.Component {
    componentDidMount() {
       window.addEventListener("resize", this.update_responsive_layout);
       this.update_responsive_layout()
+
+
+      this.set_tag_style(this.update_state_from_url().topic)
    }
 
    componentWillUnmount() {
       window.removeEventListener("resize", this.update_responsive_layout);
+   }
+
+   update_state_from_url() {
+      const location = this.props.location
+      const url = location.pathname.slice(1)
+      let url_topic = url.slice(url.indexOf('/') + 1)
+      const filter = { ...this.state.filter }
+      filter.topic = url_topic
+      this.setState({filter})
+
+      return filter
    }
 
    update_url_topic(e) {
@@ -141,6 +148,7 @@ class Template extends React.Component {
             this.props.history.push(`/${state_filter.order}/${state_filter.topic}`)
          }
          console.log('NEW FILTER STATE: ', this.state.filter)
+         console.log('NEW PATHNAME: ', this.props.history.location.pathname)
       })
    }
 
@@ -177,20 +185,37 @@ class Template extends React.Component {
       })
    }
 
-   reset_filters(e) {
+   reset_filters() {
       const filter = { ...this.state.filter }
       filter.order = 'recent'
       filter.topic = null
-      this.setState({ filter })
+      this.setState({ filter }, () => {
+         console.log('NEW PATHNAME: ', this.props.history.location.pathname)
+      })
    }
 
    set_tag_style(this_topic) {
+
+      // get topic from url
+      const location = this.props.location
+      const url = location.pathname.slice(1)
+      let url_topic = url.slice(url.indexOf('/') + 1)
+
       // return an object for style
-      if (this.state.filter.topic) {
-         if (this_topic === this.state.filter.topic) return tag_ui.available
-         else return tag_ui.unavailable
+      if (url_topic !== '') {
+         if (this_topic === url_topic) return {
+            color: tag_available_color,
+            textDecoration: tag_available_textDecoration
+         }
+         else return {
+            color: tag_unavailable_color,
+            textDecoration: tag_unavailable_textDecoration
+         }
       }
-      else return tag_ui.available
+      else return {
+         color: tag_available_color,
+         textDecoration: tag_available_textDecoration
+      }
    }
 
    mouse_enter_style(this_topic) {
@@ -207,26 +232,37 @@ class Template extends React.Component {
 
          if (state_topic) { // there is a topic in the url
             if (this_topic === state_topic) {
-               _merge(topic_style, tag_ui.hovered)
+               topic_style.color = tag_hovered_color
+               topic_style.textDecoration = tag_hovered_textDecoration
                _forEach(other_topics, topic => {
-                  _merge(document.getElementById(topic).style, tag_ui.available)
+                  const other_topic_style = document.getElementById(topic).style
+                  other_topic_style.color = tag_available_color
+                  other_topic_style.textDecoration = tag_available_textDecoration
                })
             }
             else {
-               _merge(topic_style, tag_ui.hovered)
+               topic_style.color = tag_hovered_color
+               topic_style.textDecoration = tag_hovered_textDecoration
                _forEach(other_topics, topic => {
-                  _merge(document.getElementById(topic).style, tag_ui.unavailable)
+                  const other_topic_style = document.getElementById(topic).style
+                  other_topic_style.color = tag_unavailable_color
+                  other_topic_style.textDecoration = tag_unavailable_textDecoration
                })
             }
          }
          else { // there is no topic in the url
             _forEach(topics_array, topic => {
-               _merge(document.getElementById(topic).style, tag_ui.available)
+               const topic_style = document.getElementById(topic).style
+               topic_style.color = tag_available_color
+               topic_style.textDecoration = tag_available_textDecoration
             })
             if (this_topic === hover_topic) {
-               _merge(topic_style, tag_ui.hovered)
+               topic_style.color = tag_hovered_color
+               topic_style.textDecoration = tag_hovered_textDecoration
                _forEach(other_topics, topic => {
-                  _merge(document.getElementById(topic).style, tag_ui.unavailable)
+                  const other_topic_style = document.getElementById(topic).style
+                  other_topic_style.color = tag_unavailable_color
+                  other_topic_style.textDecoration = tag_unavailable_textDecoration
                })
             }
          }
@@ -248,15 +284,22 @@ class Template extends React.Component {
          })
          if (state_topic) { // there is a topic in the url
             if (this_topic === state_topic) {
-               _merge(topic_style, tag_ui.available)
+               topic_style.color = tag_available_color
+               topic_style.textDecoration = tag_available_textDecoration
                _forEach(other_topics, topic => {
-                  _merge(document.getElementById(topic).style, tag_ui.unavailable)
+                  const other_topic_style = document.getElementById(topic).style
+                  other_topic_style.color = tag_unavailable_color
+                  other_topic_style.textDecoration = tag_unavailable_textDecoration
                })
             }
             else {
-               _merge(document.getElementById(state_topic).style, tag_ui.available)
+               const state_topic_style = document.getElementById(state_topic).style
+               state_topic_style.color = tag_available_color
+               state_topic_style.textDecoration = tag_available_textDecoration
                _forEach(all_but_state_topic, topic => {
-                  _merge(document.getElementById(topic).style, tag_ui.unavailable)
+                  const other_topic_style = document.getElementById(topic).style
+                  other_topic_style.color = tag_unavailable_color
+                  other_topic_style.textDecoration = tag_unavailable_textDecoration
                })
             }
          }
@@ -264,6 +307,7 @@ class Template extends React.Component {
    }
 
    render() {
+      console.log('HISTORY', this.props.history.location.pathname)
 
       const Home = styled.div`             
         a {
@@ -422,6 +466,7 @@ class Template extends React.Component {
                  color: 'inherit',
                  fontWeight: '700',
               }}
+              onClick={(e) => {this.reset_filters(e)}}
               to={'/'}
              >
                 <Home>
