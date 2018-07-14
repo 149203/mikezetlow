@@ -31,14 +31,12 @@ class Template extends React.Component {
       const url_topic = url.slice(url.indexOf('/') + 1)
 
       this.update_responsive_layout = this.update_responsive_layout.bind(this)
-      this.update_state_from_url = this.update_state_from_url.bind(this)
+      this.url = this.url.bind(this)
       this.update_url_topic = this.update_url_topic.bind(this)
       this.toggle_url_order = this.toggle_url_order.bind(this)
-      this.reset_filters = this.reset_filters.bind(this)
       this.set_tag_style = this.set_tag_style.bind(this)
       this.mouse_enter_style = this.mouse_enter_style.bind(this)
       this.mouse_leave_style = this.mouse_leave_style.bind(this)
-      console.log(this.props.history, this.props.location, this.props.match)
       this.state = {
          responsive: {
             hero_pic_display: `none`,
@@ -108,88 +106,56 @@ class Template extends React.Component {
    componentDidMount() {
       window.addEventListener("resize", this.update_responsive_layout);
       this.update_responsive_layout()
-
-
-      this.set_tag_style(this.update_state_from_url().topic)
+      this.set_tag_style(this.url().topic)
    }
 
    componentWillUnmount() {
       window.removeEventListener("resize", this.update_responsive_layout);
    }
 
-   update_state_from_url() {
-      const location = this.props.location
-      const url = location.pathname.slice(1)
-      let url_topic = url.slice(url.indexOf('/') + 1)
-      const filter = { ...this.state.filter }
-      filter.topic = url_topic
-      this.setState({filter})
-
-      return filter
+   url() {
+      const url = this.props.location.pathname.slice(1)
+      const topic = url.slice(url.indexOf('/') + 1)
+      const order = url.slice(0, url.indexOf('/'))
+      return {order, topic}
    }
 
    update_url_topic(selected_topic) {
-      const location = this.props.location
-      const url = location.pathname.slice(1)
-      let url_topic = url.slice(url.indexOf('/') + 1)
-      let url_order = url.slice(0, url.indexOf('/'))
-      if (url_order === "") {url_order = "recent"}
-
-      if (url_topic === selected_topic) {
-         this.props.history.push(`/${url_order}/`)
+      let {order, topic} = this.url()
+      if (order === "") {order = "recent"}
+      if (topic === selected_topic) {
+         this.props.history.push(`/${order}/`)
       }
       else {
-         this.props.history.push(`/${url_order}/${selected_topic}`)
+         this.props.history.push(`/${order}/${selected_topic}`)
       }
-
    }
 
    toggle_url_order(e) {
-      const filter = { ...this.state.filter }
       const selected_text = e.currentTarget.value
-      console.log('TEXT: ', selected_text)
-      const location = this.props.location
-      const url = location.pathname.slice(1)
-      let url_topic = url.slice(url.indexOf('/') + 1)
-      if (url_topic !== "") {
+      const topic = this.url().topic
+      if (topic !== "") {
          if (selected_text === 'recent') {
-            this.props.history.push(`/recent/${url_topic}`)
+            this.props.history.push(`/recent/${topic}`)
          }
          else {
-            this.props.history.push(`/popular/${url_topic}`)
+            this.props.history.push(`/popular/${topic}`)
          }
       }
       else {
          if (selected_text === 'recent') {
-            filter.order = 'recent'
             this.props.history.push(`/recent/`)
          }
          else {
-            filter.order = 'popular'
             this.props.history.push(`/popular/`)
          }
       }
    }
 
-   reset_filters() {
-      const filter = { ...this.state.filter }
-      filter.order = 'recent'
-      filter.topic = null
-      this.setState({ filter }, () => {
-         console.log('NEW PATHNAME: ', this.props.history.location.pathname)
-      })
-   }
-
    set_tag_style(this_topic) {
-
-      // get topic from url
-      const location = this.props.location
-      const url = location.pathname.slice(1)
-      let url_topic = url.slice(url.indexOf('/') + 1)
-
-      // return an object for style
-      if (url_topic !== '') {
-         if (this_topic === url_topic) return {
+      const topic = this.url().topic
+      if (topic !== '') {
+         if (this_topic === topic) return {
             color: tag_available_color,
             textDecoration: tag_available_textDecoration
          }
@@ -354,7 +320,7 @@ class Template extends React.Component {
         
       `
 
-      const { location, children } = this.props
+      const { location, children, history } = this.props
       const pathname = location.pathname
       const url_order = pathname.slice(1, pathname.lastIndexOf('/'))
       console.log(this.props.history)
@@ -384,7 +350,7 @@ class Template extends React.Component {
                     cursor: 'pointer',
                  }}
                  to={'/'}
-                 onClick={(e) => {this.reset_filters(e)}}
+                 onClick={() => {history.push(`/`)}}
                 >
                    Hi, I'm Mike Zetlow.
                 </Link>
@@ -455,7 +421,7 @@ class Template extends React.Component {
                  color: 'inherit',
                  fontWeight: '700',
               }}
-              onClick={(e) => {this.reset_filters(e)}}
+              onClick={() => {history.push(`/`)}}
               to={'/'}
              >
                 <Home>
