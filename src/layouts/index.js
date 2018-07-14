@@ -128,48 +128,38 @@ class Template extends React.Component {
       return filter
    }
 
-   update_url_topic(e) {
+   update_url_topic(selected_topic) {
       const location = this.props.location
       const url = location.pathname.slice(1)
       let url_topic = url.slice(url.indexOf('/') + 1)
-      const filter = { ...this.state.filter }
-      const slugified_text = _kebabCase(e.currentTarget.textContent)
-      if (url_topic === slugified_text) {
-         filter.topic = null
+      let url_order = url.slice(0, url.indexOf('/'))
+      if (url_order === "") {url_order = "recent"}
+
+      if (url_topic === selected_topic) {
+         this.props.history.push(`/${url_order}/`)
       }
       else {
-         filter.topic = _kebabCase(slugified_text)
+         this.props.history.push(`/${url_order}/${selected_topic}`)
       }
 
-      this.setState({ filter }, () => { // setState is asynchronous, a callback is used to get updated state // https://stackoverflow.com/a/30783011/6305196
-         const state_filter = this.state.filter
-         if (state_filter.topic === null) this.props.history.push(`/${state_filter.order}/`)
-         else {
-            this.props.history.push(`/${state_filter.order}/${state_filter.topic}`)
-         }
-         console.log('NEW FILTER STATE: ', this.state.filter)
-         console.log('NEW PATHNAME: ', this.props.history.location.pathname)
-      })
    }
 
    toggle_url_order(e) {
       const filter = { ...this.state.filter }
       const selected_text = e.currentTarget.value
       console.log('TEXT: ', selected_text)
-      const topic = this.state.filter.topic
-      if (topic !== null) {
-         const kebab_topic = _kebabCase(topic)
+      const location = this.props.location
+      const url = location.pathname.slice(1)
+      let url_topic = url.slice(url.indexOf('/') + 1)
+      if (url_topic !== "") {
          if (selected_text === 'recent') {
-            filter.order = 'recent'
-            this.props.history.push(`/recent/${kebab_topic}`)
+            this.props.history.push(`/recent/${url_topic}`)
          }
          else {
-            filter.order = 'popular'
-            this.props.history.push(`/popular/${kebab_topic}`)
+            this.props.history.push(`/popular/${url_topic}`)
          }
       }
       else {
-         console.log('topic is null')
          if (selected_text === 'recent') {
             filter.order = 'recent'
             this.props.history.push(`/recent/`)
@@ -179,10 +169,6 @@ class Template extends React.Component {
             this.props.history.push(`/popular/`)
          }
       }
-
-      this.setState({ filter }, () => {
-         console.log('NEW FILTER STATE: ', this.state.filter)
-      })
    }
 
    reset_filters() {
@@ -369,6 +355,9 @@ class Template extends React.Component {
       `
 
       const { location, children } = this.props
+      const pathname = location.pathname
+      const url_order = pathname.slice(1, pathname.lastIndexOf('/'))
+      console.log(this.props.history)
       let header
       let profile_pic_opacity = `1`
       let profile_pic_blur = `inherit`
@@ -407,7 +396,7 @@ class Template extends React.Component {
                    <span className='tag_filter'
                          id='user-experience'
                          style={this.set_tag_style('user-experience')}
-                         onClick={(e) => this.update_url_topic(e)}
+                         onClick={() => this.update_url_topic('user-experience')}
                          onMouseEnter={() => this.mouse_enter_style('user-experience')}
                          onMouseLeave={() => this.mouse_leave_style('user-experience')}
                    >user experience</span>,&nbsp;
@@ -415,7 +404,7 @@ class Template extends React.Component {
                    <span className='tag_filter'
                          id='how-we-work'
                          style={this.set_tag_style('how-we-work')}
-                         onClick={(e) => this.update_url_topic(e)}
+                         onClick={() => this.update_url_topic('how-we-work')}
                          onMouseEnter={() => this.mouse_enter_style('how-we-work')}
                          onMouseLeave={() => this.mouse_leave_style('how-we-work')}
                    >how we work</span>, and&nbsp;
@@ -423,7 +412,7 @@ class Template extends React.Component {
                    <span className='tag_filter'
                          id='other-stuff'
                          style={this.set_tag_style('other-stuff')}
-                         onClick={(e) => this.update_url_topic(e)}
+                         onClick={() => this.update_url_topic('other-stuff')}
                          onMouseEnter={() => this.mouse_enter_style('other-stuff')}
                          onMouseLeave={() => this.mouse_leave_style('other-stuff')}
                    >other stuff</span>. The&nbsp;
@@ -431,13 +420,13 @@ class Template extends React.Component {
                    <span className='tag_filter'
                          id='press'
                          style={this.set_tag_style('press')}
-                         onClick={(e) => this.update_url_topic(e)}
+                         onClick={() => this.update_url_topic('press')}
                          onMouseEnter={() => this.mouse_enter_style('press')}
                          onMouseLeave={() => this.mouse_leave_style('press')}
                    >press</span> has said nice things about me. Sorted by&nbsp;
 
                    <span className='select_wrapper'>
-                      <select value={this.state.filter.order} onChange={(e) => {this.toggle_url_order(e)}}>
+                      <select value={url_order} onChange={(e) => {this.toggle_url_order(e)}}>
                          <option value='recent'>most recent</option>
                          <option value='popular'>most popular</option>
                       </select>
