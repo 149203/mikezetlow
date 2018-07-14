@@ -117,11 +117,11 @@ class Template extends React.Component {
       const url = this.props.location.pathname.slice(1)
       const topic = url.slice(url.indexOf('/') + 1)
       const order = url.slice(0, url.indexOf('/'))
-      return {order, topic}
+      return { order, topic }
    }
 
    update_url_topic(selected_topic) {
-      let {order, topic} = this.url()
+      let { order, topic } = this.url()
       if (order === "") {order = "recent"}
       if (topic === selected_topic) {
          this.props.history.push(`/${order}/`)
@@ -171,54 +171,46 @@ class Template extends React.Component {
    }
 
    mouse_enter_style(this_topic) {
-      const filter = { ...this.state.filter }
-      filter.hovered = this_topic
-
-      this.setState({ filter }, () => { // after setting the state, do this stuff
-         const state_topic = this.state.filter.topic
-         const hover_topic = this.state.filter.hovered
-         const topic_style = document.getElementById(this_topic).style
-         const other_topics = _filter(topics_array, topic => {
-            return topic !== this_topic
-         })
-
-         if (state_topic) { // there is a topic in the url
-            if (this_topic === state_topic) {
-               topic_style.color = tag_hovered_color
-               topic_style.textDecoration = tag_hovered_textDecoration
-               _forEach(other_topics, topic => {
-                  const other_topic_style = document.getElementById(topic).style
-                  other_topic_style.color = tag_available_color
-                  other_topic_style.textDecoration = tag_available_textDecoration
-               })
-            }
-            else {
-               topic_style.color = tag_hovered_color
-               topic_style.textDecoration = tag_hovered_textDecoration
-               _forEach(other_topics, topic => {
-                  const other_topic_style = document.getElementById(topic).style
-                  other_topic_style.color = tag_unavailable_color
-                  other_topic_style.textDecoration = tag_unavailable_textDecoration
-               })
-            }
-         }
-         else { // there is no topic in the url
-            _forEach(topics_array, topic => {
-               const topic_style = document.getElementById(topic).style
-               topic_style.color = tag_available_color
-               topic_style.textDecoration = tag_available_textDecoration
-            })
-            if (this_topic === hover_topic) {
-               topic_style.color = tag_hovered_color
-               topic_style.textDecoration = tag_hovered_textDecoration
-               _forEach(other_topics, topic => {
-                  const other_topic_style = document.getElementById(topic).style
-                  other_topic_style.color = tag_unavailable_color
-                  other_topic_style.textDecoration = tag_unavailable_textDecoration
-               })
-            }
-         }
+      const topic_style = document.getElementById(this_topic).style
+      const other_topics = _filter(topics_array, topic => {
+         return topic !== this_topic
       })
+      const state_topic = this.url().topic
+
+      if (state_topic) { // there is a topic in the url
+         if (this_topic === state_topic) {
+            topic_style.color = tag_hovered_color
+            topic_style.textDecoration = tag_hovered_textDecoration
+            _forEach(other_topics, topic => {
+               const other_topic_style = document.getElementById(topic).style
+               other_topic_style.color = tag_available_color
+               other_topic_style.textDecoration = tag_available_textDecoration
+            })
+         }
+         else {
+            topic_style.color = tag_hovered_color
+            topic_style.textDecoration = tag_hovered_textDecoration
+            _forEach(other_topics, topic => {
+               const other_topic_style = document.getElementById(topic).style
+               other_topic_style.color = tag_unavailable_color
+               other_topic_style.textDecoration = tag_unavailable_textDecoration
+            })
+         }
+      }
+      else { // there is no topic in the url
+         _forEach(topics_array, topic => {
+            const topic_style = document.getElementById(topic).style
+            topic_style.color = tag_available_color
+            topic_style.textDecoration = tag_available_textDecoration
+         })
+         topic_style.color = tag_hovered_color
+         topic_style.textDecoration = tag_hovered_textDecoration
+         _forEach(other_topics, topic => {
+            const other_topic_style = document.getElementById(topic).style
+            other_topic_style.color = tag_unavailable_color
+            other_topic_style.textDecoration = tag_unavailable_textDecoration
+         })
+      }
    }
 
    mouse_leave_style(this_topic) {
@@ -259,7 +251,6 @@ class Template extends React.Component {
    }
 
    render() {
-      console.log('HISTORY', this.props.history.location.pathname)
 
       const Home = styled.div`             
         a {
@@ -323,7 +314,6 @@ class Template extends React.Component {
       const { location, children, history } = this.props
       const pathname = location.pathname
       const url_order = pathname.slice(1, pathname.lastIndexOf('/'))
-      console.log(this.props.history)
       let header
       let profile_pic_opacity = `1`
       let profile_pic_blur = `inherit`
@@ -332,7 +322,6 @@ class Template extends React.Component {
       if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
          rootPath = __PATH_PREFIX__ + `/`
       }
-      //console.log('location.pathname: ', location.pathname)
 
       if (location.pathname === rootPath
           || /\/recent\//.test(location.pathname)
@@ -446,7 +435,6 @@ class Template extends React.Component {
               id="hero_pic"
               title="Mike Zetlow"
               sizes={this.props.data.file.childImageSharp.sizes}
-              /*sizes={{...this.props.data.file.childImageSharp.sizes, aspectRatio: 1080/624}}*/
               imgStyle={{
                  position: `fixed`,
                  right: 0,
