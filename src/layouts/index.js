@@ -4,11 +4,11 @@ import styled from 'styled-components'
 import { rhythm, scale } from '../utils/typography'
 import Img from 'gatsby-image'
 import _round from 'lodash/round'
-import _kebabCase from 'lodash/kebabCase'
 import _forEach from 'lodash/forEach'
 import _filter from 'lodash/filter'
 import global from '../utils/global_style'
 
+// magic
 const tag_available_color = global.color.blue
 const tag_available_textDecoration = 'none'
 const tag_unavailable_color = global.color.gray_light
@@ -25,11 +25,6 @@ class Template extends React.Component {
 
    constructor(props) {
       super(props)
-
-      const url = this.props.location.pathname.slice(1)
-      const url_order = url.slice(0, url.indexOf('/'))
-      const url_topic = url.slice(url.indexOf('/') + 1)
-
       this.update_responsive_layout = this.update_responsive_layout.bind(this)
       this.url = this.url.bind(this)
       this.update_url_topic = this.update_url_topic.bind(this)
@@ -43,23 +38,7 @@ class Template extends React.Component {
             hero_content_float: ``,
             hero_content_margin_right: `auto`,
          },
-         filter: {
-            order: return_url_order(url_order),
-            topic: return_url_topic(url_topic), // this-is-slugified
-            hovered: null,
-         }
       }
-
-      function return_url_order(url_order) {
-         if (url_order === 'popular') return 'popular'
-         else return 'recent'
-      }
-
-      function return_url_topic(url_topic) {
-         if (url_topic !== '') return url_topic
-         else return null
-      }
-
    }
 
    update_responsive_layout() {
@@ -100,7 +79,6 @@ class Template extends React.Component {
          responsive.hero_content_margin_right = `auto`
          this.setState({ responsive })
       }
-
    }
 
    componentDidMount() {
@@ -175,10 +153,10 @@ class Template extends React.Component {
       const other_topics = _filter(topics_array, topic => {
          return topic !== this_topic
       })
-      const state_topic = this.url().topic
+      const url_topic = this.url().topic
 
-      if (state_topic) { // there is a topic in the url
-         if (this_topic === state_topic) {
+      if (url_topic !== "") { // there is a topic in the url
+         if (this_topic === url_topic) {
             topic_style.color = tag_hovered_color
             topic_style.textDecoration = tag_hovered_textDecoration
             _forEach(other_topics, topic => {
@@ -214,40 +192,42 @@ class Template extends React.Component {
    }
 
    mouse_leave_style(this_topic) {
-      const filter = { ...this.state.filter }
-      filter.hovered = null
-
-      this.setState({ filter }, () => { // after setting the state, do this stuff
-         const state_topic = this.state.filter.topic
-         const topic_style = document.getElementById(this_topic).style
-         const other_topics = _filter(topics_array, topic => {
-            return topic !== this_topic
-         })
-         const all_but_state_topic = _filter(topics_array, topic => {
-            return topic !== state_topic
-         })
-         if (state_topic) { // there is a topic in the url
-            if (this_topic === state_topic) {
-               topic_style.color = tag_available_color
-               topic_style.textDecoration = tag_available_textDecoration
-               _forEach(other_topics, topic => {
-                  const other_topic_style = document.getElementById(topic).style
-                  other_topic_style.color = tag_unavailable_color
-                  other_topic_style.textDecoration = tag_unavailable_textDecoration
-               })
-            }
-            else {
-               const state_topic_style = document.getElementById(state_topic).style
-               state_topic_style.color = tag_available_color
-               state_topic_style.textDecoration = tag_available_textDecoration
-               _forEach(all_but_state_topic, topic => {
-                  const other_topic_style = document.getElementById(topic).style
-                  other_topic_style.color = tag_unavailable_color
-                  other_topic_style.textDecoration = tag_unavailable_textDecoration
-               })
-            }
-         }
+      const topic_style = document.getElementById(this_topic).style
+      const url_topic = this.url().topic
+      const other_topics = _filter(topics_array, topic => {
+         return topic !== this_topic
       })
+      const all_but_url_topic = _filter(topics_array, topic => {
+         return topic !== url_topic
+      })
+      if (url_topic !== "") { // there is a topic in the url
+         if (this_topic === url_topic) {
+            topic_style.color = tag_available_color
+            topic_style.textDecoration = tag_available_textDecoration
+            _forEach(other_topics, topic => {
+               const other_topic_style = document.getElementById(topic).style
+               other_topic_style.color = tag_unavailable_color
+               other_topic_style.textDecoration = tag_unavailable_textDecoration
+            })
+         }
+         else {
+            const url_topic_style = document.getElementById(url_topic).style
+            url_topic_style.color = tag_available_color
+            url_topic_style.textDecoration = tag_available_textDecoration
+            _forEach(all_but_url_topic, topic => {
+               const other_topic_style = document.getElementById(topic).style
+               other_topic_style.color = tag_unavailable_color
+               other_topic_style.textDecoration = tag_unavailable_textDecoration
+            })
+         }
+      }
+      else { // there is no topic in the url
+         _forEach(topics_array, topic => {
+            const all_topics_style = document.getElementById(topic).style
+            all_topics_style.color = tag_available_color
+            all_topics_style.textDecoration = tag_available_textDecoration
+         })
+      }
    }
 
    render() {
