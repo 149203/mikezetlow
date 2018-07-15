@@ -12,6 +12,10 @@ class BlogPostTemplate extends React.Component {
       const post = this.props.data.markdownRemark
       const siteTitle = get(this.props, 'data.site.siteMetadata.title')
       // const { previous, next } = this.props.pathContext
+      const frontmatter = post.frontmatter
+      const title = frontmatter.title
+      const featuredImage = `https://www.mikezetlow.com/${frontmatter.featuredImage.relativePath}`
+      const author = get(this.props, 'data.site.siteMetadata.author')
 
       const Post = styled.div`
         figcaption {
@@ -35,24 +39,25 @@ class BlogPostTemplate extends React.Component {
 
        <div>
           <Helmet>
-             <title>{post.frontmatter.title}</title>
-             <meta name="description" content={'THIS IS DESCRIPTION'} />
-             <meta name="image" content={ADDME} />
+             <title>{title}</title>
+             <meta name="description" content={ADDME} />
+             <meta name="image" content={featuredImage} />
 
              {/* OpenGraph tags */}
              <meta property="og:url" content={ADDME} />
              <meta property="og:type" content="article" />
-             <meta property="og:title" content={post.frontmatter.title} />
+             <meta property="og:locale" content="en_US" />
+             <meta property="og:title" content={title} />
              <meta property="og:description" content={ADDME} />
-             <meta property="og:image" content={ADDME} />
-             <meta property="fb:app_id" content={ADDME} />
+             <meta property="og:image" content={featuredImage} />
+             <meta property="og:site_name" content={siteTitle} />
 
              {/* Twitter Card tags */}
              <meta name="twitter:card" content="summary_large_image" />
-             <meta name="twitter:creator" content={ADDME} />
-             <meta name="twitter:title" content={post.frontmatter.title} />
+             <meta name="twitter:creator" content={author} />
+             <meta name="twitter:title" content={title} />
              <meta name="twitter:description" content={ADDME} />
-             <meta name="twitter:image" content={ADDME} />
+             <meta name="twitter:image" content={featuredImage} />
 
           </Helmet>
           < h1> {post.frontmatter.title
@@ -112,6 +117,9 @@ export const pageQuery = graphql`
             frontmatter {
                 title
                 date(formatString: "MMMM Do, YYYY")
+                featuredImage {
+                    relativePath
+                }
             }
         }
     }
