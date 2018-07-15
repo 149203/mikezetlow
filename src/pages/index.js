@@ -11,6 +11,7 @@ import global from '../utils/global_style'
 import { rhythm } from '../utils/typography'
 import 'typeface-merriweather'
 import 'typeface-open-sans'
+import date_format from 'date-fns/format'
 
 const Post_Preview = styled.div`
 
@@ -178,7 +179,7 @@ class BlogIndex extends React.Component {
                            <span>{node.frontmatter.type}</span>
                         </Tags>
 
-                        <p>{node.frontmatter.date}</p>
+                        <p>{date_format(node.frontmatter.date, 'MMMM Do, YYYY')}</p>
 
                         <div style={{ display: 'flex' }}>
                            <p>Popularity:&nbsp;</p>

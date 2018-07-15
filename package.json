@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.5.1",
+    "date-fns": "^1.29.0",
     "gatsby": "^1.9.250",
     "gatsby-image": "^1.0.51",
     "gatsby-link": "^1.6.39",
