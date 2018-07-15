@@ -14,7 +14,7 @@ class BlogPostTemplate extends React.Component {
       // const { previous, next } = this.props.pathContext
       const frontmatter = post.frontmatter
       const title = frontmatter.title
-      const featuredImage = `https://www.mikezetlow.com/${frontmatter.featuredImage.relativePath}`
+      const featuredImage = `` // TODO: use imageSharp to get image. See lengstorf.com repo
       const author = get(this.props, 'data.site.siteMetadata.author')
 
       const Post = styled.div`
@@ -33,7 +33,7 @@ class BlogPostTemplate extends React.Component {
         
 `
       console.log('props: ', this.props)
-      const ADDME ='junk_string'
+      const ADDME ='Mike Zetlow has thoughts about stuff.'
 
       return (
 
