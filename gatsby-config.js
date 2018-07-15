@@ -3,7 +3,7 @@ module.exports = {
       title: 'MikeZetlow.com',
       author: 'Mike Zetlow',
       description: 'I’m a software developer interested in UX, entrepreneurship, how we work, public domain music, poker, and other stuff.',
-      siteUrl: 'https://mikezetlow.com',
+      siteUrl: 'https://www.mikezetlow.com',
    },
    pathPrefix: '/gatsby-starter-blog',
    plugins: [

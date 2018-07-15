@@ -17,7 +17,7 @@ class BlogPostTemplate extends React.Component {
         figcaption {
         color: ${global.color.gray};
         text-align: center;
-        margin-top: -${rhythm(3/4)};
+        margin-top: -${rhythm(3 / 4)};
         margin-bottom: ${rhythm(1)};
         font-size: 80%;
         font-weight: lighter;
@@ -29,30 +29,67 @@ class BlogPostTemplate extends React.Component {
         
 `
       console.log('props: ', this.props)
+      const ADDME ='junk_string'
 
       return (
 
        <div>
-          <Helmet title={`${post.frontmatter.title} | ${siteTitle}`}/>
-          <h1>{post.frontmatter.title}</h1>
-          <p
-           style={{
-              fontSize: '80%',
-              display: 'block',
-              marginBottom: rhythm(1),
-              marginTop: rhythm(-1),
-              color: global.color.gray
-           }}
+          <Helmet>
+             <title>{post.frontmatter.title}</title>
+             <meta name="description" content={'THIS IS DESCRIPTION'} />
+             <meta name="image" content={ADDME} />
+
+             {/* OpenGraph tags */}
+             <meta property="og:url" content={ADDME} />
+             <meta property="og:type" content="article" />
+             <meta property="og:title" content={post.frontmatter.title} />
+             <meta property="og:description" content={ADDME} />
+             <meta property="og:image" content={ADDME} />
+             <meta property="fb:app_id" content={ADDME} />
+
+             {/* Twitter Card tags */}
+             <meta name="twitter:card" content="summary_large_image" />
+             <meta name="twitter:creator" content={ADDME} />
+             <meta name="twitter:title" content={post.frontmatter.title} />
+             <meta name="twitter:description" content={ADDME} />
+             <meta name="twitter:image" content={ADDME} />
+
+          </Helmet>
+          < h1> {post.frontmatter.title
+          }</h1>
+          <
+           p
+           style={
+              {
+                 fontSize: '80%',
+                 display:
+                  'block',
+                 marginBottom:
+                  rhythm(1),
+                 marginTop:
+                  rhythm(-1),
+                 color:
+                 global.color.gray
+              }
+           }
           >
              {post.frontmatter.date}
           </p>
-          <Post>
-             <div dangerouslySetInnerHTML={{ __html: post.html }}/>
+          <
+           Post>
+             < div
+              dangerouslySetInnerHTML={
+                 { __html: post.html }
+              }
+             />
           </Post>
-          <hr
-           style={{
-              marginBottom: rhythm(1),
-           }}
+          <
+           hr
+           style={
+              {
+                 marginBottom: rhythm(1),
+              }
+           }
           />
        </div>
       )
