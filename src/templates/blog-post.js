@@ -6,6 +6,9 @@ import global from '../utils/global_style'
 
 import { rhythm, scale } from '../utils/typography'
 
+// metadata image sizes best for both Facebook and Twitter
+// Facebook: https://developers.facebook.com/docs/sharing/best-practices#images
+// Twitter: https://twittercommunity.com/t/what-is-the-optimum-size-for-the-image-on-a-summary-card-with-large-image/22251/4 (same as Facebook)
 const metadata_image_width = `1200`
 const metadata_image_height = `630`
 
