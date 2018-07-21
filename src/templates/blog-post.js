@@ -48,6 +48,8 @@ class BlogPostTemplate extends React.Component {
              <meta property="og:title" content={title}/>
              <meta property="og:description" content={excerpt}/>
              <meta property="og:image" content={featuredImage}/>
+             <meta property="og:image:width" content="1200"/>
+             <meta property="og:image:height" content="630"/>
              <meta property="og:site_name" content={siteTitle}/>
 
              {/* Twitter Card tags */}
