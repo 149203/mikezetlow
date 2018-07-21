@@ -13,7 +13,7 @@ class BlogPostTemplate extends React.Component {
       const frontmatter = post.frontmatter
       const title = frontmatter.title
       const excerpt = post.excerpt
-      const featuredImage = frontmatter.featuredImage.childImageSharp.resize.src // TODO: use imageSharp to get image. See lengstorf.com repo
+      const featuredImage = `https://www.mikezetlow.com${frontmatter.featuredImage.childImageSharp.resize.src}` // TODO: use imageSharp to get image. See lengstorf.com repo
       const author = get(this.props, 'data.site.siteMetadata.author')
       const slug = `https://mikezetlow.com${this.props.location.pathname}`
 
