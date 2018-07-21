@@ -6,6 +6,9 @@ import global from '../utils/global_style'
 
 import { rhythm, scale } from '../utils/typography'
 
+const metadata_image_width = `1200`
+const metadata_image_height = `630`
+
 class BlogPostTemplate extends React.Component {
    render() {
       const post = this.props.data.markdownRemark
@@ -48,8 +51,8 @@ class BlogPostTemplate extends React.Component {
              <meta property="og:title" content={title}/>
              <meta property="og:description" content={excerpt}/>
              <meta property="og:image" content={featuredImage}/>
-             <meta property="og:image:width" content="1200"/>
-             <meta property="og:image:height" content="630"/>
+             <meta property="og:image:width" content={metadata_image_width}/>
+             <meta property="og:image:height" content={metadata_image_height}/>
              <meta property="og:site_name" content={siteTitle}/>
 
              {/* Twitter Card tags */}
@@ -123,7 +126,7 @@ export const pageQuery = graphql`
                 date(formatString: "MMMM Do, YYYY")
                 featuredImage {
                     childImageSharp {
-                        resize(width: 1200, height: 630, cropFocus: ENTROPY) {
+                        resize(width: ${metadata_image_width}, height: ${metadata_image_height}, cropFocus: ENTROPY) {
                             src
                         }
                     }
