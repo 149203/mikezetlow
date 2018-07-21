@@ -8,8 +8,6 @@ rating: "400"
 draft: false
 ---
 
-*Published in [thinkgrowth.org](https://thinkgrowth.org/how-to-handle-all-the-information-life-throws-at-you-7e5440d58498).*
-
 ![](times-square-how-to-handle-all-the-information-life-throws-at-you-mike-zetlow.jpeg)
 
 Most people in the Information Age don’t handle incoming information well.
@@ -213,3 +211,5 @@ My emergency “throw everything in it and begin to sort it out” box
 And that’s the real trick to information management — it’s a daily process. You have to work to build up each of these routines into a habit.
 
 You will do well if you implement just a couple of these points, and then once established, move on to a couple more — until you feel like the amount of information you let in and process is under your control.
+
+*Published in [thinkgrowth.org](https://thinkgrowth.org/how-to-handle-all-the-information-life-throws-at-you-7e5440d58498).*

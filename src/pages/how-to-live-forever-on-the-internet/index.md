@@ -8,8 +8,6 @@ rating: "400"
 draft: false
 ---
 
-*This talk was given at [Demo Day Las Vegas](http://demoday.vegas/).*
-
 <iframe width="720" height="405" src="https://www.youtube.com/embed/eTWl4nY-XJM?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 I gave this 5-minute lightning talk at the June 9th, 2018, [Demo Day](http://demoday.vegas/) in Las Vegas.

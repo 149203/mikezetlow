@@ -15,7 +15,7 @@ class BlogPostTemplate extends React.Component {
       const excerpt = post.excerpt
       const featuredImage = `` // TODO: use imageSharp to get image. See lengstorf.com repo
       const author = get(this.props, 'data.site.siteMetadata.author')
-      const slug = `https://mikezetlow.com/${this.props.location.pathname}`
+      const slug = `https://mikezetlow.com${this.props.location.pathname}`
 
       const Post = styled.div`
         figcaption {
@@ -58,7 +58,7 @@ class BlogPostTemplate extends React.Component {
              <meta name="twitter:image" content={featuredImage} />
 
           </Helmet>
-          < h1> {post.frontmatter.title
+          < h1> {frontmatter.title
           }</h1>
           <
            p
@@ -72,11 +72,13 @@ class BlogPostTemplate extends React.Component {
                  marginTop:
                   rhythm(-1),
                  color:
-                 global.color.gray
+                 global.color.gray,
+                 textTransform: `capitalize`,
+                 fontWeight: `lighter`,
               }
            }
           >
-             {post.frontmatter.date}
+             {frontmatter.date} | {frontmatter.topic}
           </p>
           <
            Post>
@@ -114,6 +116,7 @@ export const pageQuery = graphql`
             html
             excerpt
             frontmatter {
+                topic
                 title
                 date(formatString: "MMMM Do, YYYY")
                 featuredImage {

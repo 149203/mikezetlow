@@ -8,8 +8,6 @@ rating: "570"
 draft: false
 ---
 
-*Published in [freeCodeCamp](https://medium.freecodecamp.org/everyone-hates-a-redesign-or-do-they-b8a2fec9efbe).*
-
 ![](flaming-garbage-everyone-hates-a-redesign-mike-zetlow.jpeg)
 
 Imagine you’re a software developer. You get put on a team to redesign a core feature of your company’s application. You spend months collecting user data, prototyping, testing with users (they love it!), and building the application. And today it goes live.
@@ -173,3 +171,5 @@ But it might just be a vocal minority.
 I’m not downplaying feedback from unhappy users. You certainly need to take their thoughts into consideration and observe how they use your application. But you need to treat your loudest users just like your quietest users. The squeaky wheel **should not** get all the grease.
 
 So, while I collected every piece of unsolicited negative feedback regarding our redesign, I also went to my user pool and got their feedback. And weighing all perspectives equally, it’s clear the path is forward: resolute, with empathy, toward innovation.
+
+*Published in [freeCodeCamp](https://medium.freecodecamp.org/everyone-hates-a-redesign-or-do-they-b8a2fec9efbe).*

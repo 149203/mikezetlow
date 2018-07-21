@@ -8,8 +8,6 @@ rating: "580"
 draft: false
 ---
 
-*Published in [CHSI Technologies](https://medium.com/chsi-technologies/theres-no-divine-inspiration-in-design-8a2fdd521d16).*
-
 ![](mountaintop-theres-no-divine-inspiration-in-design-mike-zetlow.jpg)
 
 You might imagine the Designer being handed a product or application idea, retreating to their mountaintop meditation spot for days, then descending to the townsfolk and blessing the world with their divinely-inspired new design. The oohs and ahhs suggest genius. Questioning their methods would be heresy.
@@ -147,3 +145,5 @@ Not only is it “cleaner and modern” (in the words of that same user), but it
 After I observed users, clientmain practically designed itself.
 
 If our customers are the happiest customers because of our well-designed product, and if it sells itself in demos, I know that CHSI Technologies is in a good place. We don’t have to go up on that mountaintop to look for inspiration. We just have to learn from users.
+
+*Published in [CHSI Technologies](https://medium.com/chsi-technologies/theres-no-divine-inspiration-in-design-8a2fdd521d16).*
