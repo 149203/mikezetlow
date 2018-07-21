@@ -1,6 +1,5 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
 import get from 'lodash/get'
 import styled from 'styled-components'
 import global from '../utils/global_style'
@@ -11,12 +10,12 @@ class BlogPostTemplate extends React.Component {
    render() {
       const post = this.props.data.markdownRemark
       const siteTitle = get(this.props, 'data.site.siteMetadata.title')
-      // const { previous, next } = this.props.pathContext
       const frontmatter = post.frontmatter
       const title = frontmatter.title
       const excerpt = post.excerpt
       const featuredImage = `` // TODO: use imageSharp to get image. See lengstorf.com repo
       const author = get(this.props, 'data.site.siteMetadata.author')
+      const slug = `https://mikezetlow.com/${this.props.location.pathname}`
 
       const Post = styled.div`
         figcaption {
@@ -33,8 +32,6 @@ class BlogPostTemplate extends React.Component {
         }
         
 `
-      console.log('props: ', this.props)
-      const ADDME ='Mike Zetlow has thoughts about stuff.'
 
       return (
 
@@ -45,7 +42,7 @@ class BlogPostTemplate extends React.Component {
              <meta name="image" content={featuredImage} />
 
              {/* OpenGraph tags */}
-             <meta property="og:url" content={ADDME} />
+             <meta property="og:url" content={slug} />
              <meta property="og:type" content="article" />
              <meta property="og:locale" content="en_US" />
              <meta property="og:title" content={title} />
