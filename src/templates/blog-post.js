@@ -3,10 +3,38 @@ import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import styled from 'styled-components'
 import global from '../utils/global_style'
+import addToMailchimp from 'gatsby-plugin-mailchimp'
 
 import { rhythm, scale } from '../utils/typography'
 
 class BlogPostTemplate extends React.Component {
+
+   constructor(props) {
+      super(props)
+      this.submit_email_to_mailchimp = this.submit_email_to_mailchimp.bind(this)
+   }
+
+   // MailChimp stuff
+   submit_email_to_mailchimp(e) {
+      e.preventDefault()
+      const input_value = this.refs.input_email.value
+      console.log('MAILCHIMP SUBMIT INPUT: ', input_value)
+
+      // console.time('start')
+      addToMailchimp(input_value)
+       .then(data => {
+          // I recommend setting data to React state
+          // but you can do whatever you want
+          console.log('RETURNED from MAILCHIMP: ', data)
+          //console.timeEnd('finish')
+       })
+       .catch(() => {
+          // unnecessary because Mailchimp only ever
+          // returns a 200 status code
+          // see below for how to handle errors
+       })
+   }
+
    render() {
       const post = this.props.data.markdownRemark
       const siteTitle = get(this.props, 'data.site.siteMetadata.title')
@@ -30,8 +58,50 @@ class BlogPostTemplate extends React.Component {
         blockquote {
           color: ${global.color.gray};
         }
-        
-`
+      `
+      const Enter_Email = styled.div`
+        form label p {
+          //font-size: 80%;
+          //font-weight: lighter;
+          color: ${global.color.gray};
+          font-style: italic;
+          -webkit-margin-after: 0;
+          margin-bottom: 0;          
+        }
+        input {
+          width: 80%;
+          @media(min-width: 490px) and (max-width: 719px) {
+            width: 70%;
+          }      
+          @media(min-width:0) and (max-width: 489px) {
+            width: 57%;
+          }    
+        }
+        input:focus, button:focus {
+          outline: none;
+        }
+        input, button {
+          border: 2px solid ${global.color.blue};
+          padding: 0.25rem 0.75rem;
+        }
+        button {
+          margin-left: -2px;
+          cursor: pointer;
+          color: ${global.color.white};
+          background-color: ${global.color.blue};
+          width: 20%;
+          @media(min-width: 490px) and (max-width: 719px) {
+            width: 30%;
+          }
+          @media(min-width:0) and (max-width: 489px) {
+            width: 43%;
+          }
+        }
+        button:hover {
+          background-color: ${global.color.blue_dark};
+          border-color: ${global.color.blue_dark};
+        }
+      `
 
       return (
 
@@ -101,6 +171,21 @@ class BlogPostTemplate extends React.Component {
               }
            }
           />
+          <h2>Enjoyed this post?</h2>
+          <p>Enter your email address and I'll email you the next one.
+             <br/>
+          I'll never give away your email address or try to sell you something.</p>
+
+          <Enter_Email>
+             <form onSubmit={(e) => this.submit_email_to_mailchimp(e)}>
+                <label>
+                   <p>Your email</p>
+                   <input ref="input_email"></input>
+                   <button>Let's do it!</button>
+                </label>
+             </form>
+          </Enter_Email>
+
        </div>
       )
    }

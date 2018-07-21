@@ -14,6 +14,12 @@ module.exports = {
             name: 'pages',
          },
       },
+      {
+         resolve: 'gatsby-plugin-mailchimp',
+         options: {
+            endpoint: 'https://MikeZetlow.us18.list-manage.com/subscribe/post?u=c53af7376ee4ec2cea8ddb253&amp;id=2054508644', // see instructions section below
+         },
+      },
 
       {
          resolve: `gatsby-transformer-remark`,
