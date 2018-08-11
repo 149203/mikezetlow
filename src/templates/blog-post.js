@@ -147,7 +147,7 @@ class BlogPostTemplate extends React.Component {
       const slug = `https://mikezetlow.com${this.props.location.pathname}`
 
       let subscriber_section
-      const is_subscriber = (window.localStorage.subscriber === 'true')
+      const is_subscriber = (typeof window !== 'undefined' && window.localStorage.subscriber === 'true')
 
       if (is_subscriber) {
          subscriber_section = <div>
