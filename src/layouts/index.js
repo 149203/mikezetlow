@@ -15,7 +15,7 @@ const tag_unavailable_color = global.color.gray_light
 const tag_unavailable_textDecoration = 'line-through'
 const tag_hovered_color = global.color.blue
 const tag_hovered_textDecoration = 'underline'
-const topics_array = [ 'user-experience', 'how-we-work', 'other-stuff', 'press' ]
+const topics_array = [ 'user-experience', 'how-we-work', 'press' ]
 const hero_content_margin_right = 30
 const pic_original_width = 624
 const pic_original_height = 1080
@@ -334,7 +334,7 @@ class Template extends React.Component {
                          onClick={() => this.update_url_topic('user-experience')}
                          onMouseEnter={() => this.mouse_enter_style('user-experience')}
                          onMouseLeave={() => this.mouse_leave_style('user-experience')}
-                   >user experience</span>,&nbsp;
+                   >user experience</span>&nbsp;and&nbsp;
 
                    <span className='tag_filter'
                          id='how-we-work'
@@ -342,15 +342,7 @@ class Template extends React.Component {
                          onClick={() => this.update_url_topic('how-we-work')}
                          onMouseEnter={() => this.mouse_enter_style('how-we-work')}
                          onMouseLeave={() => this.mouse_leave_style('how-we-work')}
-                   >how we work</span>, and&nbsp;
-
-                   <span className='tag_filter'
-                         id='other-stuff'
-                         style={this.set_tag_style('other-stuff')}
-                         onClick={() => this.update_url_topic('other-stuff')}
-                         onMouseEnter={() => this.mouse_enter_style('other-stuff')}
-                         onMouseLeave={() => this.mouse_leave_style('other-stuff')}
-                   >other stuff</span>. The&nbsp;
+                   >how we work</span>. The&nbsp;
 
                    <span className='tag_filter'
                          id='press'

@@ -12,30 +12,55 @@ class BlogPostTemplate extends React.Component {
    constructor(props) {
       super(props)
       this.submit_email_to_mailchimp = this.submit_email_to_mailchimp.bind(this)
+      this.is_valid_email = this.is_valid_email.bind(this)
+      this.clear_email_error = this.clear_email_error.bind(this)
+      this.state = {
+         is_valid_email: true,
+      }
+   }
+
+   is_valid_email(email_address) {
+      // TODO: write better regex
+      // Email must be of type string and a valid email address.
+      // See gatsy-plugin-mailchimp README for more information.
+      const is_valid_email = /.*@/.test(email_address)
+      this.setState({is_valid_email}) // ok if asynchronous
+      return is_valid_email
    }
 
    // MailChimp stuff
    submit_email_to_mailchimp(e) {
       e.preventDefault()
-      const input_value = this.refs.input_email.value
-      console.log('MAILCHIMP SUBMIT INPUT: ', input_value)
+      const email_address = this.refs.input_email.value
+      console.log('MAILCHIMP SUBMIT INPUT: ', email_address)
 
-      // console.time('start')
-      addToMailchimp(input_value)
-       .then(data => {
-          // I recommend setting data to React state
-          // but you can do whatever you want
-          console.log('RETURNED from MAILCHIMP: ', data)
-          //console.timeEnd('finish')
-       })
-       .catch(() => {
-          // unnecessary because Mailchimp only ever
-          // returns a 200 status code
-          // see below for how to handle errors
-       })
+      if (this.is_valid_email(email_address)) {
+         addToMailchimp(email_address)
+          .then(data => {
+             // I recommend setting data to React state
+             // but you can do whatever you want
+             console.log('RETURNED from MAILCHIMP: ', data)
+             alert('Thanks! Email successfully submitted!')
+          })
+          .catch(() => {
+             // unnecessary because Mailchimp only ever returns a 200 status code
+             // handle errors in the 'then' if response is missing data
+          })
+      }
+      else {
+
+      }
+   }
+
+   clear_email_error(e){
+      //e.preventDefault()
+      console.log("Email error cleared!")
+      this.setState({is_valid_email: true})
+      //return false
    }
 
    render() {
+      console.log('RENDERED')
       const post = this.props.data.markdownRemark
       const siteTitle = get(this.props, 'data.site.siteMetadata.title')
       const frontmatter = post.frontmatter
@@ -60,6 +85,10 @@ class BlogPostTemplate extends React.Component {
         }
       `
       const Enter_Email = styled.div`
+        form {
+          margin-bottom: 0;
+        }
+      
         form label p {
           //font-size: 80%;
           //font-weight: lighter;
@@ -102,6 +131,17 @@ class BlogPostTemplate extends React.Component {
           border-color: ${global.color.blue_dark};
         }
       `
+
+      const display_email_error = () => {
+         if (this.state.is_valid_email) return (<div></div>)
+         else return (
+          <div>
+             <p>THERE WAS AN ERROR WITH YOUR EMAIL</p>
+          </div>
+         )
+      }
+
+
 
       return (
 
@@ -174,18 +214,18 @@ class BlogPostTemplate extends React.Component {
           <h2>Enjoyed this post?</h2>
           <p>Enter your email address and I'll email you the next one.
              <br/>
-          I'll never give away your email address or try to sell you something.</p>
+             I'll never give away your email address or try to sell you something.</p>
 
           <Enter_Email>
              <form onSubmit={(e) => this.submit_email_to_mailchimp(e)}>
                 <label>
                    <p>Your email</p>
-                   <input ref="input_email"></input>
+                   <input ref="input_email" onKeyUp={(e) => this.clear_email_error(e)} />
                    <button>Let's do it!</button>
                 </label>
              </form>
           </Enter_Email>
-
+          {/*display_email_error()*/}
        </div>
       )
    }

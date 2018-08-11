@@ -4,7 +4,7 @@ date: "2017-05-14"
 featuredImage: "./mountaintop-theres-no-divine-inspiration-in-design-mike-zetlow.jpg"
 topic: "user experience"
 type: "article"
-rating: "580"
+rating: "400"
 draft: false
 ---
 

@@ -126,7 +126,7 @@ class BlogIndex extends React.Component {
    render() {
       const siteTitle = get(this, 'props.data.site.siteMetadata.title')
       let posts = get(this, 'props.data.allMarkdownRemark.edges')
-      //console.log('posts: ', posts)
+      console.log('posts: ', posts)
       const location = this.props.location
 
       filter_posts_by_url(location)
@@ -234,7 +234,7 @@ export const pageQuery = graphql`
                         title
                         featuredImage {
                             childImageSharp {
-                                resize(width: 496, height: 262, cropFocus: ENTROPY) {
+                                resize(width: 496, height: 262, cropFocus: ATTENTION) {
                                     src
                                     width
                                     height
