@@ -14,18 +14,18 @@ class BlogPostTemplate extends React.Component {
       this.submit_email_to_mailchimp = this.submit_email_to_mailchimp.bind(this)
       this.is_valid_email = this.is_valid_email.bind(this)
       this.clear_email_error = this.clear_email_error.bind(this)
-      this.state = {
-         is_valid_email: true,
-      }
    }
 
    is_valid_email(email_address) {
-      // TODO: write better regex
       // Email must be of type string and a valid email address.
       // See gatsy-plugin-mailchimp README for more information.
-      const is_valid_email = /.*@/.test(email_address)
-      this.setState({is_valid_email}) // ok if asynchronous
-      return is_valid_email
+
+      // On email validation
+      // https://stackoverflow.com/a/46181/6305196
+      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#Basic_validation
+
+      const email_regex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+      return email_regex.test(String(email_address).toLowerCase())
    }
 
    // MailChimp stuff
@@ -36,11 +36,23 @@ class BlogPostTemplate extends React.Component {
 
       if (this.is_valid_email(email_address)) {
          addToMailchimp(email_address)
-          .then(data => {
-             // I recommend setting data to React state
-             // but you can do whatever you want
-             console.log('RETURNED from MAILCHIMP: ', data)
-             alert('Thanks! Email successfully submitted!')
+          .then(response => {
+             console.log('RETURNED from MAILCHIMP: ', response)
+             if (response.result === "error") {
+                if (/already subscribed to list/.test(response.msg)) {
+                   localStorage.setItem('subscriber', 'true')
+                   this.forceUpdate() // replaces Sign Up div with Subscribed div
+                   //alert('Thanks! Email successfully submitted!')
+                }
+                else {
+                   document.getElementById('email_error_display').innerHTML = response.msg
+                }
+             }
+             else {
+                localStorage.setItem('subscriber', 'true')
+                this.forceUpdate() // replaces Sign Up div with Subscribed div
+                //alert('Thanks! Email successfully submitted!')
+             }
           })
           .catch(() => {
              // unnecessary because Mailchimp only ever returns a 200 status code
@@ -48,27 +60,21 @@ class BlogPostTemplate extends React.Component {
           })
       }
       else {
-
+         document.getElementById('email_error_display')
+          .innerHTML =
+          `<p style="margin-bottom: 0;">Heya, double-check your email. It doesn't appear to be valid.</p>`
       }
    }
 
-   clear_email_error(e){
-      //e.preventDefault()
-      console.log("Email error cleared!")
-      this.setState({is_valid_email: true})
-      //return false
+   clear_email_error(e) {
+      const email_address = e.target.value
+      if (this.is_valid_email(email_address) || email_address === '') {
+         document.getElementById('email_error_display').innerHTML = "<br/>"
+      }
    }
 
    render() {
-      console.log('RENDERED')
-      const post = this.props.data.markdownRemark
-      const siteTitle = get(this.props, 'data.site.siteMetadata.title')
-      const frontmatter = post.frontmatter
-      const title = frontmatter.title
-      const excerpt = post.excerpt
-      const featuredImage = `https://www.mikezetlow.com${frontmatter.featuredImage.childImageSharp.resize.src}` // TODO: use imageSharp to get image. See lengstorf.com repo
-      const author = get(this.props, 'data.site.siteMetadata.author')
-      const slug = `https://mikezetlow.com${this.props.location.pathname}`
+      console.log(this.props)
 
       const Post = styled.div`
         figcaption {
@@ -131,17 +137,45 @@ class BlogPostTemplate extends React.Component {
           border-color: ${global.color.blue_dark};
         }
       `
+      const post = this.props.data.markdownRemark
+      const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+      const frontmatter = post.frontmatter
+      const title = frontmatter.title
+      const excerpt = post.excerpt
+      const featuredImage = `https://www.mikezetlow.com${frontmatter.featuredImage.childImageSharp.resize.src}` // TODO: use imageSharp to get image. See lengstorf.com repo
+      const author = get(this.props, 'data.site.siteMetadata.author')
+      const slug = `https://mikezetlow.com${this.props.location.pathname}`
 
-      const display_email_error = () => {
-         if (this.state.is_valid_email) return (<div></div>)
-         else return (
-          <div>
-             <p>THERE WAS AN ERROR WITH YOUR EMAIL</p>
-          </div>
-         )
+      let subscriber_section
+      const is_subscriber = (window.localStorage.subscriber === 'true')
+
+      if (is_subscriber) {
+         subscriber_section = <div>
+            <h2>Thanks for being on my mailing list!</h2>
+            <p style={{marginBottom: 0}}>If you want to support me, send this post to a friend:</p>
+            <a href={slug}>{slug}</a>
+         </div>
       }
 
+      else {
+         subscriber_section = <div>
+            <h2>Enjoyed this post?</h2>
+            <p>Enter your email address and I'll email you the next one.
+               <br/>
+               I'll never give away your email address or try to sell you something.</p>
 
+            <Enter_Email>
+               <form onSubmit={(e) => this.submit_email_to_mailchimp(e)}>
+                  <label>
+                     <p>Your email</p>
+                     <input ref="input_email" onChange={(e) => this.clear_email_error(e)}/>
+                     <button>Let's do it!</button>
+                  </label>
+               </form>
+            </Enter_Email>
+            <div id="email_error_display" style={{ color: global.color.red }}><br/></div>
+         </div>
+      }
 
       return (
 
@@ -211,21 +245,9 @@ class BlogPostTemplate extends React.Component {
               }
            }
           />
-          <h2>Enjoyed this post?</h2>
-          <p>Enter your email address and I'll email you the next one.
-             <br/>
-             I'll never give away your email address or try to sell you something.</p>
 
-          <Enter_Email>
-             <form onSubmit={(e) => this.submit_email_to_mailchimp(e)}>
-                <label>
-                   <p>Your email</p>
-                   <input ref="input_email" onKeyUp={(e) => this.clear_email_error(e)} />
-                   <button>Let's do it!</button>
-                </label>
-             </form>
-          </Enter_Email>
-          {/*display_email_error()*/}
+          {subscriber_section}
+
        </div>
       )
    }

@@ -5,7 +5,7 @@ featuredImage: "./taking-shots-the-most-important-thing-I-learned-about-culture-
 topic: "how we work"
 type: "article"
 rating: "590"
-draft: false
+draft: true
 ---
 
 I had a weird life for a while.

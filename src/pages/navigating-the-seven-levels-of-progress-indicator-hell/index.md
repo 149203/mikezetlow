@@ -5,7 +5,7 @@ featuredImage: "./botticelli-navigating-the-seven-levels-of-progress-indicator-h
 topic: "user experience"
 type: "article"
 rating: "550"
-draft: false
+draft: true
 --- 
 
 ![](botticelli-navigating-the-seven-levels-of-progress-indicator-hell-mike-zetlow.jpg)

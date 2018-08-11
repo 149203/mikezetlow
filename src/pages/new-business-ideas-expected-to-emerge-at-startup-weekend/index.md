@@ -5,7 +5,7 @@ featuredImage: "./replace-new-business-ideas-expected-to-emerge-at-startup-weeke
 topic: "press"
 type: "video"
 rating: "510"
-draft: false
+draft: true
 ---
 
 ![](replace-new-business-ideas-expected-to-emerge-at-startup-weekend-mike-zetlow.jpg)

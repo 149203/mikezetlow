@@ -5,7 +5,7 @@ featuredImage: "./replace-designing-software-for-the-next-generation-of-insuranc
 topic: "press"
 type: "article"
 rating: "400"
-draft: false
+draft: true
 ---
 
 ![](replace-designing-software-for-the-next-generation-of-insurance-professionals-mike-zetlow.jpg)

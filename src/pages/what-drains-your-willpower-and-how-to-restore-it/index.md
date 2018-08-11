@@ -5,7 +5,7 @@ featuredImage: "./replace-what-drains-your-willpower-and-how-to-restore-it-mike-
 topic: "how we work"
 type: "article"
 rating: "300"
-draft: false
+draft: true
 ---
 
 ![](replace-what-drains-your-willpower-and-how-to-restore-it-mike-zetlow.png)
