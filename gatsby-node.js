@@ -26,7 +26,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               title
               date
               topic
-              type
               rating              
               draft
             }
@@ -73,7 +72,7 @@ function create_tag_pages(createPage, posts) {
    _.forEach(topics, topic => {
       _.forEach(orders, order => {
 
-         const slug = `/${order}/${slugify(topic)}`
+         const slug = `/${order}/${_.kebabCase(topic)}`
          console.log(`I'm creating a slug that look like: ${slug}`)
 
          createPage({
@@ -99,11 +98,6 @@ function create_tag_pages(createPage, posts) {
          },
       })
    })
-}
-
-function slugify(str) {
-   if (str === 'video' || str === 'article') str += 's' // pluralize these types, not really necessary though
-   return _.kebabCase(str) //str.toLowerCase().replace(/[^a-z0-9\s_\-]/g, '').replace(/\s/g, '-')
 }
 
 exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {

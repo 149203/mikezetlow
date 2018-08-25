@@ -3,7 +3,6 @@ title: "New business ideas expected to emerge at Startup Weekend"
 date: "2017-11-09"
 featuredImage: "./whiteboard-new-business-ideas-expected-to-emerge-at-startup-weekend-mike-zetlow.jpg"
 topic: "press"
-type: "article"
 video_minutes: "0"
 rating: "510"
 draft: false

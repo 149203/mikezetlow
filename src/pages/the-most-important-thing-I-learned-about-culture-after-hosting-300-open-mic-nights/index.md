@@ -3,7 +3,6 @@ title: "The most important thing I learned about culture after hosting 300 open 
 date: "2018-04-18"
 featuredImage: "./taking-shots-the-most-important-thing-I-learned-about-culture-after-hosting-300-open-mic-nights-mike-zetlow.jpeg"
 topic: "how we work"
-type: "article"
 video_minutes: "0"
 rating: "590"
 draft: true

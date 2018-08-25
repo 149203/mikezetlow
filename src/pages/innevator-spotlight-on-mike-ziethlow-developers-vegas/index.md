@@ -3,7 +3,6 @@ title: "\"Innevator's\" Spotlight on Mike Ziethlow"
 date: "2018-02-01"
 featuredImage: "./innevator-spotlight-on-mike-ziethlow-developers-vegas-mike-zetlow.png"
 topic: "press"
-type: "article"
 video_minutes: "0"
 rating: "300"
 draft: false

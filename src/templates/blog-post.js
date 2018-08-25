@@ -153,7 +153,7 @@ class BlogPostTemplate extends React.Component {
       if (is_subscriber) {
          subscriber_section = <div>
             <h2>Thanks for being on my mailing list!</h2>
-            <p style={{marginBottom: 0}}>If you want to support me, send this post to a friend:</p>
+            <p style={{ marginBottom: 0 }}>If you want to support me, send this post to a friend:</p>
             <a href={slug}>{slug}</a>
          </div>
       }
@@ -176,6 +176,11 @@ class BlogPostTemplate extends React.Component {
             </Enter_Email>
             <div id="email_error_display" style={{ color: global.color.red }}><br/></div>
          </div>
+      }
+
+      function display_post_minutes(video_minutes, article_minutes) {
+         if (video_minutes > 0) return video_minutes
+         else return article_minutes
       }
 
       return (
@@ -208,8 +213,7 @@ class BlogPostTemplate extends React.Component {
              <meta name="twitter:image" content={featuredImage}/>
 
           </Helmet>
-          < h1> {frontmatter.title
-          }</h1>
+          <h1> {frontmatter.title}</h1>
           <
            p
            style={
@@ -228,7 +232,7 @@ class BlogPostTemplate extends React.Component {
               }
            }
           >
-             {frontmatter.date} | {frontmatter.topic}
+             {frontmatter.date} | {frontmatter.topic} | {display_post_minutes(frontmatter.video_minutes, post.timeToRead)}&nbsp;<span style={{textTransform: `lowercase`}}>minutes</span>
           </p>
           <
            Post>
@@ -267,12 +271,14 @@ export const pageQuery = graphql`
         markdownRemark(fields: { slug: { eq: $slug } }) {
             id
             html
-            excerpt
+            timeToRead
+            excerpt # for social media metadata
             frontmatter {
                 topic
                 title
+                video_minutes
                 date(formatString: "MMMM Do, YYYY")
-                featuredImage {
+                featuredImage { # for social media metadata
                     childImageSharp {
                         resize(width: 1200, height: 630, cropFocus: ENTROPY) {
                             src

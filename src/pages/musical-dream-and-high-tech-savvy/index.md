@@ -3,7 +3,6 @@ title: "Musical dreams and high-tech savvy"
 date: "2011-05-11"
 featuredImage: "./busking-musical-dreams-and-high-tech-savvy-mike-zetlow.jpg"
 topic: "press"
-type: "article"
 video_minutes: "0"
 rating: "500"
 draft: false

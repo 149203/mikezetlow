@@ -3,7 +3,6 @@ title: "Everyone hates a redesign"
 date: "2017-09-16"
 featuredImage: "./flaming-garbage-everyone-hates-a-redesign-mike-zetlow.jpeg"
 topic: "user experience"
-type: "article"
 video_minutes: "0"
 rating: "570"
 draft: false

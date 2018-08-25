@@ -86,7 +86,7 @@ const Tags = styled.div`
    padding: 5px 13px;
    font-size: 14.5px;
    margin-left: 14px;
-   background-color: ${global.color.gray_light};
+   background-color: ${global.color.gray};
    text-transform: capitalize;
    line-height: 1.3;
   }
@@ -103,7 +103,7 @@ const Tags = styled.div`
     position: absolute;
     top: 0;
     border-color: transparent;
-    border-right-color: ${global.color.gray_light};
+    border-right-color: ${global.color.gray};
   }
   
   span:after {
@@ -147,11 +147,16 @@ class BlogIndex extends React.Component {
          })
 
          if (url_order === 'popular') {
-            posts = _orderBy(posts, ['node.frontmatter.rating', 'node.frontmatter.date'], ['desc', 'desc'])
+            posts = _orderBy(posts, [ 'node.frontmatter.rating', 'node.frontmatter.date' ], [ 'desc', 'desc' ])
          }
-         else posts = _orderBy(posts, ['node.frontmatter.date', 'node.frontmatter.rating'], ['desc', 'desc'])
+         else posts = _orderBy(posts, [ 'node.frontmatter.date', 'node.frontmatter.rating' ], [ 'desc', 'desc' ])
 
          posts = _take(posts, 20) // only display top 20 results // TODO: include a link to archive at the bottom
+      }
+
+      function display_post_minutes(video_minutes, article_minutes) {
+         if (video_minutes > 0) return `${video_minutes}-minute video`
+         else return `${article_minutes}-minute read`
       }
 
       return (
@@ -176,7 +181,7 @@ class BlogIndex extends React.Component {
                         <Tags>
                            <span>{node.frontmatter.topic}</span>
                            &nbsp;&nbsp;&nbsp;
-                           <span>{node.frontmatter.type}</span>
+                           {display_post_minutes(node.frontmatter.video_minutes, node.timeToRead)}
                         </Tags>
 
                         <p>{date_format(node.frontmatter.date, 'MMMM Do, YYYY')}</p>
@@ -226,6 +231,7 @@ export const pageQuery = graphql`
         ) {
             edges {
                 node {
+                    timeToRead
                     fields {
                         slug
                     }
@@ -244,8 +250,8 @@ export const pageQuery = graphql`
                             }
                         }
                         topic
-                        type
                         rating
+                        video_minutes
                     }
                 }
             }
