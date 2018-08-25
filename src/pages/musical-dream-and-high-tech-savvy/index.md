@@ -4,11 +4,12 @@ date: "2011-05-11"
 featuredImage: "./busking-musical-dreams-and-high-tech-savvy-mike-zetlow.jpg"
 topic: "press"
 type: "article"
+video_minutes: "0"
 rating: "500"
 draft: false
 ---
 
-*Published in [Las Vegas Weekly](https://lasvegasweekly.com/as-we-see-it/2011/may/11/high-tech-savvy/). Author: Erin Ryan.*
+*Originally published in [Las Vegas Weekly](https://lasvegasweekly.com/as-we-see-it/2011/may/11/high-tech-savvy/). Authored by Erin Ryan.*
 
 ![](busking-musical-dreams-and-high-tech-savvy-mike-zetlow.jpg)
 

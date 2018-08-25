@@ -4,6 +4,7 @@ date: "2018-06-09"
 featuredImage: "./girl-in-field-how-to-live-forever-on-the-internet-mike-zetlow.jpg"
 topic: "user experience"
 type: "video"
+video_minutes: "5"
 rating: "400"
 draft: false
 ---

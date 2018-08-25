@@ -148,6 +148,7 @@ class BlogPostTemplate extends React.Component {
 
       let subscriber_section
       const is_subscriber = (typeof window !== 'undefined' && window.localStorage.subscriber === 'true')
+      // https://github.com/gatsbyjs/gatsby/issues/309#issuecomment-302043875
 
       if (is_subscriber) {
          subscriber_section = <div>

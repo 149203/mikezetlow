@@ -4,6 +4,7 @@ date: "2018-05-06"
 featuredImage: "./team-sck-what-i-learned-leading-my-first-team-and-winning-at-startup-weekend-mike-zetlow.jpeg"
 topic: "how we work"
 type: "article"
+video_minutes: "0"
 rating: "400"
 draft: true
 ---
