@@ -306,7 +306,7 @@ class Template extends React.Component {
 
       if (url_topic === '') {
          sort_section =
-          <div>
+          <span>
              These are my top 10&nbsp;
              <span className='select_wrapper'>
                         <select value={url_order} onChange={(e) => {this.toggle_url_order(e)}}>
@@ -315,20 +315,20 @@ class Template extends React.Component {
                          </select>
                      </span>
              posts.
-          </div>
+          </span>
       }
       else sort_section =
-       <div>
-          <div>
-             Posts labeled "{_lowerCase(url_topic)}" sorted by&nbsp;
-             <span className='select_wrapper'>
+       <span>
+
+          Posts labeled "{_lowerCase(url_topic)}" sorted by&nbsp;
+          <span className='select_wrapper'>
                         <select value={url_order} onChange={(e) => {this.toggle_url_order(e)}}>
                             <option value='recent'>most recent</option>
                             <option value='popular'>most popular</option>
                          </select>
                      </span>
-          </div>
-       </div>
+
+       </span>
 
       let rootPath = `/`
       if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
@@ -359,7 +359,7 @@ class Template extends React.Component {
              </Hello>
              <Bio>
                 <p>
-                   <div>
+
                       I’m a software developer interested in&nbsp;
                       <span className='tag_filter'
                             id='user-experience'
@@ -385,9 +385,7 @@ class Template extends React.Component {
                             onMouseLeave={() => this.mouse_leave_style('press')}
                       >press</span> has said nice things about me.
 
-                   </div>
-
-                   <br/>
+                   <br/><br/>
 
                    {sort_section}
 
