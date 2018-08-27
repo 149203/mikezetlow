@@ -9,22 +9,24 @@ draft: false
 ---
 
 ![](forest-yoga-what-drains-your-willpower-and-how-to-restore-it-mike-zetlow.jpeg)
+
+If you want to accomplish anything it's going to take willpower.
  
-Willpower is the most important trait for getting things done and our long-term happiness.
+Willpower is the most important skill to sharpen for getting things done and our long-term happiness.
 
-Without it we don't tackle the difficult challenges we'd like to do—things that don't have an immediate payoff, but will cause our greatest joys down the road—like writing a novel, or building an app, or learning a language, or spending quality time with family. These things take a large investment of willpower to start, keep up, and complete.
+Without it, we don't tackle the difficult challenges we'd like to do—things that don't have an immediate payoff, but will cause our greatest joys down the road—like writing a novel, or building an app, or learning a language, or building a family. These things take a large investment of willpower to start, keep up, and complete.
 
-Here's what drains our willpower and how to restore it.
+Here's what I've learned about what drains our willpower and how to restore it.
 
 ##Willpower drains
 
-Information itself depletes willpower because with every piece that comes in, you have to decide what to do with it. This is why checking your email, blogs, or social media first thing in the morning is a bad practice. You've immediately begun draining yourself before even starting on your tasks.
+[Information itself](https://www.mikezetlow.com/how-to-handle-all-the-information-life-throws-at-you/) depletes willpower because with every piece that comes in, you have to decide what to do with it. This is why checking your email, blogs, or social media first thing in the morning is a bad practice. You've immediately begun draining yourself before even starting on your tasks.
 
 Which leads to the biggest drain on willpower: constant decision-making. This is why [Mark Zuckerberg wears the same thing every day](https://medium.com/startup-grind/choice-minimalism-why-mark-zuckerberg-wears-the-same-thing-every-day-2f132f1b5706)—“to make as few decisions as possible.”
 
 ![](mark-zuckerberg-what-drains-your-willpower-and-how-to-restore-it-mike-zetlow.jpeg)
 
-Doubting yourself saps willpower. If you doubt your decisions, you are making them double or triple-times over and this can be draining. Be resolute and you will get more done. Be okay with making a wrong decision once.
+Doubting yourself saps willpower. If you doubt your decisions, you are making them double or triple-times over and this can be draining. Be resolute and you will get more done. Some of the most effective people I know are also some of the most bullheaded—with unshakable convictions, right or wrong.
 
 Using "should" statements (also "I have to" or "I ought to") is draining:
 
@@ -84,15 +86,15 @@ Staring out the window and thinking of nothing—just observing the environment�
 
 ![](looking-out-window-what-drains-your-willpower-and-how-to-restore-it-mike-zetlow.jpeg)
 
-To recharge, express emotions. Watch a short sad video. Or laugh at funny videos.
+To recharge, express emotions. Watch a short sad video. Or laugh at funny videos. Expressing any emotion instead of holding them in makes you feel a chemical release that can enable a stronger sense of self and the restored willpower that comes with that feeling. 
 
 Make sure you get enough sleep. This is your body's way of naturally replenishing willpower and energy.
 
-The end of a day is a willpower drain, but you can hack this. Do your most important work (the long-term goal stuff) earliest in the day.
+Sure, the end of a day is a willpower drain, but you can hack this. Don't fight it. Move your most important work (the long-term goal stuff) to earliest in the day.
 
-Make sure you are satiated, not stuffed and not starving.
+Make sure you are satiated, not stuffed and not starving. Snack healthily.
 
-Take a break to do something you really want to do. Hard stop to leave you wanting to do more. Your brain is quicker to resume an activity if you've stopped in the middle of it.
+If you feel your willpower lagging, take a break to do something you really want to do. Hard stop your work even if it's a bad place to stop. Your brain is quicker to resume an activity if you've stopped in the middle of it, so don't try to find the perfect place to stop your work. Just turn it off in the middle and switch gears. You'll find resuming it to be much easier, requiring less willpower.
 
 I hate to sound like a hippie, but being in nature and exposing your senses to natural surroundings stimulates the human body—we get energized and restored.
 
@@ -102,7 +104,7 @@ I hate to sound like a hippie, but being in nature and exposing your senses to n
 
 Ironically, exercising willpower can increase willpower. View yourself as a disciplined person.
 
-[Performing rituals boosts our self-control through making us feel more self-disciplined](https://digest.bps.org.uk/2018/07/11/performing-meaningless-rituals-boosts-our-self-control-through-making-us-feel-more-self-disciplined/). So creating a ritual or routine for yourself that is meaningful or even entirely "devoid of meaning" will boost your willpower because it makes you feel like more of a disciplined person.
+Performing personal rituals makes us feel more self-disciplined and boosts our self-control and willpower. So creating a ritual or routine for yourself that is meaningful or even entirely "[devoid of meaning](https://digest.bps.org.uk/2018/07/11/performing-meaningless-rituals-boosts-our-self-control-through-making-us-feel-more-self-disciplined/)" will boost your willpower because it makes you adopt the persona of a disciplined person.
 
 Finally, take a minute to quickly clean your workspace. Just throw it all in a bag or box and sort it out later!
 
