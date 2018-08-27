@@ -135,15 +135,16 @@ class BlogIndex extends React.Component {
 
          const url = location.pathname.slice(1)
          const url_order = url.slice(0, url.lastIndexOf('/')) // a single word, either 'recent' or 'popular'
-         let url_topic = new RegExp(url.slice(url.indexOf('/') + 1).replace(/-/g, ' '))
-         //console.log({url, url_order, url_topic})
+         const url_topic = url.slice(url.lastIndexOf('/') + 1)
+         let topic = new RegExp(url.slice(url.indexOf('/') + 1).replace(/-/g, ' '))
+         console.log({url, url_order, url_topic, topic})
 
-         if (url_topic) url_topic = new RegExp(url_topic)
-         else url_topic = /.*/
+         if (topic) topic = new RegExp(topic)
+         else topic = /.*/
 
          posts = _filter(posts, post => {
             if (post.topic === null) return true
-            else return url_topic.test(post.node.frontmatter.topic)
+            else return topic.test(post.node.frontmatter.topic)
          })
 
          if (url_order === 'popular') {
@@ -151,7 +152,9 @@ class BlogIndex extends React.Component {
          }
          else posts = _orderBy(posts, [ 'node.frontmatter.date', 'node.frontmatter.rating' ], [ 'desc', 'desc' ])
 
-         posts = _take(posts, 20) // only display top 20 results // TODO: include a link to archive at the bottom
+         if (url_topic === '') {
+            posts = _take(posts, 10) // only display top n results when not in a topic
+         }
       }
 
       function display_post_minutes(video_minutes, article_minutes) {

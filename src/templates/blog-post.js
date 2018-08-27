@@ -155,6 +155,7 @@ class BlogPostTemplate extends React.Component {
             <h2>Thanks for being on my mailing list!</h2>
             <p style={{ marginBottom: 0 }}>If you want to support me, send this post to a friend:</p>
             <a href={slug}>{slug}</a>
+            <br/><br/>
          </div>
       }
 
@@ -252,6 +253,7 @@ class BlogPostTemplate extends React.Component {
           />
 
           {subscriber_section}
+          <p>Send me an email anytime and I'll get back to you: mike@mikezetlow.com</p>
 
        </div>
       )

@@ -6,6 +6,7 @@ import Img from 'gatsby-image'
 import _round from 'lodash/round'
 import _forEach from 'lodash/forEach'
 import _filter from 'lodash/filter'
+import _lowerCase from 'lodash/lowerCase'
 import global from '../utils/global_style'
 
 // magic
@@ -278,6 +279,8 @@ class Template extends React.Component {
         
         .select_wrapper {
           position: relative;
+          margin-right: 1rem;
+          display: inline-block;  
         }
         
         .select_wrapper::after {
@@ -286,7 +289,7 @@ class Template extends React.Component {
           border-width: 7.8px 4.5px 0 4.5px;
           border-color: ${global.color.blue} transparent transparent transparent;
           position: absolute;
-          top: 9px;      
+          top: 12px;    
         }
         
       `
@@ -294,9 +297,38 @@ class Template extends React.Component {
       const { location, children, history } = this.props
       const pathname = location.pathname
       const url_order = pathname.slice(1, pathname.lastIndexOf('/'))
+      const url_topic = pathname.slice(pathname.lastIndexOf('/') + 1)
+      console.log({ url_topic })
       let header
+      let sort_section
       let profile_pic_opacity = `1`
       let profile_pic_blur = `inherit`
+
+      if (url_topic === '') {
+         sort_section =
+          <div>
+             These are my top 10&nbsp;
+             <span className='select_wrapper'>
+                        <select value={url_order} onChange={(e) => {this.toggle_url_order(e)}}>
+                            <option value='recent'>most recent</option>
+                            <option value='popular'>most popular</option>
+                         </select>
+                     </span>
+             posts.
+          </div>
+      }
+      else sort_section =
+       <div>
+          <div>
+             Posts labeled "{_lowerCase(url_topic)}" sorted by&nbsp;
+             <span className='select_wrapper'>
+                        <select value={url_order} onChange={(e) => {this.toggle_url_order(e)}}>
+                            <option value='recent'>most recent</option>
+                            <option value='popular'>most popular</option>
+                         </select>
+                     </span>
+          </div>
+       </div>
 
       let rootPath = `/`
       if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
@@ -327,39 +359,38 @@ class Template extends React.Component {
              </Hello>
              <Bio>
                 <p>
-                   I’m a software developer interested in&nbsp;
-                   <span className='tag_filter'
-                         id='user-experience'
-                         style={this.set_tag_style('user-experience')}
-                         onClick={() => this.update_url_topic('user-experience')}
-                         onMouseEnter={() => this.mouse_enter_style('user-experience')}
-                         onMouseLeave={() => this.mouse_leave_style('user-experience')}
-                   >user experience</span>&nbsp;and&nbsp;
+                   <div>
+                      I’m a software developer interested in&nbsp;
+                      <span className='tag_filter'
+                            id='user-experience'
+                            style={this.set_tag_style('user-experience')}
+                            onClick={() => this.update_url_topic('user-experience')}
+                            onMouseEnter={() => this.mouse_enter_style('user-experience')}
+                            onMouseLeave={() => this.mouse_leave_style('user-experience')}
+                      >user experience</span>&nbsp;and&nbsp;
 
-                   <span className='tag_filter'
-                         id='how-we-work'
-                         style={this.set_tag_style('how-we-work')}
-                         onClick={() => this.update_url_topic('how-we-work')}
-                         onMouseEnter={() => this.mouse_enter_style('how-we-work')}
-                         onMouseLeave={() => this.mouse_leave_style('how-we-work')}
-                   >how we work</span>. The&nbsp;
+                      <span className='tag_filter'
+                            id='how-we-work'
+                            style={this.set_tag_style('how-we-work')}
+                            onClick={() => this.update_url_topic('how-we-work')}
+                            onMouseEnter={() => this.mouse_enter_style('how-we-work')}
+                            onMouseLeave={() => this.mouse_leave_style('how-we-work')}
+                      >how we work</span>. The&nbsp;
 
-                   <span className='tag_filter'
-                         id='press'
-                         style={this.set_tag_style('press')}
-                         onClick={() => this.update_url_topic('press')}
-                         onMouseEnter={() => this.mouse_enter_style('press')}
-                         onMouseLeave={() => this.mouse_leave_style('press')}
-                   >press</span> has said nice things about me. Sorted by&nbsp;
+                      <span className='tag_filter'
+                            id='press'
+                            style={this.set_tag_style('press')}
+                            onClick={() => this.update_url_topic('press')}
+                            onMouseEnter={() => this.mouse_enter_style('press')}
+                            onMouseLeave={() => this.mouse_leave_style('press')}
+                      >press</span> has said nice things about me.
 
-                   <span className='select_wrapper'>
-                      <select value={url_order} onChange={(e) => {this.toggle_url_order(e)}}>
-                         <option value='recent'>most recent</option>
-                         <option value='popular'>most popular</option>
-                      </select>
-                   </span>
-                   <br/><br/>
-                   You can reach me at: mike@mikezetlow.com
+                   </div>
+
+                   <br/>
+
+                   {sort_section}
+
                 </p>
              </Bio>
           </div>
