@@ -53,12 +53,14 @@ function create_blog_posts(createPage, posts) {
 
    _.each(posts, (post) => {
       const slug = post.node.fields.slug
+      const topic = post.node.frontmatter.topic
       console.log('individual blog post slug: ', slug)
       createPage({
          path: slug,
          component: path.resolve(`src/templates/blog-post.js`),
          context: {
             slug, // sends the context of the slug so that the query on the template page can query for just that slug
+            topic,
          },
       })
    })
@@ -74,7 +76,6 @@ function create_tag_pages(createPage, posts) {
 
          const slug = `/${order}/${_.kebabCase(topic)}`
          console.log(`I'm creating a slug that look like: ${slug}`)
-
          createPage({
             path: slug,
             component: path.resolve(`src/pages/index.js`),

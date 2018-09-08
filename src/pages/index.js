@@ -13,6 +13,8 @@ import 'typeface-merriweather'
 import 'typeface-open-sans'
 import date_format from 'date-fns/format'
 
+import PostPreview from '../components/PostPreview'
+
 const Post_Preview = styled.div`
 
    width: 100%;
@@ -137,7 +139,7 @@ class BlogIndex extends React.Component {
          const url_order = url.slice(0, url.lastIndexOf('/')) // a single word, either 'recent' or 'popular'
          const url_topic = url.slice(url.lastIndexOf('/') + 1)
          let topic = new RegExp(url.slice(url.indexOf('/') + 1).replace(/-/g, ' '))
-         console.log({url, url_order, url_topic, topic})
+         console.log({ url, url_order, url_topic, topic })
 
          if (topic) topic = new RegExp(topic)
          else topic = /.*/
@@ -166,7 +168,24 @@ class BlogIndex extends React.Component {
        <div>
           <Helmet title={siteTitle}/>
 
-          {posts &&
+          {posts && posts.map(({ node }) => {
+             const slug = node.fields.slug
+             const frontmatter = node.frontmatter
+             /*const title = get(node, 'frontmatter.title') || slug*/
+             return (
+              <PostPreview key={slug}
+                           title={frontmatter.title}
+                           slug={slug}
+                           sizes={frontmatter.featuredImage.childImageSharp.resize}
+                           topic={frontmatter.topic}
+                           video_minutes={frontmatter.video_minutes}
+                           time_to_read={node.timeToRead}
+                           date={frontmatter.date}
+                           rating={frontmatter.rating}
+             />)
+          })}
+
+          {/*{posts &&
            posts.map(({ node }) => {
               const title = get(node, 'frontmatter.title') || node.fields.slug
               return (
@@ -207,9 +226,8 @@ class BlogIndex extends React.Component {
                      </Link>
                   </div>
                </Post_Preview>
-
               )
-           })}
+           })}*/}
        </div>
       )
    }

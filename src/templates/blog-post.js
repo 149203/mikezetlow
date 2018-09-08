@@ -4,8 +4,12 @@ import get from 'lodash/get'
 import styled from 'styled-components'
 import global from '../utils/global_style'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
+import _shuffle from 'lodash/shuffle'
+import _take from 'lodash/take'
+import _filter from 'lodash/filter'
 
 import { rhythm, scale } from '../utils/typography'
+import date_format from "date-fns/format"
 
 class BlogPostTemplate extends React.Component {
 
@@ -137,10 +141,17 @@ class BlogPostTemplate extends React.Component {
           border-color: ${global.color.blue_dark};
         }
       `
+
       const post = this.props.data.markdownRemark
-      const siteTitle = get(this.props, 'data.site.siteMetadata.title')
       const frontmatter = post.frontmatter
       const title = frontmatter.title
+      const all_topical_posts = this.props.data.allMarkdownRemark.edges
+      const other_topical_posts = _filter(all_topical_posts, (post) => {
+         return post.node.frontmatter.title !== title // return all posts that don't have this post's title
+      })
+      const random_related_posts = _take(_shuffle(other_topical_posts), 2)
+      console.log('RANDOM POSTS: ', random_related_posts)
+      const siteTitle = get(this.props, 'data.site.siteMetadata.title')
       const excerpt = post.excerpt
       const featuredImage = `https://www.mikezetlow.com${frontmatter.featuredImage.childImageSharp.resize.src}` // TODO: use imageSharp to get image. See lengstorf.com repo
       const author = get(this.props, 'data.site.siteMetadata.author')
@@ -233,7 +244,7 @@ class BlogPostTemplate extends React.Component {
               }
            }
           >
-             {frontmatter.date} | {frontmatter.topic} | {display_post_minutes(frontmatter.video_minutes, post.timeToRead)}&nbsp;<span style={{textTransform: `lowercase`}}>minutes</span>
+             {frontmatter.date} | {frontmatter.topic} | {display_post_minutes(frontmatter.video_minutes, post.timeToRead)}&nbsp;<span style={{ textTransform: `lowercase` }}>minutes</span>
           </p>
           <
            Post>
@@ -252,6 +263,12 @@ class BlogPostTemplate extends React.Component {
            }
           />
 
+          {/*******************************************************************************/}
+
+
+
+          {/*******************************************************************************/}
+
           {subscriber_section}
           <p>Send me an email anytime and I'll get back to you: mike@mikezetlow.com</p>
 
@@ -263,13 +280,14 @@ class BlogPostTemplate extends React.Component {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-    query BlogPostBySlug($slug: String!) {
+    query BlogPostBySlug($slug: String!, $topic: String!) {
         site {
             siteMetadata {
                 title
-                author
+                author # for social media metadata
             }
         }
+        
         markdownRemark(fields: { slug: { eq: $slug } }) {
             id
             html
@@ -285,6 +303,35 @@ export const pageQuery = graphql`
                         resize(width: 1200, height: 630, cropFocus: ENTROPY) {
                             src
                         }
+                    }
+                }
+            }
+        }
+        
+        allMarkdownRemark(filter: {frontmatter: {draft: {ne: true}, topic: {eq: $topic}}}) {
+            edges {
+                node {
+                    timeToRead
+                    fields {
+                        slug
+                    }
+                    frontmatter {
+                        date
+                        title
+                        featuredImage {
+                            childImageSharp {
+                                resize(width: 496, height: 262, cropFocus: ATTENTION) {
+                                    src
+                                    width
+                                    height
+                                    aspectRatio
+                                    originalName
+                                }
+                            }
+                        }
+                        topic
+                        rating
+                        video_minutes
                     }
                 }
             }

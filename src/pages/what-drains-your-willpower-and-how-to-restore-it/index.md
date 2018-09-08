@@ -104,7 +104,7 @@ I hate to sound like a hippie, but being in nature and exposing your senses to n
 
 Ironically, exercising willpower can increase willpower. View yourself as a disciplined person.
 
-Performing personal rituals makes us feel more self-disciplined and boosts our self-control and willpower. So creating a ritual or routine for yourself that is meaningful or even entirely "[devoid of meaning](https://digest.bps.org.uk/2018/07/11/performing-meaningless-rituals-boosts-our-self-control-through-making-us-feel-more-self-disciplined/)" will boost your willpower because it makes you adopt the persona of a disciplined person.
+Performing personal rituals makes us feel more self-disciplined and boosts our self-control and willpower. So creating a ritual or routine for yourself that is meaningful or even entirely “[devoid of meaning](https://digest.bps.org.uk/2018/07/11/performing-meaningless-rituals-boosts-our-self-control-through-making-us-feel-more-self-disciplined/)" will boost your willpower because it makes you adopt the persona of a disciplined person.
 
 Finally, take a minute to quickly clean your workspace. Just throw it all in a bag or box and sort it out later!
 
