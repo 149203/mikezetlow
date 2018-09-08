@@ -142,7 +142,7 @@ Again, many bad managers think their reports would be happiest slacking off all 
 
 <figcaption>
 
-Awww, lookit these smiling stone-cold killers. :)
+Awww, lookit these smiling stone-cold killers. 🙂
 
 </figcaption>
 

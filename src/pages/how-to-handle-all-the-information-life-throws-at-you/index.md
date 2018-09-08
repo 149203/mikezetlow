@@ -158,7 +158,7 @@ Credit: [Giphy](https://giphy.com/gifs/frog-ping-pong-glove-and-boots-MhHmVf60oE
 
 8. **Use tools that allow you to search easily** (Gmail, Slack, Keep, etc.), so if you need to reference something you’ve archived, you still have it. Nothing is deleted, only archived, no worries.
 
-9. **Delegate when acceptable.** (And it’s often far more acceptable than you think.) I might ask, “Hey I’ve got a lot on my plate, can you tackle this? It’s ok to say no. :)” People ask a lot of me and I ask a lot in return. To better our collective output, I expect us each to agree to do what we can.
+9. **Delegate when acceptable.** (And it’s often far more acceptable than you think.) I might ask, “Hey I’ve got a lot on my plate, can you tackle this? It’s ok to say no. 🙂” People ask a lot of me and I ask a lot in return. To better our collective output, I expect us each to agree to do what we can.
 
 10. **Synthesize the information into personal or team documentation** you can reference later via search. Make a habit of searching your own documentation first.
 

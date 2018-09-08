@@ -9,7 +9,8 @@ import _take from 'lodash/take'
 import _filter from 'lodash/filter'
 
 import { rhythm, scale } from '../utils/typography'
-import date_format from "date-fns/format"
+
+import PostPreview from '../components/PostPreview'
 
 class BlogPostTemplate extends React.Component {
 
@@ -150,7 +151,7 @@ class BlogPostTemplate extends React.Component {
          return post.node.frontmatter.title !== title // return all posts that don't have this post's title
       })
       const random_related_posts = _take(_shuffle(other_topical_posts), 2)
-      console.log('RANDOM POSTS: ', random_related_posts)
+      //console.log('RANDOM POSTS: ', random_related_posts)
       const siteTitle = get(this.props, 'data.site.siteMetadata.title')
       const excerpt = post.excerpt
       const featuredImage = `https://www.mikezetlow.com${frontmatter.featuredImage.childImageSharp.resize.src}` // TODO: use imageSharp to get image. See lengstorf.com repo
@@ -163,7 +164,7 @@ class BlogPostTemplate extends React.Component {
 
       if (is_subscriber) {
          subscriber_section = <div>
-            <h2>Thanks for being on my mailing list!</h2>
+            <h2 style={{ marginTop: rhythm(1) }}>Thanks for being on my mailing list!</h2>
             <p style={{ marginBottom: 0 }}>If you want to support me, send this post to a friend:</p>
             <a href={slug}>{slug}</a>
             <br/><br/>
@@ -172,7 +173,7 @@ class BlogPostTemplate extends React.Component {
 
       else {
          subscriber_section = <div>
-            <h2>Enjoyed this post?</h2>
+            <h2 style={{ marginTop: rhythm(1) }}>Enjoyed this post?</h2>
             <p>Enter your email address and I'll email you the next one.
                <br/>
                I'll never give away your email address or try to sell you something.</p>
@@ -254,18 +255,30 @@ class BlogPostTemplate extends React.Component {
               }
              />
           </Post>
-          <
-           hr
-           style={
-              {
-                 marginBottom: rhythm(1),
-              }
-           }
-          />
+
+          <hr/>
 
           {/*******************************************************************************/}
 
+          <h1 style={{marginTop: rhythm(1), marginBottom: 0}}>Related posts</h1>
 
+          {random_related_posts && random_related_posts.map(({ node }) => {
+             const slug = node.fields.slug
+             const frontmatter = node.frontmatter
+             return (
+              <PostPreview key={slug}
+                           title={frontmatter.title}
+                           slug={slug}
+                           sizes={frontmatter.featuredImage.childImageSharp.resize}
+                           topic={frontmatter.topic}
+                           video_minutes={frontmatter.video_minutes}
+                           time_to_read={node.timeToRead}
+                           date={frontmatter.date}
+                           rating={frontmatter.rating}
+              />)
+          })}
+
+          <hr style={{ marginBottom: 0, marginTop: rhythm(1) }}/>
 
           {/*******************************************************************************/}
 
