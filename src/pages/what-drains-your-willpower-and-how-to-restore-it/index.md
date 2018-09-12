@@ -4,7 +4,7 @@ date: "2018-08-26"
 featuredImage: "./forest-yoga-what-drains-your-willpower-and-how-to-restore-it-mike-zetlow.jpeg"
 topic: "how we work"
 video_minutes: "0"
-rating: "300"
+rating: "400"
 draft: false
 ---
 

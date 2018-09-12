@@ -6,6 +6,7 @@ topic: "user experience"
 video_minutes: "0"
 rating: "400"
 draft: true
+
 ---
 
 ![](man_with_case_the_ux_of_a_resume_or_cv_mike_zetlow.jpg)

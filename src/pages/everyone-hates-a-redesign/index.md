@@ -4,7 +4,7 @@ date: "2017-09-16"
 featuredImage: "./flaming-garbage-everyone-hates-a-redesign-mike-zetlow.jpeg"
 topic: "user experience"
 video_minutes: "0"
-rating: "570"
+rating: "590"
 draft: false
 ---
 

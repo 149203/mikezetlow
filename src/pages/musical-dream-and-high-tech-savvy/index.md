@@ -4,7 +4,7 @@ date: "2011-05-11"
 featuredImage: "./busking-musical-dreams-and-high-tech-savvy-mike-zetlow.jpg"
 topic: "press"
 video_minutes: "0"
-rating: "500"
+rating: "400"
 draft: false
 ---
 

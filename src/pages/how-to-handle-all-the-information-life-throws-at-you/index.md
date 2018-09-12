@@ -4,7 +4,7 @@ date: "2018-04-06"
 featuredImage: "./times-square-how-to-handle-all-the-information-life-throws-at-you-mike-zetlow.jpeg"
 topic: "how we work"
 video_minutes: "0"
-rating: "400"
+rating: "510"
 draft: false
 ---
 
