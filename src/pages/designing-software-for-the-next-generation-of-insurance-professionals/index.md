@@ -8,9 +8,9 @@ rating: "570"
 draft: true
 ---
 
-*Originally published in the [April 2018 issue of CIO Applications](https://www.cioapplications.com/magazines/April2018/InsurTech/#page=24). Also available [on the web](https://www.cioapplications.com/vendor/chsi-technologies-designing-software-for-the-next-generation-of-insurance-professionals-cid-1720-mid-96.html).*
-
 ![](insurtech-companies-header-designing-software-for-the-next-generation-of-insurance-professionals-mike-zetlow.jpg)
+
+*Originally published in the [April 2018 issue of CIO Applications](https://www.cioapplications.com/magazines/April2018/InsurTech/#page=24). Also available [on the web](https://www.cioapplications.com/vendor/chsi-technologies-designing-software-for-the-next-generation-of-insurance-professionals-cid-1720-mid-96.html).*
 
 According to a recent report from the U.S. Bureau of Labor Statistics, approximately 400,000 employees are going to retire from the insurance space in the next few years—creating a shortage of talent. This shortage is expected to be filled by millennials, but many are turned off by the industry.
 
