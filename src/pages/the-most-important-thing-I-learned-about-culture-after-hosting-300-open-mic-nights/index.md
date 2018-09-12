@@ -14,5 +14,7 @@ I would wake up in the evening, go to a bar, set up an open mic, and then host a
 
 ![](taking-shots-the-most-important-thing-i-learned-about-culture-after-hosting-300-open-mic-nights-mike-zetlow.jpeg)
 
+![](open-mic-setup-the-most-important-thing-i-learned-about-culture-after-hosting-300-open-mic-nights-mike-zetlow.JPG)
+
 
 
