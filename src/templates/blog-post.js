@@ -143,7 +143,7 @@ class BlogPostTemplate extends React.Component {
         }
       `
 
-      const post = this.props.data.markdownRemark
+      const post = get(this.props, 'data.markdownRemark')
       const frontmatter = post.frontmatter
       const title = frontmatter.title
       const all_topical_posts = this.props.data.allMarkdownRemark.edges
