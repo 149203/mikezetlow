@@ -5,7 +5,7 @@ featuredImage: "./cio-applications-logo-designing-software-for-the-next-generati
 topic: "press"
 video_minutes: "0"
 rating: "570"
-draft: false
+draft: true
 ---
 
 *Originally published in the [April 2018 issue of CIO Applications](https://www.cioapplications.com/magazines/April2018/InsurTech/#page=24). Also available [on the web](https://www.cioapplications.com/vendor/chsi-technologies-designing-software-for-the-next-generation-of-insurance-professionals-cid-1720-mid-96.html).*
