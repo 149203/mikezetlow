@@ -5,7 +5,7 @@ featuredImage: "./cio-applications-logo-designing-software-for-the-next-generati
 topic: "press"
 video_minutes: "0"
 rating: "570"
-draft: true
+draft: false
 ---
 
 ![](insurtech-companies-header-designing-software-for-the-next-generation-of-insurance-professionals-mike-zetlow.jpg)
