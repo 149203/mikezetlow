@@ -154,6 +154,10 @@ class BlogPostTemplate extends React.Component {
       //console.log('RANDOM POSTS: ', random_related_posts)
       const siteTitle = get(this.props, 'data.site.siteMetadata.title')
       const excerpt = post.excerpt
+
+      const image = frontmatter.featuredImage.childImageSharp.resize.src
+      console.log(`IMAGE: `, image)
+
       const featuredImage = `https://www.mikezetlow.com${frontmatter.featuredImage.childImageSharp.resize.src}` // TODO: use imageSharp to get image. See lengstorf.com repo
       const author = get(this.props, 'data.site.siteMetadata.author')
       const slug = `https://mikezetlow.com${this.props.location.pathname}`
@@ -262,19 +266,19 @@ class BlogPostTemplate extends React.Component {
 
           <h1 style={{marginTop: rhythm(1), marginBottom: 0}}>Related posts</h1>
 
-          {random_related_posts && random_related_posts.map(({ node }) => {
+          {random_related_posts && random_related_posts.map(({ node }, i) => {
              const slug = node.fields.slug
-             const frontmatter = node.frontmatter
+             const {frontmatter: {title, featuredImage, rating, topic, video_minutes, date}} = node
              return (
-              <PostPreview key={slug}
-                           title={frontmatter.title}
+              <PostPreview key={i}
+                           title={title}
                            slug={slug}
-                           sizes={frontmatter.featuredImage.childImageSharp.resize}
-                           topic={frontmatter.topic}
-                           video_minutes={frontmatter.video_minutes}
+                           sizes={featuredImage.childImageSharp.resize}
+                           topic={topic}
+                           video_minutes={video_minutes}
                            time_to_read={node.timeToRead}
-                           date={frontmatter.date}
-                           rating={frontmatter.rating}
+                           date={date}
+                           rating={rating}
               />)
           })}
 
