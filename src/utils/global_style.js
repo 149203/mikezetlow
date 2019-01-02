@@ -14,6 +14,8 @@ const global = {
       purple_dark: `#7B1FA2`,
       blue: `#2196f3`,
       blue_dark: `#1976D2`,
+      teal: `#00BCD4`,
+      teal_dark: `#0097A7`,
       green: `#4caf50`,
       green_dark: `#388E3C`,
       yellow: `#ffeb3b`,
