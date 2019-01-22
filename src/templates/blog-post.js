@@ -151,6 +151,8 @@ class BlogPostTemplate extends React.Component {
          return post.node.frontmatter.title !== title // return all posts that don't have this post's title
       })
       const random_related_posts = _take(_shuffle(other_topical_posts), 2)
+      let related_posts_heading
+      let related_posts_footer
       //console.log('RANDOM POSTS: ', random_related_posts)
       const siteTitle = get(this.props, 'data.site.siteMetadata.title')
       const excerpt = post.excerpt
@@ -194,6 +196,12 @@ class BlogPostTemplate extends React.Component {
             <div id="email_error_display" style={{ color: global.color.red }}><br/></div>
          </div>
       }
+
+      if (random_related_posts > 0) {
+         related_posts_heading = <h1 style={{marginTop: rhythm(1), marginBottom: 0}}>Related posts</h1>
+         related_posts_footer = <hr style={{ marginBottom: 0, marginTop: rhythm(1) }}/>
+      }
+
 
       function display_post_minutes(video_minutes, article_minutes) {
          if (video_minutes > 0) return video_minutes
@@ -264,7 +272,7 @@ class BlogPostTemplate extends React.Component {
 
           {/*******************************************************************************/}
 
-          <h1 style={{marginTop: rhythm(1), marginBottom: 0}}>Related posts</h1>
+          {related_posts_heading}
 
           {random_related_posts && random_related_posts.map(({ node }, i) => {
              const slug = node.fields.slug
@@ -282,7 +290,7 @@ class BlogPostTemplate extends React.Component {
               />)
           })}
 
-          <hr style={{ marginBottom: 0, marginTop: rhythm(1) }}/>
+          {related_posts_footer}
 
           {/*******************************************************************************/}
 

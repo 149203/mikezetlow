@@ -89,4 +89,4 @@ Instead, application designers should think of creative, immersive, non-blocking
 
 And the magical Christmas colors are there to help.
 
-For a tutorial on how to integrate green and red colors into your existing brand palette, see [How to design colors for your app with Adobe Illustrator—plus 3 free palettes](/adobe-illustrator-how-to-design-colors-for-your-app-with-adobe-illustrator-plus-3-free-palettes/).
+For a tutorial on how to integrate green and red colors into your existing brand palette, see [How to design colors for your app with Adobe Illustrator—plus 3 free palettes](/how-to-design-colors-for-your-app-with-adobe-illustrator-plus-3-free-palettes/).

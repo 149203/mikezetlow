@@ -22,7 +22,7 @@ I give a full tutorial above. But if you're just looking for some great palettes
 
 ![](transit-how-to-design-colors-for-your-app-with-adobe-illustrator-plus-3-free-palettes.png)
 
-**Transit** was my first palette designed with the method I describe in the video. It features a bold blue and red and a bright yellow. I was focused on pleasing colors over balance, so some hues stand out more than others.
+**Transit** was my first palette designed with the method I describe in the video. It features a bold blue and red, and a bright yellow. I was focused on pleasing colors over balance, so some hues stand out more than others.
 
 ![](diamond-how-to-design-colors-for-your-app-with-adobe-illustrator-plus-3-free-palettes.png)
 
@@ -40,4 +40,4 @@ It's ok if it's not mathematically precise. Human eyes aren't mathematically pre
 
 Finally, be sure to check your colors on calibrated screens across all sorts of devices. Different devices render color differently.
 
-And if this all seems like too much work (it probably is), I'll gladly make your palette for $65. Email me at mike@mikezetlow.com
+And if this all seems like too much work (it probably is), I'll gladly make your palette for $65. 💵 Email me at mike@mikezetlow.com
