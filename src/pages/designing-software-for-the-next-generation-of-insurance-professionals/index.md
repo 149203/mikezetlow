@@ -4,7 +4,7 @@ date: "2018-04-13"
 featuredImage: "./cio-applications-logo-designing-software-for-the-next-generation-of-insurance-professionals-mike-zetlow.jpg"
 topic: "press"
 video_minutes: "0"
-rating: "570"
+rating: "530"
 draft: false
 ---
 

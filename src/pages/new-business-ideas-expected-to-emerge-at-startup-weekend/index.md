@@ -4,7 +4,7 @@ date: "2017-11-09"
 featuredImage: "./whiteboard-new-business-ideas-expected-to-emerge-at-startup-weekend-mike-zetlow.jpg"
 topic: "press"
 video_minutes: "0"
-rating: "400"
+rating: "300"
 draft: false
 ---
 

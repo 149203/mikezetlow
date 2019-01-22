@@ -96,6 +96,32 @@ Credit: [The Cooper Review](https://thecooperreview.com/how-to-avoid-being-invit
 </figcaption>
 ```
 
+## Ratings
+
+### 500s
+
+The top 5 - 10 articles on the site have a rating in the 500s, most popular highest. As of last commit:
+
+590: Everyone hates a redesign
+
+570: What I learned leading my first team and winning at Startup Weekend
+
+550: How to handle all the information life throws at you
+
+540: Ben Denzer and I smash through an online JavaScript test
+
+530: Designing software for the next generation of insurance professionals
+
+510: How to design colors for your app with Adobe Illustrator—plus 3 free palettes
+
+### 400
+
+These are above average articles.
+
+### 300
+
+These are average articles.
+
 ## Headings
 
 The highest heading in a post is `##`. The next highest is `###` and so on.
