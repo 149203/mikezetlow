@@ -14,9 +14,9 @@ In [The magical Christmas colors every app needs](/the-magical-christmas-colors-
 
 You'll also have to reconcile any brand colors you have.
 
-And to look professional, you'll want to have 9 shades of each color for use in the design.
+And to look professional, you'll want to have 9 shades of each color for use in the design. [Refactoring UI has a great article on how shades are used in professional design.](https://refactoringui.com/previews/building-your-color-palette/)
 
-This means you need to build a cohesive palette.
+This means you need to build a cohesive palette, 72 hue/shade combinations (including a grey) plus black and white.
 
 I give a full tutorial above. But if you're just looking for some great palettes for your app, I've built out 3 below and released them into the public domain. Click on the images to see them in full resolution.
 

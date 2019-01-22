@@ -16,7 +16,7 @@ const tag_unavailable_color = global.color.gray_light
 const tag_unavailable_textDecoration = 'line-through'
 const tag_hovered_color = global.color.blue
 const tag_hovered_textDecoration = 'underline'
-const topics_array = [ 'user-experience', 'how-we-work', 'press' ]
+const topics_array = [ 'web-development', 'user-experience', 'how-we-work', 'press' ]
 const hero_content_margin_right = 30
 const pic_original_width = 624
 const pic_original_height = 1080
@@ -360,30 +360,39 @@ class Template extends React.Component {
              <Bio>
                 <p>
 
-                      I’m a software developer interested in&nbsp;
-                      <span className='tag_filter'
-                            id='user-experience'
-                            style={this.set_tag_style('user-experience')}
-                            onClick={() => this.update_url_topic('user-experience')}
-                            onMouseEnter={() => this.mouse_enter_style('user-experience')}
-                            onMouseLeave={() => this.mouse_leave_style('user-experience')}
-                      >user experience</span>&nbsp;and&nbsp;
+                   I’m a Las Vegas programmer interested in&nbsp;
 
-                      <span className='tag_filter'
-                            id='how-we-work'
-                            style={this.set_tag_style('how-we-work')}
-                            onClick={() => this.update_url_topic('how-we-work')}
-                            onMouseEnter={() => this.mouse_enter_style('how-we-work')}
-                            onMouseLeave={() => this.mouse_leave_style('how-we-work')}
-                      >how we work</span>. The&nbsp;
+                   <span className='tag_filter'
+                         id='web-development'
+                         style={this.set_tag_style('web-development')}
+                         onClick={() => this.update_url_topic('web-development')}
+                         onMouseEnter={() => this.mouse_enter_style('web-development')}
+                         onMouseLeave={() => this.mouse_leave_style('web-development')}
+                   >web development</span>,&nbsp;
 
-                      <span className='tag_filter'
-                            id='press'
-                            style={this.set_tag_style('press')}
-                            onClick={() => this.update_url_topic('press')}
-                            onMouseEnter={() => this.mouse_enter_style('press')}
-                            onMouseLeave={() => this.mouse_leave_style('press')}
-                      >press</span> has said nice things about me.
+                   <span className='tag_filter'
+                         id='user-experience'
+                         style={this.set_tag_style('user-experience')}
+                         onClick={() => this.update_url_topic('user-experience')}
+                         onMouseEnter={() => this.mouse_enter_style('user-experience')}
+                         onMouseLeave={() => this.mouse_leave_style('user-experience')}
+                   >user experience</span>,&nbsp;and&nbsp;
+
+                   <span className='tag_filter'
+                         id='how-we-work'
+                         style={this.set_tag_style('how-we-work')}
+                         onClick={() => this.update_url_topic('how-we-work')}
+                         onMouseEnter={() => this.mouse_enter_style('how-we-work')}
+                         onMouseLeave={() => this.mouse_leave_style('how-we-work')}
+                   >how we work</span>. The&nbsp;
+
+                   <span className='tag_filter'
+                         id='press'
+                         style={this.set_tag_style('press')}
+                         onClick={() => this.update_url_topic('press')}
+                         onMouseEnter={() => this.mouse_enter_style('press')}
+                         onMouseLeave={() => this.mouse_leave_style('press')}
+                   >press</span> has said nice things about me.
 
                    <br/><br/>
 
