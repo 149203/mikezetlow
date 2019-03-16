@@ -41,4 +41,4 @@ I would come in for a 4-bet with any two cards under the following conditions:
 
 These conditions don't occur that frequently. But when they do, it would be a mistake to not take the money.
 
-In the end, the expected value of this play is 78 cents. The expected value of folding is $0.
+In the end, the expected value of this play is 0.78 big blinds. The expected value of folding is 0.
