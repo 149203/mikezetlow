@@ -2,7 +2,7 @@
 title: "How to live forever on the internet"
 date: "2018-06-09"
 featuredImage: "./girl-in-field-how-to-live-forever-on-the-internet-mike-zetlow.jpg"
-topic: "user experience"
+topic: "web development"
 video_minutes: "5"
 rating: "300"
 draft: false
