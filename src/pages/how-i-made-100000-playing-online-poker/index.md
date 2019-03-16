@@ -14,7 +14,7 @@ This is the first bit of programming that made money for me.
 
 I started [CrushTheGame.com](https://web.archive.org/web/20120105044414/http://crushthegame.com/) and sold my suite of statistics to players around the world.
 
-For poker professionals who would dissect my play with T3o, let me explain. (Poker lingo to follow.)
+For poker professionals who would dissect my play in the video above, let me explain. (Poker lingo to follow.)
 
 ## Why T3o is a profitable hand in this spot
 
