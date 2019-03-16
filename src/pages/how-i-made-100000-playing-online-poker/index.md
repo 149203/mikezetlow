@@ -12,7 +12,7 @@ draft: false
 
 This is the first bit of programming that made money for me.
 
-I started [CrushTheGame.com](https://web.archive.org/web/20120105044414/http://crushthegame.com/) and sold my suite of statistics to players around the world.
+Ten years ago, I played online poker. After finding success programming heads-up displays for PokerTracker 3, I started [CrushTheGame.com](https://web.archive.org/web/20120105044414/http://crushthegame.com/) and sold my suite of statistics to players around the world.
 
 For poker professionals who would dissect my play in the video above, let me explain. (Poker lingo to follow.)
 
