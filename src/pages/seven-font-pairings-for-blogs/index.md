@@ -25,7 +25,7 @@ That's the letter `m` I'm talking about:
 
 ![](ems-per-line-seven-font-pairings-for-blogs-mike-zetlow.png)
 
-Fonts vary wildly in sizes. 12px of Cabin is not 12px of Playfair Display. Use `m`s per line to keep your fonts similarly sized.
+[Fonts vary wildly in point sizes.](http://www.thomasphinney.com/2011/03/point-size/) 12px of Cabin is not 12px of Playfair Display. Use `m`s per line to keep your fonts similarly sized.
 
 I'm going to list seven font pairings I like with this method. In the following examples, I use 48px line-height for H1 and 32px line-height for everything else. I like less line-height for headings and more for paragraph text.
 
