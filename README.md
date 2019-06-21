@@ -57,6 +57,7 @@ I don't have firm breakpoints. Rather, before the layout starts to crumble, it c
 ## Frontmatter
 
 `---`
+
 ```
 title: "There's no divine inspiration in design"
 date: "2017-05-14"
@@ -66,6 +67,7 @@ type: "article"
 rating: "580"
 draft: false
 ```
+
 `---`
 
 ## Images
@@ -85,6 +87,8 @@ mike-zetlow
 ```
 
 Save the images in .jpg format—no more than 1920px width and 1080px height. Save with the lowest quality before degradation is visible in the image.
+
+Images should ideally be 720px x 380px, but can work with almost any ratio thanks to ImageSharp. The best minimum width for an image is 720px.
 
 If the image has a caption, wrap it in a `<figcaption>` tag. You can include links in captions.
 
