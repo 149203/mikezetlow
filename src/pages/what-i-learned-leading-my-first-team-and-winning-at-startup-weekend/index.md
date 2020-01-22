@@ -1,10 +1,10 @@
 ---
-title: "What I learned leading my first team and winning at Startup Weekend"
-date: "2018-06-29"
-featuredImage: "./team-sck-what-i-learned-leading-my-first-team-and-winning-at-startup-weekend-mike-zetlow.jpeg"
-topic: "how we work"
-video_minutes: "0"
-rating: "570"
+title: 'What I learned leading my first team and winning at Startup Weekend'
+date: '2018-06-29'
+featuredImage: './team-sck-what-i-learned-leading-my-first-team-and-winning-at-startup-weekend-mike-zetlow.jpeg'
+topic: 'how we work'
+video_minutes: '0'
+rating: '580'
 draft: false
 ---
 
@@ -28,15 +28,15 @@ I learned this from fellow Vegas resident Tony Hsieh, CEO of Zappo’s, who will
 
 Leading at a hackathon is an interesting challenge. People are volunteering their weekend to your idea. Turning away voluntary help can be awkward.
 
->“Unfortunately all of our spots are filled and our team is already built,” I said, looking a newcomer in the eye. My 6 other team members froze.
+> “Unfortunately all of our spots are filled and our team is already built,” I said, looking a newcomer in the eye. My 6 other team members froze.
 >
->“Ok,” the newcomer said and went off to join another group.
+> “Ok,” the newcomer said and went off to join another group.
 >
->“Damn.”
+> “Damn.”
 >
->“That was cold.”
+> “That was cold.”
 >
->“I feel bad for him.”
+> “I feel bad for him.”
 
 My team members were shocked when I immediately turned someone down who approached our growing group. I felt bad too! But I saw how disruptive this newcomer was. I had been scouting the room all night, and this particularly loud and obnoxious attendee was someone I didn’t feel good about.
 
@@ -72,7 +72,7 @@ Ironically, this activity took up the entire morning of the first day of hacking
 
 One of our team members [said it best](https://medium.freecodecamp.org/i-entered-a-hackathon-with-13-days-of-coding-experience-here-is-what-i-learnt-5538d73ee7ce):
 
->It was a worthwhile investment. I think this really brought us together as a team and unified us toward creating a working product.
+> It was a worthwhile investment. I think this really brought us together as a team and unified us toward creating a working product.
 
 ##Offer voice and choice
 
@@ -100,11 +100,11 @@ Now we had a roadmap: the minimum we had to execute, and the cool stuff we would
 
 If you watched the video above, you heard a beautiful phrase borrowed from Nietzsche.
 
->The artist is he who dances in chains.
+> The artist is he who dances in chains.
 
 Jeff Robin explains that by giving his students constraints, he enables their creativity.
 
->Voice and choice is tempered with… experience and preset parameters. Everyone has parameters. Pop singers have three minutes, accountants have the tax code, physicists have Newton, and artists have canvases.
+> Voice and choice is tempered with… experience and preset parameters. Everyone has parameters. Pop singers have three minutes, accountants have the tax code, physicists have Newton, and artists have canvases.
 
 So I had to use my experience and consider the skillset of the team to make “canvas” decisions — laying out an environment where everyone could feel successful.
 
@@ -126,7 +126,7 @@ If you’ve hired well, a leader’s job is to make sure the team can do their j
 
 [Marcus Blankenship](https://marcusblankenship.com/), a coach for tech leaders, defines leadership to mean something similar:
 
->Leadership is the process of creating an environment where everyone can participate in solving the problems at hand.
+> Leadership is the process of creating an environment where everyone can participate in solving the problems at hand.
 
 Call yourself a leader on your resume, but act like a facilitator while in the trenches.
 
@@ -150,4 +150,4 @@ In the end, we came together as a group, worked hard on a common goal, and had a
 
 <iframe width="720" height="405" src="https://www.youtube.com/embed/mOmFK_WMgiY?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-*Published in [freeCodeCamp](https://medium.freecodecamp.org/what-i-learned-leading-my-first-team-and-winning-at-startup-weekend-e84a6db077b6).*
+_Published in [freeCodeCamp](https://medium.freecodecamp.org/what-i-learned-leading-my-first-team-and-winning-at-startup-weekend-e84a6db077b6)._

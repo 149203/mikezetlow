@@ -1,10 +1,10 @@
 ---
-title: "Ben Denzer and I smash through an online JavaScript test"
-date: "2019-01-21"
-featuredImage: "./video-still-ben-denzer-and-i-smash-through-an-online-javascript-test-mike-zetlow.jpg"
-topic: "web development"
-video_minutes: "44"
-rating: "540"
+title: 'Ben Denzer and I smash through an online JavaScript test'
+date: '2019-01-21'
+featuredImage: './video-still-ben-denzer-and-i-smash-through-an-online-javascript-test-mike-zetlow.jpg'
+topic: 'web development'
+video_minutes: '44'
+rating: '510'
 draft: false
 ---
 

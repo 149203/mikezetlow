@@ -1,10 +1,10 @@
 ---
-title: "How to design colors for your app with Adobe Illustrator—plus 3 free palettes"
-date: "2018-12-24"
-featuredImage: "./adobe-illustrator-how-to-design-colors-for-your-app-with-adobe-illustrator-plus-3-free-palettes.png"
-topic: "user experience"
-video_minutes: "54"
-rating: "510"
+title: 'How to design colors for your app with Adobe Illustrator—plus 3 free palettes'
+date: '2018-12-24'
+featuredImage: './adobe-illustrator-how-to-design-colors-for-your-app-with-adobe-illustrator-plus-3-free-palettes.png'
+topic: 'user experience'
+video_minutes: '54'
+rating: '400'
 draft: false
 ---
 
@@ -40,4 +40,4 @@ It's ok if it's not mathematically precise. Human eyes aren't mathematically pre
 
 Finally, be sure to check your colors on calibrated screens across all sorts of devices. Different devices render color differently.
 
-And if this all seems like too much work (it probably is), I'll gladly make your palette for $65. 💵 Email me at mike@mikezetlow.com
+And if this all seems like too much work (it probably is), I'll gladly make your palette for \$65. 💵 Email me at mike@mikezetlow.com

@@ -107,18 +107,15 @@ Credit: [The Cooper Review](https://thecooperreview.com/how-to-avoid-being-invit
 The top 5 - 10 articles on the site have a rating in the 500s, most popular highest. As of last commit:
 
 590: Everyone hates a redesign
-
-570: What I learned leading my first team and winning at Startup Weekend
-
-560: How I made $100,000 playing online poker
-
-550: How to handle all the information life throws at you
-
-540: Ben Denzer and I smash through an online JavaScript test
-
-530: Designing software for the next generation of insurance professionals
-
-510: How to design colors for your app with Adobe Illustrator—plus 3 free palettes
+580: What I learned leading my first team and winning at Startup Weekend
+570: Customization made easy in our B2B web portal
+560: Stop PowerPoint spam. Deliver better presentations
+550: Designing insurance industry solutions for brokers and carriers
+540: How I made \$100,000 playing online poker
+530: Rapid redesigns with component architecture
+520: How to handle all the information life throws at you
+510: Ben Denzer and I smash through an online JavaScript test
+500: Designing software for the next generation of insurance professionals
 
 ### 400
 

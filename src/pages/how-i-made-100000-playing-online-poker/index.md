@@ -1,10 +1,10 @@
 ---
-title: "How I made $100,000 playing online poker"
-date: "2019-03-15"
-featuredImage: "./confetti-party-how-i-made-100000-playing-online-poker-mike-zetlow.jpg"
-topic: "web development"
-video_minutes: "3"
-rating: "560"
+title: 'How I made $100,000 playing online poker'
+date: '2019-03-15'
+featuredImage: './confetti-party-how-i-made-100000-playing-online-poker-mike-zetlow.jpg'
+topic: 'web development'
+video_minutes: '3'
+rating: '540'
 draft: false
 ---
 
@@ -34,10 +34,10 @@ My statistics gave me that precise information.
 
 I would come in for a 4-bet with any two cards under the following conditions:
 
-* The BB is presented with a squeeze opportunity
-* The BB can 3-bet light
-* The BB most often folds to a 4-bet
-* My 4-bet will be between 10 and 15% of the effective stack (creating "leverage")
+- The BB is presented with a squeeze opportunity
+- The BB can 3-bet light
+- The BB most often folds to a 4-bet
+- My 4-bet will be between 10 and 15% of the effective stack (creating "leverage")
 
 These conditions don't occur that frequently. But when they do, it would be a mistake to not take the money.
 

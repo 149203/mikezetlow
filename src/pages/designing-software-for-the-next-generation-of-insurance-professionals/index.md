@@ -1,16 +1,16 @@
 ---
-title: "Designing software for the next generation of insurance professionals"
-date: "2018-04-13"
-featuredImage: "./cio-applications-logo-designing-software-for-the-next-generation-of-insurance-professionals-mike-zetlow.jpg"
-topic: "press"
-video_minutes: "0"
-rating: "530"
+title: 'Designing software for the next generation of insurance professionals'
+date: '2018-04-13'
+featuredImage: './cio-applications-logo-designing-software-for-the-next-generation-of-insurance-professionals-mike-zetlow.jpg'
+topic: 'press'
+video_minutes: '0'
+rating: '500'
 draft: false
 ---
 
 ![](insurtech-companies-header-designing-software-for-the-next-generation-of-insurance-professionals-mike-zetlow.jpg)
 
-*Originally published in the [April 2018 issue of CIO Applications](https://www.cioapplications.com/magazines/April2018/InsurTech/#page=24). Also available [on the web](https://www.cioapplications.com/vendor/chsi-technologies-designing-software-for-the-next-generation-of-insurance-professionals-cid-1720-mid-96.html).*
+_Originally published in the [April 2018 issue of CIO Applications](https://www.cioapplications.com/magazines/April2018/InsurTech/#page=24). Also available [on the web](https://www.cioapplications.com/vendor/chsi-technologies-designing-software-for-the-next-generation-of-insurance-professionals-cid-1720-mid-96.html)._
 
 According to a recent report from the U.S. Bureau of Labor Statistics, approximately 400,000 employees are going to retire from the insurance space in the next few years—creating a shortage of talent. This shortage is expected to be filled by millennials, but many are turned off by the industry.
 
@@ -18,7 +18,7 @@ It’s creating a significant talent gap within insurance companies. “The tool
 
 The next generation of insurance professionals has high demands for technology—like more intuitive interfaces and business rules guided by machine learning. Incoming tech-savvy talent knows how smart software can be and expects tech solutions that give them the right answers when they need it.
 
->“They ask, ‘why can’t it just work?’ or ‘why can’t it be as easy as my phone?’ because their generation is used to these kinds of intuitive applications.”
+> “They ask, ‘why can’t it just work?’ or ‘why can’t it be as easy as my phone?’ because their generation is used to these kinds of intuitive applications.”
 
 “Well-designed technology can bring new talent up to speed quickly,” says Ziethlow. “Junior talent must be able to come in and fill in the talent loss from retirees.”
 
@@ -36,7 +36,7 @@ CHSI Technologies’ award-winning insuretech product Connections® incorporates
 
 </figcaption>
 
-For CHSI Technologies, 2018 is going to be about user experience. “Our goal will be to help our partners best manage their data and empower an incoming tech-savvy workforce to do more,” states Ziethlow. 
+For CHSI Technologies, 2018 is going to be about user experience. “Our goal will be to help our partners best manage their data and empower an incoming tech-savvy workforce to do more,” states Ziethlow.
 
 Utilizing software that appeals to incoming talent has another benefit to insurers—a way to jump ahead of their competitors.
 
