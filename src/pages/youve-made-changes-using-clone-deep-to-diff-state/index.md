@@ -1,5 +1,5 @@
 ---
-title: "You've made changes! Using cloneDeep to diff state"
+title: "You've made changes: Using CloneDeep to diff state"
 date: '2020-01-11'
 featuredImage: './presentation-youve-made-changes-using-clone-deep-to-diff-state-mike-zetlow.jpg'
 topic: 'web development'
