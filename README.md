@@ -112,7 +112,7 @@ The top 5 - 10 articles on the site have a rating in the 500s, most popular high
 560: Stop PowerPoint spam. Deliver better presentations
 550: Designing insurance industry solutions for brokers and carriers
 540: How I made \$100,000 playing online poker
-530: Rapid redesigns with component architecture
+530: A quick tour of the Cobalt Design System
 520: How to handle all the information life throws at you
 510: Ben Denzer and I smash through an online JavaScript test
 500: Designing software for the next generation of insurance professionals

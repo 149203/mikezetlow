@@ -4,7 +4,7 @@ date: '2019-10-12'
 featuredImage: './mac-design-rapid-redesigns-with-component-architecture-mike-zetlow.jpg'
 topic: 'user experience'
 video_minutes: '3'
-rating: '530'
+rating: '400'
 draft: false
 ---
 
